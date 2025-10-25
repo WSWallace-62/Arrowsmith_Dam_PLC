@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Valves" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Fri Oct 24 19:55:32 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Valves" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sat Oct 25 11:49:26 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
@@ -714,12 +714,12 @@
 </Tag>
 <Tag Name="T_Position_Pulse" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[-1070430984,100,54]]]>
+<![CDATA[[-1070206408,100,74]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="54"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="74"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -1064,36 +1064,57 @@ NEEDS CORRECTION]]>
 </Text>
 </Rung>
 <Rung Number="47" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE STOP OPEN -- Unlatch the open permissive and remote command when the move timer is done or the fully open limit switch is hit]]>
+</Comment>
 <Text>
 <![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSO_10_302) ][OTU(Siphon_Open_Permissive) ,OTU(Siphon_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
 <Rung Number="48" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE STOP CLOSE -- Unlatch the close permissive and remote command when the move timer is done or the fully closed limit switch is hit]]>
+</Comment>
 <Text>
 <![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSC_10_302) ][OTU(Siphon_Close_Permissive) ,OTU(Siphon_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
 <Rung Number="49" Type="N">
+<Comment>
+<![CDATA[-- CAPTURE LAST MOVE TIME FOR COOLDOWN -- On the first scan after the move timer finishes, copy its preset value into the 'CooldownTmr' preset]]>
+</Comment>
 <Text>
 <![CDATA[XIC(Siphon_MoveTmr.DN)ONS(ONS_Valves[17])MOVE(Siphon_MoveTmr.PRE,Siphon_CooldownTmr.PRE);]]>
 </Text>
 </Rung>
 <Rung Number="50" Type="N">
+<Comment>
+<![CDATA[-- ACTIVATE COOLDOWN PERIOD -- The 'Cooldown_Active' bit turns on as soon as the move timer is done and stays on while the 'CooldownTmr' is running]]>
+</Comment>
 <Text>
 <![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(Siphon_CooldownTmr.TT) ]XIO(Siphon_CooldownTmr.DN)OTE(Siphon_Cooldown_Active);]]>
 </Text>
 </Rung>
 <Rung Number="51" Type="N">
+<Comment>
+<![CDATA[-- RUN COOLDOWN TIMER -- As long as the 'Cooldown_Active' bit is on, this timer will run for a duration equal to the last valve move.]]>
+</Comment>
 <Text>
 <![CDATA[XIC(Siphon_Cooldown_Active)TON(Siphon_CooldownTmr,?,?);]]>
 </Text>
 </Rung>
 <Rung Number="52" Type="N">
+<Comment>
+<![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
+</Comment>
 <Text>
 <![CDATA[XIC(Siphon_Cooldown_Active)OTL(Siphon_Cmd_Held);]]>
 </Text>
 </Rung>
 <Rung Number="53" Type="N">
+<Comment>
+<![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
+</Comment>
 <Text>
 <![CDATA[XIO(OpnSiphnVlvSS)XIO(ClsSiphnVlvSS)XIO(HMI_Siphon_Open_CMD)XIO(VTSCADA_Siphon_Open_CMD)XIO(HMI_Siphon_Close_CMD)XIO(VTSCADA_Siphon_Close_CMD)OTU(Siphon_Cmd_Held);]]>
 </Text>
