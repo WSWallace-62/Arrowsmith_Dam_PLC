@@ -1,15 +1,37 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="C_Inputs_from_HMI" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sat Oct 25 13:43:15 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="C_Inputs_from_HMI" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sat Oct 25 14:32:20 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
 <Tags Use="Context">
+<Tag Name="Bypass_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Timer Preset from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
+</Data>
+</Tag>
 <Tag Name="Gen_Run_Time_SP_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
 <![CDATA[10]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Input_Bypass_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Timer Preset entered on HMI (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
 </Data>
 </Tag>
 </Tags>
@@ -37,6 +59,14 @@
 <Rung Number="0" Type="N">
 <Text>
 <![CDATA[MUL(Gen_Run_Time_SP_HMI,1000,Genset_MinRun.PRE);]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Comment>
+<![CDATA[Move Bypass Timer Preset from HMI Input Tag to Internal Tag]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(HMI_Input_Bypass_MoveTmr_pre,Bypass_MoveTmr_pre);]]>
 </Text>
 </Rung>
 </RLLContent>
