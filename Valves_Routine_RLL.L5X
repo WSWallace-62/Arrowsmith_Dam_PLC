@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Valves" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sat Oct 25 11:49:26 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Valves" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sat Oct 25 13:30:10 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
 <Tags Use="Context">
+<Tag Name="Actual_Bypass_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[The Bypass Timer Preset value currently being used (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
+</Data>
+</Tag>
 <Tag Name="Bypass_Cmd_Held" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Anti-repeat interlock; blocks new commands until all HMI, SCADA, and local switches are released.]]>
@@ -143,6 +154,17 @@
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Bypass_MoveTmr_pre_Prev" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Previous value of HMI Bypass Timer Preset]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
 </Data>
 </Tag>
 <Tag Name="HMI_Bypass_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -451,6 +473,28 @@
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="VTS_Bypass_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Timer Preset from VTScada (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Bypass_MoveTmr_pre_Prev" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Previous value of VTScada Bypass Timer Preset]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="VTSCADA_Bypass_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -714,12 +758,12 @@
 </Tag>
 <Tag Name="T_Position_Pulse" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[-1070206408,100,74]]]>
+<![CDATA[[-1070071136,100,62]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="74"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="62"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -771,11 +815,54 @@
 </Text>
 </Rung>
 <Rung Number="5" Type="N">
+<Comment>
+<![CDATA[##### Handle HMI vs VTS setpoint handling #####]]>
+</Comment>
 <Text>
-<![CDATA[MUL(Bypass_MoveTmr_pre,1000,Bypass_MoveTmr.PRE);]]>
+<![CDATA[NOP();]]>
 </Text>
 </Rung>
 <Rung Number="6" Type="N">
+<Comment>
+<![CDATA[Check if the HMI preset value has changed. If so, update the Actual Preset used by the timer]]>
+</Comment>
+<Text>
+<![CDATA[NE(Bypass_MoveTmr_pre,HMI_Bypass_MoveTmr_pre_Prev)MOVE(Bypass_MoveTmr_pre,Actual_Bypass_MoveTmr_pre);]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Comment>
+<![CDATA[Check if the VTScada preset value has changed. If so, update the Actual Preset used by the timer.]]>
+</Comment>
+<Text>
+<![CDATA[NE(VTS_Bypass_MoveTmr_pre,VTS_Bypass_MoveTmr_pre_Prev)MOVE(VTS_Bypass_MoveTmr_pre,Actual_Bypass_MoveTmr_pre);]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Comment>
+<![CDATA[Apply the selected Actual Preset (converted to milliseconds) to the Bypass Move Timer.]]>
+</Comment>
+<Text>
+<![CDATA[MUL(Actual_Bypass_MoveTmr_pre,1000,Bypass_MoveTmr.PRE);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Comment>
+<![CDATA[Store the current HMI preset value to detect changes on the next scan]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(Bypass_MoveTmr_pre,HMI_Bypass_MoveTmr_pre_Prev);]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Comment>
+<![CDATA[Store the current VTScada preset value to detect changes on the next scan]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(VTS_Bypass_MoveTmr_pre,VTS_Bypass_MoveTmr_pre_Prev);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
 <Comment>
 <![CDATA[-- BYPASS VALVE REMOTE COMMAND TIMER -- A remote command (HMI/SCADA) moves the desired time into the timer preset and enables it.
 
@@ -785,7 +872,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(OpnBypasValve_10) ,XIC(ClsByPasValve_10) ]TON(Bypass_MoveTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="7" Type="N">
+<Rung Number="12" Type="N">
 <Comment>
 <![CDATA[-- BYPASS VALVE REMOTE COMMAND LOGIC -- While the move timer is active, the appropriate remote command bit is energized.]]>
 </Comment>
@@ -793,7 +880,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(Bypass_MoveTmr.TT)XIO(Bypass_Cooldown_Active)XIO(Bypass_Cmd_Held)[[XIC(HMI_Bypass_Open_CMD) ,XIC(VTSCADA_Bypass_Open_CMD) ] ONS(ONS_Valves[1]) OTL(Bypass_Remote_Open_CMD) ,[XIC(HMI_Bypass_Close_CMD) ,XIC(VTSCADA_Bypass_Close_CMD) ] ONS(ONS_Valves[2]) OTL(Bypass_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="8" Type="N">
+<Rung Number="13" Type="N">
 <Comment>
 <![CDATA[100ms FREE-RUNNING CLOCK PULSE -- This timer generates a continuous pulse for position calculations.]]>
 </Comment>
@@ -801,7 +888,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(T_Position_Pulse.DN)TON(T_Position_Pulse,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="9" Type="N">
+<Rung Number="14" Type="N">
 <Comment>
 <![CDATA[-- BYPASS VALVE POSITION CALCULATION -- This logic uses a 100ms pulse to increment or decrement a position counter while the valve is moving.]]>
 </Comment>
@@ -809,7 +896,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[8])[XIC(OpnBypasValve_10) ADD(Bypass_Position_Counter,5000,Bypass_Position_Counter) ,XIC(ClsByPasValve_10) SUB(Bypass_Position_Counter,5000,Bypass_Position_Counter) ];]]>
 </Text>
 </Rung>
-<Rung Number="10" Type="N">
+<Rung Number="15" Type="N">
 <Comment>
 <![CDATA[################ SEE VALVE POSITION SCALING #########################]]>
 </Comment>
@@ -817,17 +904,17 @@ NEEDS CORRECTION]]>
 <![CDATA[MOVE(Bypass_Position_Percent,Bypass_Position_Percent);]]>
 </Text>
 </Rung>
-<Rung Number="11" Type="N">
+<Rung Number="16" Type="N">
 <Text>
 <![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(ZSO_10_300) ][OTU(Bypass_Open_Permissive) ,OTU(Bypass_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="12" Type="N">
+<Rung Number="17" Type="N">
 <Text>
 <![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(ZSC_10_300) ][OTU(Bypass_Close_Permissive) ,OTU(Bypass_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="13" Type="N">
+<Rung Number="18" Type="N">
 <Comment>
 <![CDATA[########### The Beginning of Cooldown Logic ###########]]>
 </Comment>
@@ -835,27 +922,27 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Bypass_MoveTmr.DN)ONS(ONS_Valves[15])MOVE(Bypass_MoveTmr.PRE,Bypass_CoolDownTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="14" Type="N">
+<Rung Number="19" Type="N">
 <Text>
 <![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(Bypass_CoolDownTmr.TT) ]XIO(Bypass_CoolDownTmr.DN)OTE(Bypass_Cooldown_Active);]]>
 </Text>
 </Rung>
-<Rung Number="15" Type="N">
+<Rung Number="20" Type="N">
 <Text>
 <![CDATA[XIC(Bypass_Cooldown_Active)TON(Bypass_CoolDownTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="16" Type="N">
+<Rung Number="21" Type="N">
 <Text>
 <![CDATA[XIC(Bypass_Cooldown_Active)OTL(Bypass_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="17" Type="N">
+<Rung Number="22" Type="N">
 <Text>
 <![CDATA[XIO(OpnBypasVlvSS)XIO(ClsBypasVlvSS)XIO(HMI_Bypass_Open_CMD)XIO(VTSCADA_Bypass_Open_CMD)XIO(HMI_Bypass_Close_CMD)XIO(VTSCADA_Bypass_Close_CMD)OTU(Bypass_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="18" Type="N">
+<Rung Number="23" Type="N">
 <Comment>
 <![CDATA[######################### MAIN VALVE LOGIC ##########################]]>
 </Comment>
@@ -863,7 +950,7 @@ NEEDS CORRECTION]]>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="19" Type="N">
+<Rung Number="24" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE REMOTE MODE --]]>
 </Comment>
@@ -871,7 +958,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(OpnMainVlvSS)XIO(ClsMainVlvSS)OTE(Main_Remote_Mode_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="20" Type="N">
+<Rung Number="25" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE OPEN PERMISSIVE --]]>
 </Comment>
@@ -879,7 +966,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(OpnMainVlvSS) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Open_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[4])XIO(Main_Open_Permissive)OTL(Main_Open_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="21" Type="N">
+<Rung Number="26" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE OPEN OUTPUT --]]>
 </Comment>
@@ -887,7 +974,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Main_Open_Permissive)XIO(ZSO_10_301)OTE(OpnMainValve_20);]]>
 </Text>
 </Rung>
-<Rung Number="22" Type="N">
+<Rung Number="27" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE CLOSE PERMISSIVE --]]>
 </Comment>
@@ -895,7 +982,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(ClsMainVlvSS) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Close_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[5])XIO(Main_Close_Permissive)OTL(Main_Close_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="23" Type="N">
+<Rung Number="28" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE CLOSE OUTPUT --]]>
 </Comment>
@@ -903,12 +990,12 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Main_Close_Permissive)XIO(ZSC_10_301)OTE(ClsMainValve_20);]]>
 </Text>
 </Rung>
-<Rung Number="24" Type="N">
+<Rung Number="29" Type="N">
 <Text>
 <![CDATA[MUL(Main_MoveTmr_pre,1000,Main_MoveTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="25" Type="N">
+<Rung Number="30" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE REMOTE COMMAND TIMER --]]>
 </Comment>
@@ -916,7 +1003,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(OpnMainValve_20) ,XIC(ClsMainValve_20) ]TON(Main_MoveTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="26" Type="N">
+<Rung Number="31" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE REMOTE COMMAND LOGIC --]]>
 </Comment>
@@ -924,7 +1011,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(Main_MoveTmr.TT)XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)[[XIC(HMI_Main_Open_CMD) ,XIC(VTSCADA_Main_Open_CMD) ] ONS(ONS_Valves[6]) OTL(Main_Remote_Open_CMD) ,[XIC(HMI_Main_Close_CMD) ,XIC(VTSCADA_Main_Close_CMD) ] ONS(ONS_Valves[7]) OTL(Main_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="27" Type="N">
+<Rung Number="32" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE POSITION CALCULATION --]]>
 </Comment>
@@ -932,7 +1019,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[9])[XIC(OpnMainValve_20) ADD(Main_Position_Counter,5000,Main_Position_Counter) ,XIC(ClsMainValve_20) SUB(Main_Position_Counter,5000,Main_Position_Counter) ];]]>
 </Text>
 </Rung>
-<Rung Number="28" Type="N">
+<Rung Number="33" Type="N">
 <Comment>
 <![CDATA[################ SEE VALVE POSITION SCALING #########################]]>
 </Comment>
@@ -940,17 +1027,17 @@ NEEDS CORRECTION]]>
 <![CDATA[MOVE(Bypass_Position_Percent,Bypass_Position_Percent);]]>
 </Text>
 </Rung>
-<Rung Number="29" Type="N">
+<Rung Number="34" Type="N">
 <Text>
 <![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSO_10_301) ][OTU(Main_Open_Permissive) ,OTU(Main_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="30" Type="N">
+<Rung Number="35" Type="N">
 <Text>
 <![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSC_10_301) ][OTU(Main_Close_Permissive) ,OTU(Main_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="31" Type="N">
+<Rung Number="36" Type="N">
 <Comment>
 <![CDATA[########### The Beginning of Cooldown Logic ###########]]>
 </Comment>
@@ -958,27 +1045,27 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Main_MoveTmr.DN)ONS(ONS_Valves[16])MOVE(Main_MoveTmr.PRE,Main_CooldownTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="32" Type="N">
+<Rung Number="37" Type="N">
 <Text>
 <![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(Main_CooldownTmr.TT) ]XIO(Main_CooldownTmr.DN)OTE(Main_Cooldown_Active);]]>
 </Text>
 </Rung>
-<Rung Number="33" Type="N">
+<Rung Number="38" Type="N">
 <Text>
 <![CDATA[XIC(Main_Cooldown_Active)TON(Main_CooldownTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="34" Type="N">
+<Rung Number="39" Type="N">
 <Text>
 <![CDATA[XIC(Main_Cooldown_Active)OTL(Main_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="35" Type="N">
+<Rung Number="40" Type="N">
 <Text>
 <![CDATA[XIO(OpnMainVlvSS)XIO(ClsMainVlvSS)XIO(HMI_Main_Open_CMD)XIO(VTSCADA_Main_Open_CMD)XIO(HMI_Main_Close_CMD)XIO(VTSCADA_Main_Close_CMD)OTU(Main_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="36" Type="N">
+<Rung Number="41" Type="N">
 <Comment>
 <![CDATA[------------------------------------ SIPHON VALVE LOGIC ------------------------------------]]>
 </Comment>
@@ -986,7 +1073,7 @@ NEEDS CORRECTION]]>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="37" Type="N">
+<Rung Number="42" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE REMOTE MODE --]]>
 </Comment>
@@ -994,7 +1081,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(OpnSiphnVlvSS)XIO(ClsSiphnVlvSS)OTE(Siphon_Remote_Mode_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="38" Type="N">
+<Rung Number="43" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE OPEN PERMISSIVE --]]>
 </Comment>
@@ -1002,7 +1089,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(OpnSiphnVlvSS) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Open_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[13])XIO(Siphon_Open_Permissive)OTL(Siphon_Open_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="39" Type="N">
+<Rung Number="44" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE OPEN OUTPUT --]]>
 </Comment>
@@ -1010,7 +1097,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_Open_Permissive)XIO(ZSO_10_302)OTE(OpnSiphonValve_14);]]>
 </Text>
 </Rung>
-<Rung Number="40" Type="N">
+<Rung Number="45" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE CLOSE PERMISSIVE --]]>
 </Comment>
@@ -1018,7 +1105,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(ClsSiphnVlvSS) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Close_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[14])OTL(Siphon_Close_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="41" Type="N">
+<Rung Number="46" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE CLOSE OUTPUT --]]>
 </Comment>
@@ -1026,12 +1113,12 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_Close_Permissive)XIO(ZSC_10_302)OTE(ClsSiphonValve_14);]]>
 </Text>
 </Rung>
-<Rung Number="42" Type="N">
+<Rung Number="47" Type="N">
 <Text>
 <![CDATA[MUL(Siphon_MoveTmr_pre,1000,Siphon_MoveTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="43" Type="N">
+<Rung Number="48" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE REMOTE COMMAND TIMER --]]>
 </Comment>
@@ -1039,7 +1126,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(OpnSiphonValve_14) ,XIC(ClsSiphonValve_14) ]TON(Siphon_MoveTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="44" Type="N">
+<Rung Number="49" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE REMOTE COMMAND LOGIC --]]>
 </Comment>
@@ -1047,7 +1134,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(Siphon_MoveTmr.TT)XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)[[XIC(HMI_Siphon_Open_CMD) ,XIC(VTSCADA_Siphon_Open_CMD) ] ONS(ONS_Valves[11]) OTE(Siphon_Remote_Open_CMD) ,[XIC(HMI_Siphon_Close_CMD) ,XIC(VTSCADA_Siphon_Close_CMD) ] ONS(ONS_Valves[12]) OTE(Siphon_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="45" Type="N">
+<Rung Number="50" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE POSITION CALCULATION --]]>
 </Comment>
@@ -1055,7 +1142,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[10])[XIC(OpnSiphonValve_14) ADD(Siphon_Position_Counter,5000,Siphon_Position_Counter) ,XIC(ClsSiphonValve_14) SUB(Siphon_Position_Counter,5000,Siphon_Position_Counter) ];]]>
 </Text>
 </Rung>
-<Rung Number="46" Type="N">
+<Rung Number="51" Type="N">
 <Comment>
 <![CDATA[################ SEE VALVE POSITION SCALING #########################]]>
 </Comment>
@@ -1063,7 +1150,7 @@ NEEDS CORRECTION]]>
 <![CDATA[MOVE(Siphon_Position_Percent,Siphon_Position_Percent);]]>
 </Text>
 </Rung>
-<Rung Number="47" Type="N">
+<Rung Number="52" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE STOP OPEN -- Unlatch the open permissive and remote command when the move timer is done or the fully open limit switch is hit]]>
 </Comment>
@@ -1071,7 +1158,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSO_10_302) ][OTU(Siphon_Open_Permissive) ,OTU(Siphon_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="48" Type="N">
+<Rung Number="53" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE STOP CLOSE -- Unlatch the close permissive and remote command when the move timer is done or the fully closed limit switch is hit]]>
 </Comment>
@@ -1079,7 +1166,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSC_10_302) ][OTU(Siphon_Close_Permissive) ,OTU(Siphon_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="49" Type="N">
+<Rung Number="54" Type="N">
 <Comment>
 <![CDATA[-- CAPTURE LAST MOVE TIME FOR COOLDOWN -- On the first scan after the move timer finishes, copy its preset value into the 'CooldownTmr' preset]]>
 </Comment>
@@ -1087,7 +1174,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_MoveTmr.DN)ONS(ONS_Valves[17])MOVE(Siphon_MoveTmr.PRE,Siphon_CooldownTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="50" Type="N">
+<Rung Number="55" Type="N">
 <Comment>
 <![CDATA[-- ACTIVATE COOLDOWN PERIOD -- The 'Cooldown_Active' bit turns on as soon as the move timer is done and stays on while the 'CooldownTmr' is running]]>
 </Comment>
@@ -1095,7 +1182,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(Siphon_CooldownTmr.TT) ]XIO(Siphon_CooldownTmr.DN)OTE(Siphon_Cooldown_Active);]]>
 </Text>
 </Rung>
-<Rung Number="51" Type="N">
+<Rung Number="56" Type="N">
 <Comment>
 <![CDATA[-- RUN COOLDOWN TIMER -- As long as the 'Cooldown_Active' bit is on, this timer will run for a duration equal to the last valve move.]]>
 </Comment>
@@ -1103,7 +1190,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_Cooldown_Active)TON(Siphon_CooldownTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="52" Type="N">
+<Rung Number="57" Type="N">
 <Comment>
 <![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
 </Comment>
@@ -1111,7 +1198,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_Cooldown_Active)OTL(Siphon_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="53" Type="N">
+<Rung Number="58" Type="N">
 <Comment>
 <![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
 </Comment>
