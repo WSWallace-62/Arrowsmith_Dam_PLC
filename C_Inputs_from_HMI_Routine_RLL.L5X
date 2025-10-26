@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="C_Inputs_from_HMI" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sat Oct 25 14:32:20 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="C_Inputs_from_HMI" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sat Oct 25 18:15:04 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
 <Tags Use="Context">
-<Tag Name="Bypass_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="ClsBpVlv_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Bypass Timer Preset from HMI]]>
+<![CDATA[Close Bypass Valve Request from HMI]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5]]>
+<![CDATA[0]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ClsMnVlv_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Main Valve Request from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ClsSiVlv_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Siphon Valve Request from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="Gen_Run_Time_SP_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -23,15 +45,169 @@
 <DataValue DataType="DINT" Radix="Decimal" Value="10"/>
 </Data>
 </Tag>
+<Tag Name="HMI_Bypass_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Bypass valve from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Bypass_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Timer Preset from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[10]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Bypass_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Bypass valve from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="HMI_Input_Bypass_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Bypass Timer Preset entered on HMI (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[10]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Input_Main_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Valve Timer Preset entered on HMI (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[10]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Input_Siphon_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[SiphonTimer Preset entered on HMI (seconds)]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[5]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="DINT" Radix="Decimal" Value="5"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Main_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Bypass valve from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Main_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Valve Timer Preset entered on HMI (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[10]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Main_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Bypass valve from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Siphon_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Siphon valve from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Siphon_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[SiphonTimer Preset entered on HMI (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Siphon_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Siphon valve from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="OpnBpVlv_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Bypass Valve Request from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="OpnMnVlv_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Main Valve Request from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="OpnSiVlv_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Siphon Valve Request from HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 </Tags>
@@ -58,15 +234,61 @@
 <RLLContent>
 <Rung Number="0" Type="N">
 <Text>
-<![CDATA[MUL(Gen_Run_Time_SP_HMI,1000,Genset_MinRun.PRE);]]>
+<![CDATA[XIC(OpnBpVlv_HMI)OTE(HMI_Bypass_Open_CMD);]]>
 </Text>
 </Rung>
 <Rung Number="1" Type="N">
+<Text>
+<![CDATA[XIC(ClsBpVlv_HMI)OTE(HMI_Bypass_Close_CMD);]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Text>
+<![CDATA[XIC(OpnMnVlv_HMI)OTE(HMI_Main_Open_CMD);]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Text>
+<![CDATA[XIC(ClsMnVlv_HMI)OTE(HMI_Main_Close_CMD);]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Text>
+<![CDATA[XIC(OpnSiVlv_HMI)OTE(HMI_Siphon_Open_CMD);]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Text>
+<![CDATA[XIC(ClsSiVlv_HMI)OTE(HMI_Siphon_Close_CMD);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Text>
+<![CDATA[MUL(Gen_Run_Time_SP_HMI,1000,Genset_MinRun.PRE);]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
 <Comment>
 <![CDATA[Move Bypass Timer Preset from HMI Input Tag to Internal Tag]]>
 </Comment>
 <Text>
-<![CDATA[MOVE(HMI_Input_Bypass_MoveTmr_pre,Bypass_MoveTmr_pre);]]>
+<![CDATA[MOVE(HMI_Input_Bypass_MoveTmr_pre,HMI_Bypass_MoveTmr_pre);]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Comment>
+<![CDATA[Move Bypass Timer Preset from HMI Input Tag to Internal Tag]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(HMI_Input_Main_MoveTmr_pre,HMI_Main_MoveTmr_pre);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Comment>
+<![CDATA[Move Bypass Timer Preset from HMI Input Tag to Internal Tag]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(HMI_Input_Siphon_MoveTmr_pre,HMI_Siphon_MoveTmr_pre);]]>
 </Text>
 </Rung>
 </RLLContent>
