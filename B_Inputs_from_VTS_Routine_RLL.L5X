@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="B_Inputs_from_VTS" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sat Oct 25 14:34:39 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="B_Inputs_from_VTS" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sat Oct 25 18:15:44 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
@@ -9,11 +9,11 @@
 <![CDATA[Bypass Move Timer]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[4067254,1000,0]]]>
+<![CDATA[[3805786,10000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
 <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
@@ -65,9 +65,64 @@
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="ToAdamClsMnVlv_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Main valve from VTS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ToAdamClsSiVlv_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Siphon valve from VTS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="ToAdamOpnBpVlv_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Open Bypass Valve Request from VTS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ToAdamOpnMnVlv_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Main valve from VTS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ToAdamOpnSiVlv_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Siphon valve from VTS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Bypass_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Bypass valve from VTS]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -89,24 +144,16 @@
 <![CDATA[Bypass Timer Preset from VTScada (seconds)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1]]>
+<![CDATA[8]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="8"/>
 </Data>
 </Tag>
-<Tag Name="VTS_Input_Bypass_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="VTS_Bypass_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Bypass Timer Preset written by VTScada (seconds)]]>
+<![CDATA[Open Bypass valve from VTS]]>
 </Description>
-<Data Format="L5K">
-<![CDATA[1]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
-</Data>
-</Tag>
-<Tag Name="VTSCADA_Bypass_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
 <![CDATA[0]]>
 </Data>
@@ -114,9 +161,97 @@
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="VTSCADA_Bypass_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="VTS_Input_Bypass_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Open Bypass valve from VTS]]>
+<![CDATA[Bypass Timer Preset written by VTScada (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[8]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="8"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Input_Main_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Move timer Preset written by VTScada (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[10]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Input_Siphon_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Move time  Preset written by VTScada (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[10]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Main_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Main valve from VTS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Main_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Timer Preset from VTS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[10]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Main_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Main valve from VTS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Siphon_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Close Siphon valve from VTS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Siphon_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Move timer (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[10]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Siphon_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Open Siphon valve from VTS]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -167,25 +302,61 @@
 </Rung>
 <Rung Number="2" Type="N">
 <Text>
-<![CDATA[XIC(ToAdamOpnBpVlv_VTS)OTE(VTSCADA_Bypass_Open_CMD);]]>
+<![CDATA[XIC(ToAdamOpnBpVlv_VTS)OTE(VTS_Bypass_Open_CMD);]]>
 </Text>
 </Rung>
 <Rung Number="3" Type="N">
 <Text>
-<![CDATA[XIC(ToAdamClsBpVlv_VTS)OTE(VTSCADA_Bypass_Close_CMD);]]>
+<![CDATA[XIC(ToAdamClsBpVlv_VTS)OTE(VTS_Bypass_Close_CMD);]]>
 </Text>
 </Rung>
 <Rung Number="4" Type="N">
 <Text>
-<![CDATA[XIC(VTS_Bypass_Mov_Timer_Enable)MOVE(MovBpTmSp_VTS,Bypass_MoveTmr.PRE);]]>
+<![CDATA[XIC(ToAdamOpnMnVlv_VTS)OTE(VTS_Main_Open_CMD);]]>
 </Text>
 </Rung>
 <Rung Number="5" Type="N">
+<Text>
+<![CDATA[XIC(ToAdamClsMnVlv_VTS)OTE(VTS_Main_Close_CMD);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Text>
+<![CDATA[XIC(ToAdamOpnSiVlv_VTS)OTE(VTS_Siphon_Open_CMD);]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Text>
+<![CDATA[XIC(ToAdamClsSiVlv_VTS)OTE(VTS_Siphon_Close_CMD);]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Text>
+<![CDATA[XIC(VTS_Bypass_Mov_Timer_Enable)MOVE(MovBpTmSp_VTS,Bypass_MoveTmr.PRE);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
 <Comment>
 <![CDATA[Move Bypass Timer Preset from VTS Input Tag to Internal Tag]]>
 </Comment>
 <Text>
 <![CDATA[MOVE(VTS_Input_Bypass_MoveTmr_pre,VTS_Bypass_MoveTmr_pre);]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Comment>
+<![CDATA[Move Main Timer Preset from VTS Input Tag to Internal Tag]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(VTS_Input_Main_MoveTmr_pre,VTS_Main_MoveTmr_pre);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Comment>
+<![CDATA[Move Main Timer Preset from VTS Input Tag to Internal Tag]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(VTS_Input_Siphon_MoveTmr_pre,VTS_Siphon_MoveTmr_pre);]]>
 </Text>
 </Rung>
 </RLLContent>
