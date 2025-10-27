@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Flow_Totalizer" TargetType="Routine" TargetSubType="FBD" ContainsContext="true" ExportDate="Mon Oct 27 08:40:13 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="Arrowsmith_Dam">
+<DataTypes Use="Context">
+</DataTypes>
+<AddOnInstructionDefinitions Use="Context">
+<AddOnInstructionDefinition Name="Analog_Scaling" Revision="1.0" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2022-02-24T17:54:46.703Z" CreatedBy="KJCONTROLS\Foundation Controls" EditedDate="2024-09-11T17:34:53.582Z" EditedBy="DESKTOP-NNQSG45\KJ Controls" SoftwareRevision="v36.00">
+<Parameters>
+<Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Input - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Output - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="RAW_DATA" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[RAW ANALOG DATA]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="cfgRAW_MIN" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[RAW ANALOG DATA MINIMUM]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="cfgRAW_MAX" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[RAW ANALOG DATA MAXIMUM]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[1.00000000e+002]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="100.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="cfgSCALED_MIN" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[SCALED ANALOG DATA MINIMUM]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="cfgSCALED_MAX" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[SCALED ANALOG DATA MAXIMUM]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[1.00000000e+002]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="100.0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="SCALED_DATA" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[SCALED ANALOG DATA]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</Parameter>
+</Parameters>
+<LocalTags>
+<LocalTag Name="cfgLABEL" DataType="STRING" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]>
+</DefaultData>
+<DefaultData Format="String" Length="0">
+<![CDATA['']]>
+</DefaultData>
+</LocalTag>
+</LocalTags>
+<Routines>
+<Routine Name="Logic" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Text>
+<![CDATA[CPT(SCALED_DATA,((RAW_DATA-cfgRAW_MIN)/(cfgRAW_MAX-cfgRAW_MIN))*(cfgSCALED_MAX-cfgSCALED_MIN)+cfgSCALED_MIN);]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+</Routines>
+</AddOnInstructionDefinition>
+</AddOnInstructionDefinitions>
+<Tags Use="Context">
+<Tag Name="FL_10_500_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Total Flow]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.75000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="3.75"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_500" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[High Level Flow
+0-5m3/sec]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[3,2.50000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,5.00000000e+000,1.25000000e+000
+		,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="Analog_Scaling">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RAW_DATA" DataType="REAL" Radix="Float" Value="25.0"/>
+<DataValueMember Name="cfgRAW_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="cfgRAW_MAX" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="cfgSCALED_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="5.0"/>
+<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="1.25"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="FT_10_501" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Low Level Flow
+0-2.5m3/sec]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[3,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,2.50000000e+000,2.50000000e+000
+		,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="Analog_Scaling">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RAW_DATA" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="cfgRAW_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="cfgRAW_MAX" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="cfgSCALED_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="2.5"/>
+<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="2.5"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="midnight" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[The time is midnight]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Total_Flow_Today_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Total Flow Today
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.17133977e+005]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="117133.98"/>
+</Data>
+</Tag>
+<Tag Name="Total_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Total Flow Yesterday
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.24000000e+005]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="324000.0"/>
+</Data>
+</Tag>
+</Tags>
+<Programs Use="Context">
+<Program Use="Context" Name="MainProgram">
+<Tags Use="Context">
+<Tag Name="ADD_01" TagType="Base" DataType="FBD_MATH" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[3,1.25000000e+000,2.50000000e+000,3.75000000e+000]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="FBD_MATH">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="1.25"/>
+<DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="2.5"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Dest" DataType="REAL" Radix="Float" Value="3.75"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="BXOR_01" TagType="Base" DataType="FBD_BOOLEAN_XOR" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[1,1,5.60519386e-045]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="FBD_BOOLEAN_XOR">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="In1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="In2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Out" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="BXOR_02" TagType="Base" DataType="FBD_BOOLEAN_XOR" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[1,1,5.60519386e-045]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="FBD_BOOLEAN_XOR">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="In1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="In2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Out" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="BXOR_03" TagType="Base" DataType="FBD_BOOLEAN_XOR" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[1,1,5.60519386e-045]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="FBD_BOOLEAN_XOR">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="In1" DataType="BOOL" Value="0"/>
+<DataValueMember Name="In2" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Out" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="DIV_01" TagType="Base" DataType="FBD_MATH" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[3,3.75000000e+000,1.00000000e+000,3.75000000e+000]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="FBD_MATH">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="3.75"/>
+<DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Dest" DataType="REAL" Radix="Float" Value="3.75"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="OSRI_01" TagType="Base" DataType="FBD_ONESHOT" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[1,1,0.00000000e+000]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="FBD_ONESHOT">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="InputBit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OutputBit" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="OSRI_02" TagType="Base" DataType="FBD_ONESHOT" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[1,1,0.00000000e+000]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="FBD_ONESHOT">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="InputBit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OutputBit" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="OSRI_03" TagType="Base" DataType="FBD_ONESHOT" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[1,1,0.00000000e+000]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="FBD_ONESHOT">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="InputBit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="OutputBit" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="TOT_01" TagType="Base" DataType="TOTALIZER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Fow Totalizer]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[5,3.75000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,1.17134812e+005,3.24000000e+005,1.00000000e-003
+		,0,0.00000000e+000,8.74190391e-008,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,3.75000000e+000,7.89366770e+000,1.06063110e-036]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TOTALIZER">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="In" DataType="REAL" Radix="Float" Value="3.75"/>
+<DataValueMember Name="InFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TimeBase" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Gain" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="ResetValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="Target" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="TargetDev1" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="TargetDev2" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="LowInCutoff" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ProgProgReq" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgOperReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgStartReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgStopReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgResetReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperProgReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperOperReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperStartReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperStopReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperResetReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValueReset" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TimingMode" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OversampleDT" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="117134.81"/>
+<DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="324000.0"/>
+<DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
+<DataValueMember Name="ProgResetDone" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TargetFlag" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TargetDev1Flag" DataType="BOOL" Value="1"/>
+<DataValueMember Name="TargetDev2Flag" DataType="BOOL" Value="1"/>
+<DataValueMember Name="LowInCutoffFlag" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeltaT" DataType="REAL" Radix="Float" Value="0.001"/>
+<DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+<DataValueMember Name="InstructFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="InFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TimeBaseInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TimingModeInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RTSMissed" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RTSTimeInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RTSTimeStampInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeltaTInv" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+</Tags>
+<Routines Use="Context">
+<Routine Use="Target" Name="Flow_Totalizer" Type="FBD">
+<FBDContent SheetSize="B - 11 x 17 in" SheetOrientation="Landscape">
+<Sheet Number="1">
+<IRef ID="0" X="480" Y="300" Operand="1" HideDesc="false"/>
+<IRef ID="1" X="280" Y="240" Operand="FT_10_500.SCALED_DATA" HideDesc="false"/>
+<IRef ID="2" X="280" Y="260" Operand="FT_10_501.SCALED_DATA" HideDesc="false"/>
+<IRef ID="3" X="300" Y="620" Operand="midnight" HideDesc="false"/>
+<ORef ID="4" X="540" Y="140" Operand="FL_10_500_TTL" HideDesc="false"/>
+<ORef ID="5" X="1140" Y="320" Operand="Total_Flow_Today_TTL" HideDesc="false"/>
+<ORef ID="6" X="1140" Y="340" Operand="Total_Flow_Yesterday_TTL" HideDesc="false"/>
+<Block Type="ADD" ID="7" X="340" Y="180" Operand="ADD_01" VisiblePins="SourceA SourceB Dest" HideDesc="false"/>
+<Block Type="BXOR" ID="8" X="400" Y="320" Operand="BXOR_01" VisiblePins="In1 In2 Out" HideDesc="false"/>
+<Block Type="BXOR" ID="9" X="400" Y="420" Operand="BXOR_02" VisiblePins="In1 In2 Out" HideDesc="false"/>
+<Block Type="BXOR" ID="10" X="400" Y="540" Operand="BXOR_03" VisiblePins="In1 In2 Out" HideDesc="false"/>
+<Block Type="DIV" ID="11" X="540" Y="220" Operand="DIV_01" VisiblePins="SourceA SourceB Dest" HideDesc="false"/>
+<Block Type="OSRI" ID="12" X="560" Y="320" Operand="OSRI_01" VisiblePins="InputBit OutputBit" HideDesc="false"/>
+<Block Type="OSRI" ID="13" X="560" Y="420" Operand="OSRI_02" VisiblePins="InputBit OutputBit" HideDesc="false"/>
+<Block Type="OSRI" ID="14" X="560" Y="540" Operand="OSRI_03" VisiblePins="InputBit OutputBit" HideDesc="false"/>
+<Block Type="TOT" ID="15" X="860" Y="260" Operand="TOT_01" VisiblePins="In ProgStartReq ProgStopReq ProgResetReq Total OldTotal ProgOper RunStop ProgResetDone" HideDesc="false"/>
+<Wire FromID="0" ToID="11" ToParam="SourceB"/>
+<Wire FromID="1" ToID="7" ToParam="SourceA"/>
+<Wire FromID="2" ToID="7" ToParam="SourceB"/>
+<Wire FromID="3" ToID="10" ToParam="In2"/>
+<Wire FromID="7" FromParam="Dest" ToID="4"/>
+<Wire FromID="7" FromParam="Dest" ToID="11" ToParam="SourceA"/>
+<Wire FromID="8" FromParam="Out" ToID="12" ToParam="InputBit"/>
+<Wire FromID="9" FromParam="Out" ToID="13" ToParam="InputBit"/>
+<Wire FromID="10" FromParam="Out" ToID="14" ToParam="InputBit"/>
+<Wire FromID="11" FromParam="Dest" ToID="15" ToParam="In"/>
+<Wire FromID="12" FromParam="OutputBit" ToID="15" ToParam="ProgStartReq"/>
+<Wire FromID="13" FromParam="OutputBit" ToID="15" ToParam="ProgStopReq"/>
+<Wire FromID="14" FromParam="OutputBit" ToID="15" ToParam="ProgResetReq"/>
+<Wire FromID="15" FromParam="Total" ToID="5"/>
+<Wire FromID="15" FromParam="OldTotal" ToID="6"/>
+<TextBox ID="16" X="900" Y="160" Width="0">
+<Text>
+<![CDATA[Flow Totalizer]]>
+</Text>
+</TextBox>
+</Sheet>
+</FBDContent>
+</Routine>
+</Routines>
+</Program>
+</Programs>
+</Controller>
+</RSLogix5000Content>
