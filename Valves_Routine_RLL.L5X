@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Valves" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sun Oct 26 20:22:24 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Valves" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Mon Oct 27 15:04:49 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
@@ -9,10 +9,10 @@
 <![CDATA[The Bypass Timer Preset value currently being used (seconds)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1]]>
+<![CDATA[10]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
 </Data>
 </Tag>
 <Tag Name="Actual_Main_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -20,10 +20,10 @@
 <![CDATA[The MainTimer Preset value currently being used (seconds)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[10]]>
+<![CDATA[5]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
 </Data>
 </Tag>
 <Tag Name="Actual_Siphon_MoveTmr_pre" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -31,10 +31,10 @@
 <![CDATA[The Siphon Timer Preset value currently being used (seconds)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5]]>
+<![CDATA[10]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
 </Data>
 </Tag>
 <Tag Name="Bypass_Cmd_Held" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -64,16 +64,27 @@
 <![CDATA[Cooldown timer for the Bypass Valve; ensures a rest period equal to the last move time.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[4087788,1000,0]]]>
+<![CDATA[[1489618,10000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
 <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 </Structure>
+</Data>
+</Tag>
+<Tag Name="Bypass_Full_Stroke_Time_SP" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Commissioning setpoint for Bypass Valve full stroke time (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.00000000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="100.0"/>
 </Data>
 </Tag>
 <Tag Name="Bypass_InRawMax" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -103,16 +114,50 @@
 <![CDATA[Bypass Move Timer]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[4086788,1000,0]]]>
+<![CDATA[[1479618,10000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
 <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 </Structure>
+</Data>
+</Tag>
+<Tag Name="Bypass_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Internal counter for Bypass Valve raw position]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2000000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="2000000"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_Position_Increment" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Calculated position increment per 100ms scan for Bypass Valve]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="5000"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[40]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="40"/>
 </Data>
 </Tag>
 <Tag Name="ClsByPasValve_10" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -197,10 +242,10 @@
 <![CDATA[Bypass Timer Preset from HMI]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1]]>
+<![CDATA[10]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
 </Data>
 </Tag>
 <Tag Name="HMI_Bypass_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -230,10 +275,10 @@
 <![CDATA[Main Valve Timer Preset entered on HMI (seconds)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[10]]>
+<![CDATA[5]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
 </Data>
 </Tag>
 <Tag Name="HMI_Main_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -263,10 +308,10 @@
 <![CDATA[SiphonTimer Preset entered on HMI (seconds)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5]]>
+<![CDATA[10]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
 </Data>
 </Tag>
 <Tag Name="HMI_Siphon_Open_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -315,16 +360,27 @@
 <![CDATA[Cooldown timer for the Main Valve; ensures a rest period equal to the last move time.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3750295,10000,0]]]>
+<![CDATA[[1362419,5000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000"/>
 <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 </Structure>
+</Data>
+</Tag>
+<Tag Name="Main_Full_Stroke_Time_SP" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Commissioning setpoint for Main Valve full stroke time (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.00000000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="100.0"/>
 </Data>
 </Tag>
 <Tag Name="Main_InRawMax" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -354,11 +410,11 @@
 <![CDATA[Main Valve Move Timer]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3740295,10000,0]]]>
+<![CDATA[[1357419,5000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000"/>
 <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
@@ -372,6 +428,40 @@
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Main_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Internal counter for Main Valve raw position]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2500000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="2500000"/>
+</Data>
+</Tag>
+<Tag Name="Main_Position_Increment" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Calculated position increment per 100ms scan for Main Valve]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="5000"/>
+</Data>
+</Tag>
+<Tag Name="Main_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[50]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
 </Data>
 </Tag>
 <Tag Name="ONS_Valves" TagType="Base" DataType="BOOL" Dimensions="32" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -509,16 +599,27 @@
 <![CDATA[Cooldown timer for the Siphon Valve; ensures a rest period equal to the last move time.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3866117,5000,0]]]>
+<![CDATA[[1505624,10000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000"/>
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
 <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 </Structure>
+</Data>
+</Tag>
+<Tag Name="Siphon_Full_Stroke_Time_SP" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Commissioning setpoint for Siphon Valve full stroke time (seconds)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.00000000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="100.0"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_InRawMax" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -548,16 +649,50 @@
 <![CDATA[Siphon Move Timer]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3861117,5000,0]]]>
+<![CDATA[[1495624,10000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000"/>
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
 <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 </Structure>
+</Data>
+</Tag>
+<Tag Name="Siphon_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Internal counter for Bypass Valve raw position]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3000000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="3000000"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Position_Increment" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[alculated position increment per 100ms scan for Siphon Valve]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="5000"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[60]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="60"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Remote_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -753,26 +888,6 @@
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="Bypass_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[50000]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="50000"/>
-</Data>
-</Tag>
-<Tag Name="Bypass_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Bypass Valve Position
-(%)]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[1]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
-</Data>
-</Tag>
 <Tag Name="Bypass_Remote_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -795,22 +910,6 @@
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="Main_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[2500000]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="2500000"/>
-</Data>
-</Tag>
-<Tag Name="Main_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[50]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
 </Data>
 </Tag>
 <Tag Name="Main_Remote_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -853,22 +952,6 @@
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="Siphon_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[3000000]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="3000000"/>
-</Data>
-</Tag>
-<Tag Name="Siphon_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[60]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="60"/>
-</Data>
-</Tag>
 <Tag Name="Siphon_Remote_Mode_Permissive" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
 <![CDATA[1]]>
@@ -887,12 +970,12 @@
 </Tag>
 <Tag Name="T_Position_Pulse" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[-1072179646,100,60]]]>
+<![CDATA[[-1071894759,100,18]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="60"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="18"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -924,7 +1007,7 @@
 <![CDATA[-- BYPASS VALVE OPEN OUTPUT -- Energize the open output if the permissive is active and the valve is not already fully open.]]>
 </Comment>
 <Text>
-<![CDATA[XIC(Bypass_Open_Permissive)XIO(ZSO_10_300)XIO(Bypass_MoveTmr.DN)OTE(OpnBypasValve_10);]]>
+<![CDATA[XIC(Bypass_Open_Permissive)XIO(ZSO_10_300)OTE(OpnBypasValve_10);]]>
 </Text>
 </Rung>
 <Rung Number="3" Type="N">
@@ -1003,23 +1086,31 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="12" Type="N">
 <Comment>
-<![CDATA[-- BYPASS VALVE POSITION CALCULATION -- This logic uses a 100ms pulse to increment or decrement a position counter while the valve is moving.]]>
+<![CDATA[Calculate the Bypass Valve position increment based on the full stroke time setpoint and 100ms timer pulse.]]>
 </Comment>
 <Text>
-<![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[8])[XIC(OpnBypasValve_10) ADD(Bypass_Position_Counter,5000,Bypass_Position_Counter) ,XIC(ClsByPasValve_10) SUB(Bypass_Position_Counter,5000,Bypass_Position_Counter) ];]]>
+<![CDATA[CPT(Bypass_Position_Increment,(Bypass_InRawMax/Bypass_Full_Stroke_Time_SP)*0.1);]]>
 </Text>
 </Rung>
 <Rung Number="13" Type="N">
+<Comment>
+<![CDATA[-- BYPASS VALVE POSITION CALCULATION -- This logic uses a 100ms pulse to increment or decrement a position counter while the valve is moving.]]>
+</Comment>
 <Text>
-<![CDATA[XIC(ZSC_10_300)MOVE(Bypass_Position_Counter,Bypass_InRawMin);]]>
+<![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[8])[XIC(OpnBypasValve_10) ADD(Bypass_Position_Counter,Bypass_Position_Increment,Bypass_Position_Counter) ,XIC(ClsByPasValve_10) SUB(Bypass_Position_Counter,Bypass_Position_Increment,Bypass_Position_Counter) ];]]>
 </Text>
 </Rung>
 <Rung Number="14" Type="N">
 <Text>
-<![CDATA[XIC(ZSO_10_300)MOVE(Bypass_Position_Counter,Bypass_InRawMax);]]>
+<![CDATA[XIC(ZSC_10_300)MOVE(Bypass_Position_Counter,Bypass_InRawMin);]]>
 </Text>
 </Rung>
 <Rung Number="15" Type="N">
+<Text>
+<![CDATA[XIC(ZSO_10_300)MOVE(Bypass_Position_Counter,Bypass_InRawMax);]]>
+</Text>
+</Rung>
+<Rung Number="16" Type="N">
 <Comment>
 <![CDATA[################ SEE VALVE POSITION SCALING #########################]]>
 </Comment>
@@ -1027,17 +1118,17 @@ NEEDS CORRECTION]]>
 <![CDATA[MOVE(Bypass_Position_Percent,Bypass_Position_Percent);]]>
 </Text>
 </Rung>
-<Rung Number="16" Type="N">
+<Rung Number="17" Type="N">
 <Text>
 <![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(ZSO_10_300) ][OTU(Bypass_Open_Permissive) ,OTU(Bypass_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="17" Type="N">
+<Rung Number="18" Type="N">
 <Text>
 <![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(ZSC_10_300) ][OTU(Bypass_Close_Permissive) ,OTU(Bypass_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="18" Type="N">
+<Rung Number="19" Type="N">
 <Comment>
 <![CDATA[########### The Beginning of Cooldown Logic ###########]]>
 </Comment>
@@ -1045,27 +1136,27 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Bypass_MoveTmr.DN)ONS(ONS_Valves[15])MOVE(Bypass_MoveTmr.PRE,Bypass_CoolDownTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="19" Type="N">
+<Rung Number="20" Type="N">
 <Text>
 <![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(Bypass_CoolDownTmr.TT) ]XIO(Bypass_CoolDownTmr.DN)OTE(Bypass_Cooldown_Active);]]>
 </Text>
 </Rung>
-<Rung Number="20" Type="N">
+<Rung Number="21" Type="N">
 <Text>
 <![CDATA[XIC(Bypass_Cooldown_Active)TON(Bypass_CoolDownTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="21" Type="N">
+<Rung Number="22" Type="N">
 <Text>
 <![CDATA[XIC(Bypass_Cooldown_Active)OTL(Bypass_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="22" Type="N">
+<Rung Number="23" Type="N">
 <Text>
 <![CDATA[XIO(OpnBypasVlvSS)XIO(ClsBypasVlvSS)XIO(HMI_Bypass_Open_CMD)XIO(VTS_Bypass_Open_CMD)XIO(HMI_Bypass_Close_CMD)XIO(VTS_Bypass_Close_CMD)OTU(Bypass_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="23" Type="N">
+<Rung Number="24" Type="N">
 <Comment>
 <![CDATA[######################### MAIN VALVE LOGIC ##########################]]>
 </Comment>
@@ -1073,7 +1164,7 @@ NEEDS CORRECTION]]>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="24" Type="N">
+<Rung Number="25" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE REMOTE MODE --]]>
 </Comment>
@@ -1081,7 +1172,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(OpnMainVlvSS)XIO(ClsMainVlvSS)OTE(Main_Remote_Mode_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="25" Type="N">
+<Rung Number="26" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE OPEN PERMISSIVE --]]>
 </Comment>
@@ -1089,7 +1180,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(OpnMainVlvSS) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Open_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[4])XIO(Main_Open_Permissive)XIO(Main_Close_Permissive)OTL(Main_Open_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="26" Type="N">
+<Rung Number="27" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE OPEN OUTPUT --]]>
 </Comment>
@@ -1097,7 +1188,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Main_Open_Permissive)XIO(ZSO_10_301)OTE(OpnMainValve_20);]]>
 </Text>
 </Rung>
-<Rung Number="27" Type="N">
+<Rung Number="28" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE CLOSE PERMISSIVE --]]>
 </Comment>
@@ -1105,7 +1196,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(ClsMainVlvSS) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Close_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[5])XIO(Main_Close_Permissive)XIO(Main_Open_Permissive)OTL(Main_Close_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="28" Type="N">
+<Rung Number="29" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE CLOSE OUTPUT --]]>
 </Comment>
@@ -1113,7 +1204,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Main_Close_Permissive)XIO(ZSC_10_301)OTE(ClsMainValve_20);]]>
 </Text>
 </Rung>
-<Rung Number="29" Type="N">
+<Rung Number="30" Type="N">
 <Comment>
 <![CDATA[##### Handle HMI vs VTS setpoint handling #####]]>
 </Comment>
@@ -1121,7 +1212,7 @@ NEEDS CORRECTION]]>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="30" Type="N">
+<Rung Number="31" Type="N">
 <Comment>
 <![CDATA[If HMI Request the valve to move then HMI setpoint is the valve move time Preset]]>
 </Comment>
@@ -1129,7 +1220,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(HMI_Main_Open_CMD) ,XIC(HMI_Main_Close_CMD) ,XIC(OpnMainVlvSS) ,XIC(ClsMainVlvSS) ]MOVE(HMI_Main_MoveTmr_pre,Actual_Main_MoveTmr_pre);]]>
 </Text>
 </Rung>
-<Rung Number="31" Type="N">
+<Rung Number="32" Type="N">
 <Comment>
 <![CDATA[If VTS Request the valve to move then VTS setpoint is the valve move time Preset]]>
 </Comment>
@@ -1137,7 +1228,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(VTS_Main_Open_CMD) ,XIC(VTS_Main_Close_CMD) ]MOVE(VTS_Main_MoveTmr_pre,Actual_Main_MoveTmr_pre);]]>
 </Text>
 </Rung>
-<Rung Number="32" Type="N">
+<Rung Number="33" Type="N">
 <Comment>
 <![CDATA[Apply the selected Actual Preset (converted to milliseconds) to the Bypass Move Timer.]]>
 </Comment>
@@ -1145,7 +1236,7 @@ NEEDS CORRECTION]]>
 <![CDATA[MUL(Actual_Main_MoveTmr_pre,1000,Main_MoveTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="33" Type="N">
+<Rung Number="34" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE REMOTE COMMAND TIMER --]]>
 </Comment>
@@ -1153,7 +1244,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(OpnMainValve_20) ,XIC(ClsMainValve_20) ]TON(Main_MoveTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="34" Type="N">
+<Rung Number="35" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE REMOTE COMMAND LOGIC --]]>
 </Comment>
@@ -1161,25 +1252,33 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(Main_MoveTmr.TT)XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)[[XIC(HMI_Main_Open_CMD) ,XIC(VTS_Main_Open_CMD) ] ONS(ONS_Valves[6]) OTL(Main_Remote_Open_CMD) ,[XIC(HMI_Main_Close_CMD) ,XIC(VTS_Main_Close_CMD) ] ONS(ONS_Valves[7]) OTL(Main_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="35" Type="N">
+<Rung Number="36" Type="N">
+<Comment>
+<![CDATA[Calculate the Main Valve position increment based on the full stroke time setpoint and 100ms timer pulse]]>
+</Comment>
+<Text>
+<![CDATA[CPT(Main_Position_Increment,(Main_InRawMax/Main_Full_Stroke_Time_SP)*0.1);]]>
+</Text>
+</Rung>
+<Rung Number="37" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE POSITION CALCULATION --]]>
 </Comment>
 <Text>
-<![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[9])[XIC(OpnMainValve_20) ADD(Main_Position_Counter,5000,Main_Position_Counter) ,XIC(ClsMainValve_20) SUB(Main_Position_Counter,5000,Main_Position_Counter) ];]]>
+<![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[9])[XIC(OpnMainValve_20) ADD(Main_Position_Counter,Main_Position_Increment,Main_Position_Counter) ,XIC(ClsMainValve_20) SUB(Main_Position_Counter,Main_Position_Increment,Main_Position_Counter) ];]]>
 </Text>
 </Rung>
-<Rung Number="36" Type="N">
+<Rung Number="38" Type="N">
 <Text>
 <![CDATA[XIC(ZSC_10_301)MOVE(Main_Position_Counter,Main_InRawMin);]]>
 </Text>
 </Rung>
-<Rung Number="37" Type="N">
+<Rung Number="39" Type="N">
 <Text>
 <![CDATA[XIC(ZSO_10_301)MOVE(Main_Position_Counter,Main_InRawMax);]]>
 </Text>
 </Rung>
-<Rung Number="38" Type="N">
+<Rung Number="40" Type="N">
 <Comment>
 <![CDATA[################ SEE VALVE POSITION SCALING #########################]]>
 </Comment>
@@ -1187,17 +1286,17 @@ NEEDS CORRECTION]]>
 <![CDATA[MOVE(Main_Position_Percent,Main_Position_Percent);]]>
 </Text>
 </Rung>
-<Rung Number="39" Type="N">
+<Rung Number="41" Type="N">
 <Text>
 <![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSO_10_301) ][OTU(Main_Open_Permissive) ,OTU(Main_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="40" Type="N">
+<Rung Number="42" Type="N">
 <Text>
 <![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSC_10_301) ][OTU(Main_Close_Permissive) ,OTU(Main_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="41" Type="N">
+<Rung Number="43" Type="N">
 <Comment>
 <![CDATA[########### The Beginning of Cooldown Logic ###########]]>
 </Comment>
@@ -1205,27 +1304,27 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Main_MoveTmr.DN)ONS(ONS_Valves[16])MOVE(Main_MoveTmr.PRE,Main_CooldownTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="42" Type="N">
+<Rung Number="44" Type="N">
 <Text>
 <![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(Main_CooldownTmr.TT) ]XIO(Main_CooldownTmr.DN)OTE(Main_Cooldown_Active);]]>
 </Text>
 </Rung>
-<Rung Number="43" Type="N">
+<Rung Number="45" Type="N">
 <Text>
 <![CDATA[XIC(Main_Cooldown_Active)TON(Main_CooldownTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="44" Type="N">
+<Rung Number="46" Type="N">
 <Text>
 <![CDATA[XIC(Main_Cooldown_Active)OTL(Main_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="45" Type="N">
+<Rung Number="47" Type="N">
 <Text>
 <![CDATA[XIO(OpnMainVlvSS)XIO(ClsMainVlvSS)XIO(HMI_Main_Open_CMD)XIO(VTS_Main_Open_CMD)XIO(HMI_Main_Close_CMD)XIO(VTS_Main_Close_CMD)OTU(Main_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="46" Type="N">
+<Rung Number="48" Type="N">
 <Comment>
 <![CDATA[------------------------------------ SIPHON VALVE LOGIC ------------------------------------]]>
 </Comment>
@@ -1233,7 +1332,7 @@ NEEDS CORRECTION]]>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="47" Type="N">
+<Rung Number="49" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE REMOTE MODE --]]>
 </Comment>
@@ -1241,7 +1340,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(OpnSiphonVlvSS)XIO(ClsSiphonVlvSS)OTE(Siphon_Remote_Mode_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="48" Type="N">
+<Rung Number="50" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE OPEN PERMISSIVE --]]>
 </Comment>
@@ -1249,7 +1348,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(OpnSiphonVlvSS) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Open_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[13])XIO(Siphon_Open_Permissive)XIO(Siphon_Close_Permissive)OTL(Siphon_Open_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="49" Type="N">
+<Rung Number="51" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE OPEN OUTPUT --]]>
 </Comment>
@@ -1257,7 +1356,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_Open_Permissive)XIO(ZSO_10_302)OTE(OpnSiphonValve_14);]]>
 </Text>
 </Rung>
-<Rung Number="50" Type="N">
+<Rung Number="52" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE CLOSE PERMISSIVE --]]>
 </Comment>
@@ -1265,7 +1364,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(ClsSiphonVlvSS) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Close_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[14])XIO(Siphon_Close_Permissive)XIO(Siphon_Open_Permissive)OTL(Siphon_Close_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="51" Type="N">
+<Rung Number="53" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE CLOSE OUTPUT --]]>
 </Comment>
@@ -1273,7 +1372,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_Close_Permissive)XIO(ZSC_10_302)OTE(ClsSiphonValve_14);]]>
 </Text>
 </Rung>
-<Rung Number="52" Type="N">
+<Rung Number="54" Type="N">
 <Comment>
 <![CDATA[##### Handle HMI vs VTS setpoint handling #####]]>
 </Comment>
@@ -1281,7 +1380,7 @@ NEEDS CORRECTION]]>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="53" Type="N">
+<Rung Number="55" Type="N">
 <Comment>
 <![CDATA[If HMI Request the valve to move then HMI setpoint is the valve move time Preset]]>
 </Comment>
@@ -1289,7 +1388,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(HMI_Siphon_Open_CMD) ,XIC(HMI_Siphon_Close_CMD) ,XIC(OpnSiphonVlvSS) ,XIC(ClsSiphonVlvSS) ]MOVE(HMI_Siphon_MoveTmr_pre,Actual_Siphon_MoveTmr_pre);]]>
 </Text>
 </Rung>
-<Rung Number="54" Type="N">
+<Rung Number="56" Type="N">
 <Comment>
 <![CDATA[If VTS Request the valve to move then VTS setpoint is the valve move time Preset]]>
 </Comment>
@@ -1297,7 +1396,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(VTS_Siphon_Open_CMD) ,XIC(VTS_Siphon_Close_CMD) ]MOVE(VTS_Siphon_MoveTmr_pre,Actual_Siphon_MoveTmr_pre);]]>
 </Text>
 </Rung>
-<Rung Number="55" Type="N">
+<Rung Number="57" Type="N">
 <Comment>
 <![CDATA[Apply the selected Actual Preset (converted to milliseconds) to the Bypass Move Timer.]]>
 </Comment>
@@ -1305,7 +1404,7 @@ NEEDS CORRECTION]]>
 <![CDATA[MUL(Actual_Siphon_MoveTmr_pre,1000,Siphon_MoveTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="56" Type="N">
+<Rung Number="58" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE REMOTE COMMAND TIMER --]]>
 </Comment>
@@ -1313,7 +1412,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(OpnSiphonValve_14) ,XIC(ClsSiphonValve_14) ]TON(Siphon_MoveTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="57" Type="N">
+<Rung Number="59" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE REMOTE COMMAND LOGIC --]]>
 </Comment>
@@ -1321,25 +1420,33 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(Siphon_MoveTmr.TT)XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)[[XIC(HMI_Siphon_Open_CMD) ,XIC(VTS_Siphon_Open_CMD) ] ONS(ONS_Valves[11]) OTE(Siphon_Remote_Open_CMD) ,[XIC(HMI_Siphon_Close_CMD) ,XIC(VTS_Siphon_Close_CMD) ] ONS(ONS_Valves[12]) OTE(Siphon_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="58" Type="N">
+<Rung Number="60" Type="N">
+<Comment>
+<![CDATA[Calculate the Siphon Valve position increment based on the full stroke time setpoint and 100ms timer pulse]]>
+</Comment>
+<Text>
+<![CDATA[CPT(Siphon_Position_Increment,(Siphon_InRawMax/Siphon_Full_Stroke_Time_SP)*0.1);]]>
+</Text>
+</Rung>
+<Rung Number="61" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE POSITION CALCULATION --]]>
 </Comment>
 <Text>
-<![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[10])[XIC(OpnSiphonValve_14) ADD(Siphon_Position_Counter,5000,Siphon_Position_Counter) ,XIC(ClsSiphonValve_14) SUB(Siphon_Position_Counter,5000,Siphon_Position_Counter) ];]]>
+<![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[10])[XIC(OpnSiphonValve_14) ADD(Siphon_Position_Counter,Siphon_Position_Increment,Siphon_Position_Counter) ,XIC(ClsSiphonValve_14) SUB(Siphon_Position_Counter,Siphon_Position_Increment,Siphon_Position_Counter) ];]]>
 </Text>
 </Rung>
-<Rung Number="59" Type="N">
+<Rung Number="62" Type="N">
 <Text>
 <![CDATA[XIC(ZSC_10_302)MOVE(Siphon_Position_Counter,Siphon_InRawMin);]]>
 </Text>
 </Rung>
-<Rung Number="60" Type="N">
+<Rung Number="63" Type="N">
 <Text>
 <![CDATA[XIC(ZSO_10_302)MOVE(Siphon_Position_Counter,Siphon_InRawMax);]]>
 </Text>
 </Rung>
-<Rung Number="61" Type="N">
+<Rung Number="64" Type="N">
 <Comment>
 <![CDATA[################ SEE VALVE POSITION SCALING #########################]]>
 </Comment>
@@ -1347,7 +1454,7 @@ NEEDS CORRECTION]]>
 <![CDATA[MOVE(Siphon_Position_Percent,Siphon_Position_Percent);]]>
 </Text>
 </Rung>
-<Rung Number="62" Type="N">
+<Rung Number="65" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE STOP OPEN -- Unlatch the open permissive and remote command when the move timer is done or the fully open limit switch is hit]]>
 </Comment>
@@ -1355,7 +1462,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSO_10_302) ][OTU(Siphon_Open_Permissive) ,OTU(Siphon_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="63" Type="N">
+<Rung Number="66" Type="N">
 <Comment>
 <![CDATA[-- SIPHON VALVE STOP CLOSE -- Unlatch the close permissive and remote command when the move timer is done or the fully closed limit switch is hit]]>
 </Comment>
@@ -1363,7 +1470,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSC_10_302) ][OTU(Siphon_Close_Permissive) ,OTU(Siphon_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="64" Type="N">
+<Rung Number="67" Type="N">
 <Comment>
 <![CDATA[-- CAPTURE LAST MOVE TIME FOR COOLDOWN -- On the first scan after the move timer finishes, copy its preset value into the 'CooldownTmr' preset]]>
 </Comment>
@@ -1371,7 +1478,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_MoveTmr.DN)ONS(ONS_Valves[17])MOVE(Siphon_MoveTmr.PRE,Siphon_CooldownTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="65" Type="N">
+<Rung Number="68" Type="N">
 <Comment>
 <![CDATA[-- ACTIVATE COOLDOWN PERIOD -- The 'Cooldown_Active' bit turns on as soon as the move timer is done and stays on while the 'CooldownTmr' is running]]>
 </Comment>
@@ -1379,7 +1486,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(Siphon_CooldownTmr.TT) ]XIO(Siphon_CooldownTmr.DN)OTE(Siphon_Cooldown_Active);]]>
 </Text>
 </Rung>
-<Rung Number="66" Type="N">
+<Rung Number="69" Type="N">
 <Comment>
 <![CDATA[-- RUN COOLDOWN TIMER -- As long as the 'Cooldown_Active' bit is on, this timer will run for a duration equal to the last valve move.]]>
 </Comment>
@@ -1387,7 +1494,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_Cooldown_Active)TON(Siphon_CooldownTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="67" Type="N">
+<Rung Number="70" Type="N">
 <Comment>
 <![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
 </Comment>
@@ -1395,7 +1502,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Siphon_Cooldown_Active)OTL(Siphon_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="68" Type="N">
+<Rung Number="71" Type="N">
 <Comment>
 <![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
 </Comment>

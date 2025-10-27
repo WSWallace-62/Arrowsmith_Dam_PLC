@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Valve_Position_Scaling" TargetType="Routine" TargetSubType="FBD" ContainsContext="true" ExportDate="Sun Oct 26 20:23:04 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Valve_Position_Scaling" TargetType="Routine" TargetSubType="FBD" ContainsContext="true" ExportDate="Mon Oct 27 15:05:15 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
@@ -26,6 +26,29 @@
 <DataValue DataType="DINT" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="Bypass_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Internal counter for Bypass Valve raw position]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2000000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="2000000"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[40]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="40"/>
+</Data>
+</Tag>
 <Tag Name="Main_InRawMax" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Value when ZSO is Activated]]>
@@ -46,6 +69,29 @@
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="Main_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Internal counter for Main Valve raw position]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2500000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="2500000"/>
+</Data>
+</Tag>
+<Tag Name="Main_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[50]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_InRawMax" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -70,62 +116,49 @@
 <DataValue DataType="REAL" Radix="Float" Value="0.0"/>
 </Data>
 </Tag>
+<Tag Name="Siphon_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Internal counter for Bypass Valve raw position]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3000000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="3000000"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[60]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="60"/>
+</Data>
+</Tag>
 </Tags>
 <Programs Use="Context">
 <Program Use="Context" Name="MainProgram">
 <Tags Use="Context">
-<Tag Name="Bypass_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[50000]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="50000"/>
-</Data>
-</Tag>
-<Tag Name="Bypass_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Bypass Valve Position
-(%)]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[1]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
-</Data>
-</Tag>
-<Tag Name="Main_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[2500000]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="2500000"/>
-</Data>
-</Tag>
-<Tag Name="Main_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[50]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
-</Data>
-</Tag>
 <Tag Name="SCL_03" TagType="Base" DataType="SCALE" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[1,5.00000000e+004,5.00000000e+006,0.00000000e+000,1.00000000e+002,0.00000000e+000,1,1.00000000e+000
-		,0,0.00000000e+000,5.00000000e+006,2.00000000e-007,1.00000000e+000]]]>
+<![CDATA[[1,2.00000000e+006,5.00000000e+006,0.00000000e+000,1.00000000e+002,0.00000000e+000,1,4.00000000e+001
+		,0,0.00000000e+000,5.00000000e+006,2.00000000e-007,4.00000000e+001]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="SCALE">
 <DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
-<DataValueMember Name="In" DataType="REAL" Radix="Float" Value="50000.0"/>
+<DataValueMember Name="In" DataType="REAL" Radix="Float" Value="2000000.0"/>
 <DataValueMember Name="InRawMax" DataType="REAL" Radix="Float" Value="5000000.0"/>
 <DataValueMember Name="InRawMin" DataType="REAL" Radix="Float" Value="0.0"/>
 <DataValueMember Name="InEUMax" DataType="REAL" Radix="Float" Value="100.0"/>
 <DataValueMember Name="InEUMin" DataType="REAL" Radix="Float" Value="0.0"/>
 <DataValueMember Name="Limiting" DataType="BOOL" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="40.0"/>
 <DataValueMember Name="MaxAlarm" DataType="BOOL" Value="0"/>
 <DataValueMember Name="MinAlarm" DataType="BOOL" Value="0"/>
 <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
@@ -180,22 +213,6 @@
 <DataValueMember Name="InstructFault" DataType="BOOL" Value="0"/>
 <DataValueMember Name="InRawRangeInv" DataType="BOOL" Value="0"/>
 </Structure>
-</Data>
-</Tag>
-<Tag Name="Siphon_Position_Counter" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[3000000]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="3000000"/>
-</Data>
-</Tag>
-<Tag Name="Siphon_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[60]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="60"/>
 </Data>
 </Tag>
 </Tags>
