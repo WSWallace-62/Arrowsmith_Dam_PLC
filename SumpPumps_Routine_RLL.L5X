@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="SumpPumps" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Mon Oct 27 08:52:37 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="SumpPumps" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Tue Oct 28 08:32:20 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
@@ -87,12 +87,23 @@
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="MeterSump_LockoutTime" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Meter Sump Restart Countdown (Remaining Minutes)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[593]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="593"/>
+</Data>
+</Tag>
 <Tag Name="MeterSump_MaxRunTime" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Maximum 30 minute runtime]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[573644,1800000,0]]]>
+<![CDATA[[4050350,1800000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -109,7 +120,7 @@
 <![CDATA[Meter Sump Min Run Time]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[573644,1000,0]]]>
+<![CDATA[[4050350,1000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -121,28 +132,17 @@
 </Structure>
 </Data>
 </Tag>
-<Tag Name="MeterSump_RestartTime" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Meter Sump Restart Countdown]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[593]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="593"/>
-</Data>
-</Tag>
 <Tag Name="MeterSump_RunTimer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Meter Sump Run Timer]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[573644,60000,1593]]]>
+<![CDATA[[4050350,60000,54997]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="1593"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="54997"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -151,12 +151,12 @@
 </Tag>
 <Tag Name="MeterSump_RunTimer_Counter" TagType="Base" DataType="COUNTER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[0,999999999,0]]]>
+<![CDATA[[0,999999999,3]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="COUNTER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="3"/>
 <DataValueMember Name="CU" DataType="BOOL" Value="0"/>
 <DataValueMember Name="CD" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -170,10 +170,10 @@
 <![CDATA[Convert to Minutes]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[3]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="3"/>
 </Data>
 </Tag>
 <Tag Name="MeterSumpAutoStartDelay" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -198,7 +198,7 @@
 <![CDATA[Meter Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[438206,10000,10000]]]>
+<![CDATA[[1752320,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -271,13 +271,24 @@
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="ValveSump_LockoutTime" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Valve Sump Restart countdown (Remaining Minutes)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="ValveSump_MaxRunTime" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Valve Sump Maximum Run Time.
 (30 Minutes)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[921771,1800000,0]]]>
+<![CDATA[[2152583,1800000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -294,7 +305,7 @@
 <![CDATA[Valve Sump Min Run Time]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[921771,1000,0]]]>
+<![CDATA[[2152583,1000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -306,28 +317,17 @@
 </Structure>
 </Data>
 </Tag>
-<Tag Name="ValveSump_RestartTime" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Valve Sump Restart countdown]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
 <Tag Name="ValveSump_RunTimer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Valve runtime timer]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[0,60000,0]]]>
+<![CDATA[[2152583,60000,24873]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="24873"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -383,7 +383,7 @@
 <![CDATA[Valve Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[438191,10000,10000]]]>
+<![CDATA[[1752289,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -469,8 +469,11 @@
 </Text>
 </Rung>
 <Rung Number="2" Type="N">
+<Comment>
+<![CDATA[Run Meter Sump Lockout Timer and calculate remaining minutes for display]]>
+</Comment>
 <Text>
-<![CDATA[XIC(MeterSump_Lockout)[TON(MeterSump_LockedOutTime,?,?) ,CPT(MeterSump_RestartTime,ABS(((MeterSump_LockedOutTime.ACC-3600000)/100)/60)) ];]]>
+<![CDATA[XIC(MeterSump_Lockout)[TON(MeterSump_LockedOutTime,?,?) ,SUB(MeterSump_LockedOutTime.PRE,MeterSump_LockedOutTime.ACC,MeterSump_LockoutTime) ,DIV(MeterSump_LockoutTime,60000,MeterSump_LockoutTime) ];]]>
 </Text>
 </Rung>
 <Rung Number="3" Type="N">
@@ -521,8 +524,11 @@
 </Text>
 </Rung>
 <Rung Number="10" Type="N">
+<Comment>
+<![CDATA[Run Valve Sump Lockout Timer and calculate remaining minutes for display]]>
+</Comment>
 <Text>
-<![CDATA[XIC(ValveSump_Lockout)[TON(ValveSump_LockedOutTime,?,?) ,CPT(ValveSump_RestartTime,ABS(((ValveSump_LockedOutTime.ACC-3600000)/100)/60)) ];]]>
+<![CDATA[XIC(ValveSump_Lockout)[TON(ValveSump_LockedOutTime,?,?) ,SUB(ValveSump_LockedOutTime.PRE,ValveSump_LockedOutTime.ACC,ValveSump_LockoutTime) ,DIV(ValveSump_LockoutTime,60000,ValveSump_LockoutTime) ];]]>
 </Text>
 </Rung>
 <Rung Number="11" Type="N">
