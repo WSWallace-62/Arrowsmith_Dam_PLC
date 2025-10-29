@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--Outputs to HMI-->
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Y_Outputs_To_HMI" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Mon Oct 27 08:54:16 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Y_Outputs_To_HMI" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Tue Oct 28 18:06:57 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
@@ -141,6 +141,18 @@
 <DataValue DataType="REAL" Radix="Float" Value="30.0"/>
 </Data>
 </Tag>
+<Tag Name="Bypass_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[40]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="40"/>
+</Data>
+</Tag>
 <Tag Name="FL_10_500_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Total Flow]]>
@@ -152,30 +164,19 @@
 <DataValue DataType="REAL" Radix="Float" Value="3.75"/>
 </Data>
 </Tag>
-<Tag Name="FT_10_500" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="FT_10_500_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[High Level Flow
 0-5m3/sec]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3,2.50000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,5.00000000e+000,1.25000000e+000
-		,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
-		]]]]>
+<![CDATA[1.25000000e+000]]>
 </Data>
 <Data Format="Decorated">
-<Structure DataType="Analog_Scaling">
-<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
-<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="RAW_DATA" DataType="REAL" Radix="Float" Value="25.0"/>
-<DataValueMember Name="cfgRAW_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgRAW_MAX" DataType="REAL" Radix="Float" Value="100.0"/>
-<DataValueMember Name="cfgSCALED_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="5.0"/>
-<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="1.25"/>
-</Structure>
+<DataValue DataType="REAL" Radix="Float" Value="1.25"/>
 </Data>
 </Tag>
-<Tag Name="FT_10_500_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="FT_10_500_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[High Level Flow
 0-5m3/sec]]>
@@ -198,30 +199,19 @@
 <DataValue DataType="REAL" Radix="Float" Value="3.75"/>
 </Data>
 </Tag>
-<Tag Name="FT_10_501" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="FT_10_501_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Low Level Flow
 0-2.5m3/sec]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,2.50000000e+000,2.50000000e+000
-		,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
-		]]]]>
+<![CDATA[2.50000000e+000]]>
 </Data>
 <Data Format="Decorated">
-<Structure DataType="Analog_Scaling">
-<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
-<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="RAW_DATA" DataType="REAL" Radix="Float" Value="100.0"/>
-<DataValueMember Name="cfgRAW_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgRAW_MAX" DataType="REAL" Radix="Float" Value="100.0"/>
-<DataValueMember Name="cfgSCALED_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="2.5"/>
-<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="2.5"/>
-</Structure>
+<DataValue DataType="REAL" Radix="Float" Value="2.5"/>
 </Data>
 </Tag>
-<Tag Name="FT_10_501_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="FT_10_501_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Low Level Flow
 0-2.5m3/sec]]>
@@ -340,10 +330,10 @@
 (%)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.00000000e+000]]>
+<![CDATA[4.00000000e+001]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValue DataType="REAL" Radix="Float" Value="40.0"/>
 </Data>
 </Tag>
 <Tag Name="HCV_10_502M_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -374,7 +364,7 @@
 <![CDATA[Reservoir Level=0-42M (0-420) + 820M base to get Geodetic Level]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3,5.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,8.62000000e+002,4.31000000e+002
+<![CDATA[[3,5.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,4.20000000e+001,2.10000000e+001
 		,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
 		]]]]>
 </Data>
@@ -386,8 +376,8 @@
 <DataValueMember Name="cfgRAW_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
 <DataValueMember Name="cfgRAW_MAX" DataType="REAL" Radix="Float" Value="100.0"/>
 <DataValueMember Name="cfgSCALED_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="862.0"/>
-<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="431.0"/>
+<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="42.0"/>
+<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="21.0"/>
 </Structure>
 </Data>
 </Tag>
@@ -397,33 +387,90 @@
 (0-100M)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[4.31000000e+002]]>
+<![CDATA[2.10000000e+001]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="431.0"/>
+<DataValue DataType="REAL" Radix="Float" Value="21.0"/>
 </Data>
 </Tag>
-<Tag Name="PT_10_505" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="Main_Flow_Today_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Main/High Level Pressure (0-6.89)
- (0-689)]]>
+<![CDATA[Main Flow Today
+(m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3,2.50000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,6.89000000e+002,1.72250000e+002
-		,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
-		]]]]>
+<![CDATA[6.26719531e+003]]>
 </Data>
 <Data Format="Decorated">
-<Structure DataType="Analog_Scaling">
-<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
-<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="RAW_DATA" DataType="REAL" Radix="Float" Value="25.0"/>
-<DataValueMember Name="cfgRAW_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgRAW_MAX" DataType="REAL" Radix="Float" Value="100.0"/>
-<DataValueMember Name="cfgSCALED_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="689.0"/>
-<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="172.25"/>
-</Structure>
+<DataValue DataType="REAL" Radix="Float" Value="6267.1953"/>
+</Data>
+</Tag>
+<Tag Name="Main_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Totalized Main Flow Today]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[6.26719287e+003]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="6267.193"/>
+</Data>
+</Tag>
+<Tag Name="Main_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Flow Yesterday
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.17909131e+003]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1179.0913"/>
+</Data>
+</Tag>
+<Tag Name="Main_Flow_Yesterday_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Totalized MainFlow Yesterday]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.17909131e+003]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1179.0913"/>
+</Data>
+</Tag>
+<Tag Name="Main_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[50]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
+</Data>
+</Tag>
+<Tag Name="MeterSump_Lockout_Rem_Min_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Meter Sump remaining lockout time in minutes for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="MeterSump_LockoutTime" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Meter Sump Restart Countdown (Remaining Minutes)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="PT_10_505_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -437,29 +484,29 @@
 <DataValue DataType="REAL" Radix="Float" Value="172.25"/>
 </Data>
 </Tag>
-<Tag Name="PT_10_506" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="PT_10_505_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[High Level Pressure (0-689KPA)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.72250000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="172.25"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_506_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Low Level Pressure (0-689KPA)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3,5.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,6.89000000e+002,3.44500000e+002
-		,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
-		]]]]>
+<![CDATA[3.44500000e+002]]>
 </Data>
 <Data Format="Decorated">
-<Structure DataType="Analog_Scaling">
-<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
-<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="RAW_DATA" DataType="REAL" Radix="Float" Value="50.0"/>
-<DataValueMember Name="cfgRAW_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgRAW_MAX" DataType="REAL" Radix="Float" Value="100.0"/>
-<DataValueMember Name="cfgSCALED_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="689.0"/>
-<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="344.5"/>
-</Structure>
+<DataValue DataType="REAL" Radix="Float" Value="344.5"/>
 </Data>
 </Tag>
-<Tag Name="PT_10_506_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="PT_10_506_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Low Level Pressure (0-689KPA)]]>
 </Description>
@@ -481,16 +528,76 @@
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="Siphon_Flow_Today_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Flow Today
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.24382188e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="12438.219"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Flow Today
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.24382109e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="12438.211"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Flow Yesterday
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.52990005e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="152.99"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Flow_Yesterday_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Flow Yesterday
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.52990005e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="152.99"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[60]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="60"/>
+</Data>
+</Tag>
 <Tag Name="Total_Flow_Today_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Total Flow Today
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.20243883e+005]]>
+<![CDATA[2.44627859e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="120243.88"/>
+<DataValue DataType="REAL" Radix="Float" Value="244627.86"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -498,10 +605,10 @@
 <![CDATA[Totalized Total Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.20243906e+005]]>
+<![CDATA[2.44627875e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="120243.91"/>
+<DataValue DataType="REAL" Radix="Float" Value="244627.88"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -510,10 +617,10 @@
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3.24000000e+005]]>
+<![CDATA[3.21174500e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="324000.0"/>
+<DataValue DataType="REAL" Radix="Float" Value="321174.5"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Yesterday_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -521,10 +628,10 @@
 <![CDATA[Totalized Total Flow Yesterday]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3.24000000e+005]]>
+<![CDATA[3.21174500e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="324000.0"/>
+<DataValue DataType="REAL" Radix="Float" Value="321174.5"/>
 </Data>
 </Tag>
 <Tag Name="TT_10_503" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -562,22 +669,32 @@
 <DataValue DataType="REAL" Radix="Float" Value="30.0"/>
 </Data>
 </Tag>
+<Tag Name="ValveSump_Lockout_Rem_Min_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Valve Sump remaining lockout time in minutes for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ValveSump_LockoutTime" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Valve Sump Restart countdown (Remaining Minutes)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 </Tags>
 <Programs Use="Context">
 <Program Use="Context" Name="MainProgram">
 <Tags Use="Context">
-<Tag Name="Bypass_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Bypass Valve Position
-(%)]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[1]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
-</Data>
-</Tag>
 <Tag Name="Genset_MinRun" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
 <![CDATA[[3017264,10000,0]]]>
@@ -590,22 +707,6 @@
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 </Structure>
-</Data>
-</Tag>
-<Tag Name="Main_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[50]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
-</Data>
-</Tag>
-<Tag Name="Siphon_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[60]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="60"/>
 </Data>
 </Tag>
 </Tags>
@@ -625,22 +726,22 @@
 </Rung>
 <Rung Number="1" Type="N">
 <Text>
-<![CDATA[DIV(FT_10_500.SCALED_DATA,1,FT_10_500_HMI);]]>
+<![CDATA[DIV(FT_10_500_REAL,1,FT_10_500_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="2" Type="N">
 <Text>
-<![CDATA[DIV(PT_10_505.SCALED_DATA,1,PT_10_505_HMI);]]>
+<![CDATA[DIV(PT_10_505_REAL,1,PT_10_505_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="3" Type="N">
 <Text>
-<![CDATA[DIV(FT_10_501.SCALED_DATA,1,FT_10_501_HMI);]]>
+<![CDATA[DIV(FT_10_501_REAL,1,FT_10_501_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="4" Type="N">
 <Text>
-<![CDATA[DIV(PT_10_506.SCALED_DATA,1,PT_10_506_HMI);]]>
+<![CDATA[DIV(PT_10_506_REAL,1,PT_10_506_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="5" Type="N">
@@ -650,30 +751,50 @@
 </Rung>
 <Rung Number="6" Type="N">
 <Text>
-<![CDATA[MOVE(Total_Flow_Today_TTL,Total_Flow_Today_TTL_HMI);]]>
+<![CDATA[MOVE(Main_Flow_Today_TTL,Main_Flow_Today_TTL_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="7" Type="N">
 <Text>
-<![CDATA[MOVE(Total_Flow_Yesterday_TTL,Total_Flow_Yesterday_TTL_HMI);]]>
+<![CDATA[MOVE(Main_Flow_Yesterday_TTL,Main_Flow_Yesterday_TTL_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="8" Type="N">
 <Text>
-<![CDATA[MOVE(Bypass_Position_Percent,HCV_10_502B_HMI);]]>
+<![CDATA[MOVE(Siphon_Flow_Today_TTL,Siphon_Flow_Today_TTL_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="9" Type="N">
 <Text>
-<![CDATA[MOVE(Main_Position_Percent,HCV_10_502M_HMI);]]>
+<![CDATA[MOVE(Siphon_Flow_Yesterday_TTL,Siphon_Flow_Yesterday_TTL_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="10" Type="N">
 <Text>
-<![CDATA[MOVE(Siphon_Position_Percent,HCV_10_502S_HMI);]]>
+<![CDATA[MOVE(Total_Flow_Today_TTL,Total_Flow_Today_TTL_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="11" Type="N">
+<Text>
+<![CDATA[MOVE(Total_Flow_Yesterday_TTL,Total_Flow_Yesterday_TTL_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Text>
+<![CDATA[MOVE(Bypass_Position_Percent,HCV_10_502B_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Text>
+<![CDATA[MOVE(Main_Position_Percent,HCV_10_502M_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Text>
+<![CDATA[MOVE(Siphon_Position_Percent,HCV_10_502S_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="15" Type="N">
 <Comment>
 <![CDATA[##############     Valve Control Bool     ###################]]>
 </Comment>
@@ -681,7 +802,7 @@
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="12" Type="N">
+<Rung Number="16" Type="N">
 <Comment>
 <![CDATA[############################          Generator Data to HMI          #############################]]>
 </Comment>
@@ -689,27 +810,27 @@
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="13" Type="N">
+<Rung Number="17" Type="N">
 <Text>
 <![CDATA[MOVE(Genset_RunTimer_Counter.ACC,Gen_RunTimer_Minutes_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="14" Type="N">
+<Rung Number="18" Type="N">
 <Text>
 <![CDATA[MOVE(Genset_Runs_cntr.ACC,Gen_Runs_cntr_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="15" Type="N">
+<Rung Number="19" Type="N">
 <Text>
 <![CDATA[MOVE(Gen_FailToStart_cntr.ACC,Gen_FailToStart_cntr_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="16" Type="N">
+<Rung Number="20" Type="N">
 <Text>
 <![CDATA[XIC(Run_Genset)[SUB(Genset_MinRun.PRE,Genset_MinRun.ACC,Genset_MinRun_ACC) ,DIV(Genset_MinRun_ACC,1000,Genset_MinRun_ACC) ];]]>
 </Text>
 </Rung>
-<Rung Number="17" Type="N">
+<Rung Number="21" Type="N">
 <Comment>
 <![CDATA[Miscellanious Values]]>
 </Comment>
@@ -717,7 +838,23 @@
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="18" Type="N">
+<Rung Number="22" Type="N">
+<Comment>
+<![CDATA[Meter Sump Remaining Lockout (Minutes) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(MeterSump_LockoutTime,MeterSump_Lockout_Rem_Min_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="23" Type="N">
+<Comment>
+<![CDATA[Valve Sump Remaining Lockout (Minutes) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(ValveSump_LockoutTime,ValveSump_Lockout_Rem_Min_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="24" Type="N">
 <Comment>
 <![CDATA[Outside Temperature
 (-)40 to +30C]]>
@@ -726,7 +863,7 @@
 <![CDATA[MOVE(TT_10_503.SCALED_DATA,TT_10_503_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="19" Type="N">
+<Rung Number="25" Type="N">
 <Comment>
 <![CDATA[Battery Level=0-30Vdc]]>
 </Comment>
@@ -734,7 +871,7 @@
 <![CDATA[MOVE(BATT_10_504.SCALED_DATA,BATT_10_504_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="20" Type="N">
+<Rung Number="26" Type="N">
 <Comment>
 <![CDATA[Reservoir Level
 (0-100M)]]>
