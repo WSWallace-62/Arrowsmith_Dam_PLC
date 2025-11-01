@@ -15,8 +15,8 @@ This program controls the three primary valves at the dam. It includes all inter
 
 ## Key Files
 
-* **`Arrowsmith_Dam_Oct24_R0.L5X`**: The main controller project file.
-* **`Valves_Routine_RLL_R1.L5X`**: A standalone export of the "Valves" routine. Contains all logic for the Bypass, Main, and Siphon valves.
+* **`Arrowsmith_Dam.L5X`**: The main controller project file.
+* **`Valves_Routine_RLL.L5X`**: A standalone export of the "Valves" routine. Contains all logic for the Bypass, Main, and Siphon valves.
 
 ---
 
@@ -34,7 +34,7 @@ This program controls the three primary valves at the dam. It includes all inter
 
 To use this logic:
 
-1.  Open the main `Arrowsmith_Dam_Oct24_R0.L5X` project.
+1.  Open the main `Arrowsmith_Dam.L5X` project.
 2.  Alternatively, you can import the `Valves_Routine_RLL_R1.L5X` file by right-clicking on the "MainProgram" and selecting "Import Routine...".
 
 ---
@@ -43,3 +43,4 @@ To use this logic:
 
 * **Oct 24, 2025:** Added "Cooldown" and "Anti-Repeat" (Cmd_Held) logic to all three valves.
 * **Oct 23, 2025:** Initial commit of valve logic.
+* **Nov 01, 2025:** Replaced old Routine L5X files with current Project L5X file.
