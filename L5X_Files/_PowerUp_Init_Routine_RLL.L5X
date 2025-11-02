@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="_PowerUp_Init" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Mon Oct 27 15:04:06 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="_PowerUp_Init" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Sun Nov 02 13:06:58 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
 <Controller Use="Context" Name="Arrowsmith_Dam">
 <DataTypes Use="Context">
 </DataTypes>
@@ -20,10 +20,10 @@
 <![CDATA[Internal counter for Bypass Valve raw position]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2000000]]>
+<![CDATA[2500000]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="2000000"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="2500000"/>
 </Data>
 </Tag>
 <Tag Name="Main_Full_Stroke_Time_SP" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
