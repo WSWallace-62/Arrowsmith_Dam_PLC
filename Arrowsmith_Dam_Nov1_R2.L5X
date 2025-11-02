@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Sat Nov 01 16:34:52 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
-<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" ProjectCreationDate="Wed Sep 17 16:52:20 2025" LastModifiedDate="Sat Nov 01 16:33:40 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent" SFCLastScan="DontScan"
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Sat Nov 01 21:39:48 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" ProjectCreationDate="Wed Sep 17 16:52:20 2025" LastModifiedDate="Sat Nov 01 21:33:35 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent" SFCLastScan="DontScan"
  CommPath="Ethernet\192.168.0.130" ProjectSN="16#d0a9_2b6a" MatchProjectToController="false" CanUseRPIFromProducer="false" InhibitAutomaticFirmwareUpdate="0" PassThroughConfiguration="EnabledWithAppend" DownloadProjectDocumentationAndExtendedProperties="true" DownloadProjectCustomProperties="true" ReportMinorOverflow="false" EtherNetIPMode="A1/A2: Dual-IP" AutoDiagsEnabled="true"
  WebServerEnabled="false">
 <Description>
@@ -1518,7 +1518,8 @@
 <Tags>
 <Tag Name="ACPowerOn" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[AC Power ON- IB16_1]]>
+<![CDATA[AC POWER 
+ON to HMI]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[1]]>
@@ -1625,7 +1626,8 @@
 </Tag>
 <Tag Name="BatryChgFault" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Battery Charging Fault - IB16_1]]>
+<![CDATA[BATTERY CHARGE 
+FAULT to HMI]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -1636,47 +1638,14 @@
 </Tag>
 <Tag Name="BatryChgOK" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[UPS Battery Charge is OK - IB16_1]]>
+<![CDATA[BATTERY CHARGE 
+OK to HMI]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="BATT_10_504" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Battery Level=0-30Vdc]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[[3,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,3.00000000e+001,3.00000000e+001
-		,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
-		]]]]>
-</Data>
-<Data Format="Decorated">
-<Structure DataType="Analog_Scaling">
-<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
-<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="RAW_DATA" DataType="REAL" Radix="Float" Value="100.0"/>
-<DataValueMember Name="cfgRAW_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgRAW_MAX" DataType="REAL" Radix="Float" Value="100.0"/>
-<DataValueMember Name="cfgSCALED_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
-<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="30.0"/>
-<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="30.0"/>
-</Structure>
-</Data>
-</Tag>
-<Tag Name="BATT_10_504_DINT" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Battery Level=0-30Vdc
-Converted to DINT]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[30]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="30"/>
 </Data>
 </Tag>
 <Tag Name="BATT_10_504_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -1690,20 +1659,10 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="30.0"/>
 </Data>
 </Tag>
-<Tag Name="BATT_10_504_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Battery Level=0-30Vdc]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[3.00000000e+001]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="30.0"/>
-</Data>
-</Tag>
 <Tag Name="BldTempLow" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Building Temperature Low- IB16_1]]>
+<![CDATA[BUILDING TEMP
+LOW to HMI]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -1714,7 +1673,8 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="BuildingDoorSw" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Building Door Switch monitor- IB16_1]]>
+<![CDATA[Building Door 
+Switch to HMI]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -1901,31 +1861,9 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="ClsBypasVlvSS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Operator switch to close the Bypass Valve- IB16_2]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
 <Tag Name="ClsMainValve_20" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Control output to close the 20" Main Valve - OB16]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="ClsMainVlvSS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Operator switch to close the Main Valve- IB16_2]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -1948,17 +1886,6 @@ Converted to DINT]]>
 <Tag Name="ClsSiphonValve_14" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Control output to close the 14" Siphon Valve - OB16]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="ClsSiphonVlvSS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Operator switch to close the Siphon Valve- IB16_2]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -2282,6 +2209,78 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="EA_10_504_FLT" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY CHARGE
+FAULT to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ES_10_504_STS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY 
+CHARGE OK]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ET_10_504" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY VOLTAGE
+0-30Vdc]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[3,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,3.00000000e+001,3.00000000e+001
+		,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		]]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="Analog_Scaling">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+<DataValueMember Name="RAW_DATA" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="cfgRAW_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="cfgRAW_MAX" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="cfgSCALED_MIN" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="cfgSCALED_MAX" DataType="REAL" Radix="Float" Value="30.0"/>
+<DataValueMember Name="SCALED_DATA" DataType="REAL" Radix="Float" Value="30.0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="ET_10_504_DINT" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY VOLTAGE
+0-30Vdc
+Converted to DINT]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[30]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="30"/>
+</Data>
+</Tag>
+<Tag Name="ET_10_504_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY VOLTAGE
+0-30Vdc]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="30.0"/>
+</Data>
+</Tag>
 <Tag Name="FL_10_500_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Total Flow]]>
@@ -2295,7 +2294,7 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="FT_10_500" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[High Level Flow
+<![CDATA[MAIN FLOW
 0-5m3/sec]]>
 </Description>
 <Data Format="L5K">
@@ -2318,7 +2317,7 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="FT_10_500_DINT" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[/High Level Flow
+<![CDATA[MAIN FLOW
 0-5m3/sec (0-500)
 Converted to DINT]]>
 </Description>
@@ -2341,9 +2340,9 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="1.25"/>
 </Data>
 </Tag>
-<Tag Name="FT_10_500_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="FT_10_500_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[High Level Flow
+<![CDATA[MAIN FLOW
 0-5m3/sec]]>
 </Description>
 <Data Format="L5K">
@@ -2366,7 +2365,7 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="FT_10_501" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Low Level Flow
+<![CDATA[SIPHON FLOW
 0-2.5m3/sec]]>
 </Description>
 <Data Format="L5K">
@@ -2389,7 +2388,7 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="FT_10_501_DINT" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Low Level Flow
+<![CDATA[SIPHON FLOW
 0-2.5m3/sec (0-250)
 Converted to DINT]]>
 </Description>
@@ -2412,9 +2411,9 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="2.5"/>
 </Data>
 </Tag>
-<Tag Name="FT_10_501_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="FT_10_501_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Low Level Flow
+<![CDATA[SIPHON FLOW
 0-2.5m3/sec]]>
 </Description>
 <Data Format="L5K">
@@ -2424,31 +2423,20 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="2.5"/>
 </Data>
 </Tag>
+<Tag Name="GA_10_303" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[GENSET FAULT]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="Genset_AutoStart_Req" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Gen Start request ]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="Genset_Fault" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[The Genset has a fault- IB16_1]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="Genset_LowFuel" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[The Genset is Low on fuel- IB16_1]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -2470,7 +2458,7 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="Genset_Running" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[The Genset is Running - IB16_1]]>
+<![CDATA[Genset Running status to HMI]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -2680,6 +2668,17 @@ Converted to DINT]]>
 <DataValue DataType="DINT" Radix="Decimal" Value="30000"/>
 </Data>
 </Tag>
+<Tag Name="GS_10_303_RN" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[GENSET RUNNING]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="HCV_10_502B_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Bypass Valve Position
@@ -2824,12 +2823,12 @@ Converted to DINT]]>
 <![CDATA[30-minute inactivity timer. Resets on HMI activity.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072002202,1800000,62357]]]>
+<![CDATA[[-1070481983,1800000,359792]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1800000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="62357"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="359792"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -2979,6 +2978,126 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="HSC_10_300" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[CLOSE MAIN 
+VALVE SS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HSC_10_301" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[CLOSE SIPHON
+VALVE SS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HSC_10_302" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[CLOSE BYPASS
+VALVE SS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HSO_10_300" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[OPEN MAIN 
+VALVE SS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HSO_10_301" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[OPEN SIPHON
+VALVE SS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HSO_10_302" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[OPEN BYPASS
+VALVE SS]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="JSH_10_308" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[AC POWER 
+ON to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="LAH_10_304" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[VALVE CHAMBER
+FLOAT]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="LAH_10_305" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[METER CHAMBER
+FLOAT]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="LAL_10_303" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[GENSET LOW
+FUEL]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="Live_Sim" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Run simulation bits]]>
@@ -3003,7 +3122,8 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="LT_10_502" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Reservoir Level=0-42M (0-420) + 820M base to get Geodetic Level]]>
+<![CDATA[RESERVOIR LEVEL
+Level=0-42M 810M base to get Geodetic Level]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[3,5.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,4.20000000e+001,2.10000000e+001
@@ -3025,7 +3145,8 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="LT_10_502_DINT" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Reservoir Level=0-42M (0-420) + 820M base to get Geodetic Level
+<![CDATA[RESERVOIR LEVEL
+Level=0-42M 810M base to get Geodetic Level
 Converted to DINT]]>
 </Description>
 <Data Format="L5K">
@@ -3047,9 +3168,10 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="21.0"/>
 </Data>
 </Tag>
-<Tag Name="LT_10_502_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="LT_10_502_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Reservoir Level=0-42M (0-420) + 820M base to get Geodetic Level]]>
+<![CDATA[RESERVOIR LEVEL
+Level=0-42M 810M base to get Geodetic Level]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[2.10000000e+001]]>
@@ -3111,10 +3233,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.93319609e+004]]>
+<![CDATA[4.22037578e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="19331.96"/>
+<DataValue DataType="REAL" Radix="Float" Value="42203.758"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3122,10 +3244,10 @@ Converted to DINT]]>
 <![CDATA[Totalized Main Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.93319570e+004]]>
+<![CDATA[4.22037539e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="19331.957"/>
+<DataValue DataType="REAL" Radix="Float" Value="42203.754"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3296,7 +3418,7 @@ Converted to DINT]]>
 <![CDATA[Meter Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[1739625,10000,10000]]]>
+<![CDATA[[3259844,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -3488,17 +3610,6 @@ Converted to DINT]]>
 <DataValue DataType="DINT" Radix="Decimal" Value="1"/>
 </Data>
 </Tag>
-<Tag Name="MtrChmbrFloat" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Meter chamber Level monitor- IB16_1]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
 <Tag Name="MyClock" TagType="Base" DataType="DINT" Dimensions="7" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Comments>
 <Comment Operand="[0]">
@@ -3524,17 +3635,17 @@ Converted to DINT]]>
 </Comment>
 </Comments>
 <Data Format="L5K">
-<![CDATA[[2025,11,1,16,34,58,812765]]]>
+<![CDATA[[2025,11,1,21,39,56,288169]]]>
 </Data>
 <Data Format="Decorated">
 <Array DataType="DINT" Dimensions="7" Radix="Decimal">
 <Element Index="[0]" Value="2025"/>
 <Element Index="[1]" Value="11"/>
 <Element Index="[2]" Value="1"/>
-<Element Index="[3]" Value="16"/>
-<Element Index="[4]" Value="34"/>
-<Element Index="[5]" Value="58"/>
-<Element Index="[6]" Value="812765"/>
+<Element Index="[3]" Value="21"/>
+<Element Index="[4]" Value="39"/>
+<Element Index="[5]" Value="56"/>
+<Element Index="[6]" Value="288169"/>
 </Array>
 </Data>
 </Tag>
@@ -3613,31 +3724,9 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="OpnBypasVlvSS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Operator switch to open the Bypass Valve - IB16_2]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
 <Tag Name="OpnMainValve_20" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Control output to open the 20" Main Valve - OB16]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="OpnMainVlvSS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Operator switch to open the Main Valve - IB16_2]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -3660,17 +3749,6 @@ Converted to DINT]]>
 <Tag Name="OpnSiphonValve_14" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Control output to open the 14" Siphon Valve - OB16]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="OpnSiphonVlvSS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Operator switch to open the Siphon Valve- IB16_2]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -3717,7 +3795,8 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="PT_10_505" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[High Level Pressure (0-689)]]>
+<![CDATA[MAIN PRESSURE
+(0-689 kpa)]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[3,2.50000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,6.89000000e+002,1.72250000e+002
@@ -3739,7 +3818,8 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="PT_10_505_DINT" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[High Level Pressure (0-689KPA)
+<![CDATA[MAIN PRESSURE
+(0-689 kpa)
 Converted to DINT]]>
 </Description>
 <Data Format="L5K">
@@ -3760,9 +3840,10 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="172.25"/>
 </Data>
 </Tag>
-<Tag Name="PT_10_505_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="PT_10_505_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[High Level Pressure (0-689KPA)]]>
+<![CDATA[MAIN PRESSURE
+0-689KPA)]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[1.72250000e+002]]>
@@ -3773,7 +3854,8 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="PT_10_506" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Low Level Pressure (0-689KPA)]]>
+<![CDATA[SIPHON PRESSURE
+(0-689KPA)]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[3,5.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,6.89000000e+002,3.44500000e+002
@@ -3795,7 +3877,8 @@ Converted to DINT]]>
 </Tag>
 <Tag Name="PT_10_506_DINT" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Low Level Pressure (0-689KPA)
+<![CDATA[SIPHON PRESSURE
+(0-689KPA)
 Converted to DINT]]>
 </Description>
 <Data Format="L5K">
@@ -3816,9 +3899,10 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="344.5"/>
 </Data>
 </Tag>
-<Tag Name="PT_10_506_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="PT_10_506_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Low Level Pressure (0-689KPA)]]>
+<![CDATA[SIPHON PRESSURE
+(0-689KPA)]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[3.44500000e+002]]>
@@ -3916,10 +4000,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3.85681016e+004]]>
+<![CDATA[8.43117266e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="38568.1"/>
+<DataValue DataType="REAL" Radix="Float" Value="84311.73"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3928,10 +4012,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3.85681016e+004]]>
+<![CDATA[8.43117266e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="38568.1"/>
+<DataValue DataType="REAL" Radix="Float" Value="84311.73"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4292,10 +4376,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2.83822500e+005]]>
+<![CDATA[3.52437938e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="283822.5"/>
+<DataValue DataType="REAL" Radix="Float" Value="352437.94"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4303,10 +4387,10 @@ Converted to DINT]]>
 <![CDATA[Totalized Total Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2.83822531e+005]]>
+<![CDATA[3.52437969e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="283822.53"/>
+<DataValue DataType="REAL" Radix="Float" Value="352437.97"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4430,7 +4514,7 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="30.0"/>
 </Data>
 </Tag>
-<Tag Name="TT_10_503_REAL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="TT_10_503_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Outside Temp
 ((-)40 to +30]]>
@@ -4464,7 +4548,7 @@ Converted to DINT]]>
 <![CDATA[Valve Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[1739588,10000,10000]]]>
+<![CDATA[[3259824,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -4630,17 +4714,6 @@ Converted to DINT]]>
 <Tag Name="VideoPowerOn" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Control output for power to the video/CCTV system - OB16]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="VlvChmbrFloat" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Valve chamber Level monitor- IB16_1]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -4822,9 +4895,10 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="ZSC_10_300" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="XAL_10_306" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Bypass Valve Fully Closed Limit Switch]]>
+<![CDATA[BUILDING 
+TEMP LOW]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -4833,7 +4907,19 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="ZSC_10_301" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="XA_10_300" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BUILDING DOOR
+SWITCH ]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ZSC_10_300" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Main Valve Fully Closed Limit Switch]]>
 </Description>
@@ -4844,7 +4930,7 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="ZSC_10_302" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="ZSC_10_301" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Siphon Valve Fully Closed Limit Switch]]>
 </Description>
@@ -4855,9 +4941,9 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="ZSO_10_300" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="ZSC_10_302" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Bypass Valve Fully Opened Limit Switch]]>
+<![CDATA[Bypass Valve Fully Closed Limit Switch]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -4866,7 +4952,7 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="ZSO_10_301" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="ZSO_10_300" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Main Valve Fully Opened Limit Switch]]>
 </Description>
@@ -4877,9 +4963,20 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="ZSO_10_302" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="ZSO_10_301" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Siphon Valve Fully Open Limit Switch]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ZSO_10_302" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Valve Fully Opened Limit Switch]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -6856,9 +6953,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,3.75000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,2.83823250e+005,3.21174500e+005,1.00000000e-003
-		,0,0.00000000e+000,7.44117311e-033,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,3.75000000e+000,9.08269978e+000,6.77017735e-040]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,3.52438969e+005,3.21174500e+005,1.00000000e-003
+		,0,0.00000000e+000,3.42324879e-032,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,3.75000000e+000,9.34444714e+000,-1.66533310e+028]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -6888,7 +6985,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="283823.25"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="352438.97"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="321174.5"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -6916,9 +7013,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,1.25000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,1.93321562e+004,1.17909131e+003,1.00000000e-003
-		,0,0.00000000e+000,7.44116209e-033,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,1.25000000e+000,6.58997059e+000,8.82919374e-038]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,4.22040508e+004,1.17909131e+003,1.00000000e-003
+		,0,0.00000000e+000,3.42324027e-032,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,1.25000000e+000,7.14398241e+000,-4.00708261e-021]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -6948,7 +7045,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="19332.156"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="42204.05"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="1179.0913"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -6976,9 +7073,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,2.50000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,3.85685508e+004,1.52990005e+002,1.00000000e-003
-		,0,0.00000000e+000,7.44118560e-033,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,2.50000000e+000,7.08850908e+000,-4.48597600e-010]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,8.43123750e+004,1.52990005e+002,1.00000000e-003
+		,0,0.00000000e+000,3.42325378e-032,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,2.50000000e+000,7.64325237e+000,1.44984716e-036]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -7008,7 +7105,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="38568.55"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="84312.375"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="152.99"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -7083,7 +7180,7 @@ CR8]]>
 </Tag>
 <Tag Name="T_AC_Stable_Delay" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[-1608872987,10000,10000]]]>
+<![CDATA[[-1607352689,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -7153,12 +7250,12 @@ CR8]]>
 </Tag>
 <Tag Name="T_Position_Pulse" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[-1072002078,100,81]]]>
+<![CDATA[[-1070481781,100,94]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="81"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="94"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -7187,17 +7284,17 @@ CR8]]>
 ***********************************************************************************************]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(Local:1:I.Pt00.Data) ,XIC(Live_Sim.0) XIC(Run_Genset) ]OTE(Genset_Running);]]>
+<![CDATA[[XIC(Local:1:I.Pt00.Data) ,XIC(Live_Sim.0) XIC(Run_Genset) ]OTE(GS_10_303_RN);]]>
 </Text>
 </Rung>
 <Rung Number="1" Type="N">
 <Text>
-<![CDATA[XIC(Local:1:I.Pt01.Data)OTE(Genset_Fault);]]>
+<![CDATA[XIC(Local:1:I.Pt01.Data)OTE(GA_10_303);]]>
 </Text>
 </Rung>
 <Rung Number="2" Type="N">
 <Text>
-<![CDATA[XIC(Local:1:I.Pt02.Data)OTE(Genset_LowFuel);]]>
+<![CDATA[XIC(Local:1:I.Pt02.Data)OTE(LAL_10_303);]]>
 </Text>
 </Rung>
 <Rung Number="3" Type="N">
@@ -7207,12 +7304,12 @@ CR8]]>
 </Rung>
 <Rung Number="4" Type="N">
 <Text>
-<![CDATA[XIC(Local:1:I.Pt04.Data)OTE(VlvChmbrFloat);]]>
+<![CDATA[XIC(Local:1:I.Pt04.Data)OTE(LAH_10_304);]]>
 </Text>
 </Rung>
 <Rung Number="5" Type="N">
 <Text>
-<![CDATA[XIC(Local:1:I.Pt05.Data)OTE(MtrChmbrFloat);]]>
+<![CDATA[XIC(Local:1:I.Pt05.Data)OTE(LAH_10_305);]]>
 </Text>
 </Rung>
 <Rung Number="6" Type="N">
@@ -7222,17 +7319,17 @@ CR8]]>
 </Rung>
 <Rung Number="7" Type="N">
 <Text>
-<![CDATA[XIC(Local:1:I.Pt07.Data)OTE(BuildingDoorSw);]]>
+<![CDATA[XIC(Local:1:I.Pt07.Data)OTE(XA_10_300);]]>
 </Text>
 </Rung>
 <Rung Number="8" Type="N">
 <Text>
-<![CDATA[XIC(Local:1:I.Pt08.Data)OTE(BatryChgOK);]]>
+<![CDATA[XIC(Local:1:I.Pt08.Data)OTE(ES_10_504_STS);]]>
 </Text>
 </Rung>
 <Rung Number="9" Type="N">
 <Text>
-<![CDATA[XIC(Local:1:I.Pt09.Data)OTE(BatryChgFault);]]>
+<![CDATA[XIC(Local:1:I.Pt09.Data)OTE(EA_10_504_FLT);]]>
 </Text>
 </Rung>
 <Rung Number="10" Type="N">
@@ -7257,12 +7354,12 @@ CR8]]>
 </Rung>
 <Rung Number="14" Type="N">
 <Text>
-<![CDATA[XIC(Local:1:I.Pt14.Data)OTE(BldTempLow);]]>
+<![CDATA[XIC(Local:1:I.Pt14.Data)OTE(XAL_10_306);]]>
 </Text>
 </Rung>
 <Rung Number="15" Type="N">
 <Text>
-<![CDATA[XIC(Local:1:I.Pt15.Data)OTE(ACPowerOn);]]>
+<![CDATA[XIC(Local:1:I.Pt15.Data)OTE(JSH_10_308);]]>
 </Text>
 </Rung>
 <Rung Number="16" Type="N">
@@ -7272,32 +7369,32 @@ CR8]]>
 ****************************************************************************************]]>
 </Comment>
 <Text>
-<![CDATA[XIC(Local:2:I.Pt00.Data)OTE(OpnBypasVlvSS);]]>
+<![CDATA[XIC(Local:2:I.Pt00.Data)OTE(HSO_10_302);]]>
 </Text>
 </Rung>
 <Rung Number="17" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt01.Data)OTE(ClsBypasVlvSS);]]>
+<![CDATA[XIC(Local:2:I.Pt01.Data)OTE(HSC_10_302);]]>
 </Text>
 </Rung>
 <Rung Number="18" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt02.Data)OTE(OpnMainVlvSS);]]>
+<![CDATA[XIC(Local:2:I.Pt02.Data)OTE(HSO_10_300);]]>
 </Text>
 </Rung>
 <Rung Number="19" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt03.Data)OTE(ClsMainVlvSS);]]>
+<![CDATA[XIC(Local:2:I.Pt03.Data)OTE(HSC_10_300);]]>
 </Text>
 </Rung>
 <Rung Number="20" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt04.Data)OTE(OpnSiphonVlvSS);]]>
+<![CDATA[XIC(Local:2:I.Pt04.Data)OTE(HSO_10_301);]]>
 </Text>
 </Rung>
 <Rung Number="21" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt05.Data)OTE(ClsSiphonVlvSS);]]>
+<![CDATA[XIC(Local:2:I.Pt05.Data)OTE(HSC_10_301);]]>
 </Text>
 </Rung>
 <Rung Number="22" Type="N">
@@ -7312,32 +7409,32 @@ CR8]]>
 </Rung>
 <Rung Number="24" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt08.Data)OTE(ZSO_10_300);]]>
+<![CDATA[XIC(Local:2:I.Pt08.Data)OTE(ZSO_10_302);]]>
 </Text>
 </Rung>
 <Rung Number="25" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt09.Data)OTE(ZSC_10_300);]]>
+<![CDATA[XIC(Local:2:I.Pt09.Data)OTE(ZSC_10_302);]]>
 </Text>
 </Rung>
 <Rung Number="26" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt10.Data)OTE(ZSO_10_301);]]>
+<![CDATA[XIC(Local:2:I.Pt10.Data)OTE(ZSO_10_300);]]>
 </Text>
 </Rung>
 <Rung Number="27" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt11.Data)OTE(ZSC_10_301);]]>
+<![CDATA[XIC(Local:2:I.Pt11.Data)OTE(ZSC_10_300);]]>
 </Text>
 </Rung>
 <Rung Number="28" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt12.Data)OTE(ZSO_10_302);]]>
+<![CDATA[XIC(Local:2:I.Pt12.Data)OTE(ZSO_10_301);]]>
 </Text>
 </Rung>
 <Rung Number="29" Type="N">
 <Text>
-<![CDATA[XIC(Local:2:I.Pt13.Data)OTE(ZSC_10_302);]]>
+<![CDATA[XIC(Local:2:I.Pt13.Data)OTE(ZSC_10_301);]]>
 </Text>
 </Rung>
 <Rung Number="30" Type="N">
@@ -7355,37 +7452,37 @@ CR8]]>
 <![CDATA[Analog Inputs - Slot 4]]>
 </Comment>
 <Text>
-<![CDATA[[Analog_Scaling(FT_10_500,Local:4:I.Ch00.Data) ,TRUNC(FT_10_500.SCALED_DATA,FT_10_500_DINT) ,MOVE(FT_10_500.SCALED_DATA,FT_10_500_REAL) ];]]>
+<![CDATA[[Analog_Scaling(FT_10_500,Local:4:I.Ch00.Data) ,TRUNC(FT_10_500.SCALED_DATA,FT_10_500_DINT) ,MOVE(FT_10_500.SCALED_DATA,FT_10_500_SCLD) ];]]>
 </Text>
 </Rung>
 <Rung Number="33" Type="N">
 <Text>
-<![CDATA[[Analog_Scaling(PT_10_505,Local:4:I.Ch01.Data) ,TRUNC(PT_10_505.SCALED_DATA,PT_10_505_DINT) ,MOVE(PT_10_505.SCALED_DATA,PT_10_505_REAL) ];]]>
+<![CDATA[[Analog_Scaling(PT_10_505,Local:4:I.Ch01.Data) ,TRUNC(PT_10_505.SCALED_DATA,PT_10_505_DINT) ,MOVE(PT_10_505.SCALED_DATA,PT_10_505_SCLD) ];]]>
 </Text>
 </Rung>
 <Rung Number="34" Type="N">
 <Text>
-<![CDATA[[Analog_Scaling(FT_10_501,Local:4:I.Ch02.Data) ,TRUNC(FT_10_501.SCALED_DATA,FT_10_501_DINT) ,MOVE(FT_10_501.SCALED_DATA,FT_10_501_REAL) ];]]>
+<![CDATA[[Analog_Scaling(FT_10_501,Local:4:I.Ch02.Data) ,TRUNC(FT_10_501.SCALED_DATA,FT_10_501_DINT) ,MOVE(FT_10_501.SCALED_DATA,FT_10_501_SCLD) ];]]>
 </Text>
 </Rung>
 <Rung Number="35" Type="N">
 <Text>
-<![CDATA[[Analog_Scaling(PT_10_506,Local:4:I.Ch03.Data) ,TRUNC(PT_10_506.SCALED_DATA,PT_10_506_DINT) ,MOVE(PT_10_506.SCALED_DATA,PT_10_506_REAL) ];]]>
+<![CDATA[[Analog_Scaling(PT_10_506,Local:4:I.Ch03.Data) ,TRUNC(PT_10_506.SCALED_DATA,PT_10_506_DINT) ,MOVE(PT_10_506.SCALED_DATA,PT_10_506_SCLD) ];]]>
 </Text>
 </Rung>
 <Rung Number="36" Type="N">
 <Text>
-<![CDATA[[Analog_Scaling(LT_10_502,Local:4:I.Ch04.Data) ,TRUNC(LT_10_502.SCALED_DATA,LT_10_502_DINT) ,ADD(LT_10_502.SCALED_DATA,0,LT_10_502_REAL) ];]]>
+<![CDATA[[Analog_Scaling(LT_10_502,Local:4:I.Ch04.Data) ,TRUNC(LT_10_502.SCALED_DATA,LT_10_502_DINT) ,ADD(LT_10_502.SCALED_DATA,0,LT_10_502_SCLD) ];]]>
 </Text>
 </Rung>
 <Rung Number="37" Type="N">
 <Text>
-<![CDATA[[Analog_Scaling(TT_10_503,Local:4:I.Ch05.Data) ,TRUNC(TT_10_503.SCALED_DATA,TT_10_503_DINT) ,MOVE(TT_10_503.SCALED_DATA,TT_10_503_REAL) ];]]>
+<![CDATA[[Analog_Scaling(TT_10_503,Local:4:I.Ch05.Data) ,TRUNC(TT_10_503.SCALED_DATA,TT_10_503_DINT) ,MOVE(TT_10_503.SCALED_DATA,TT_10_503_SCLD) ];]]>
 </Text>
 </Rung>
 <Rung Number="38" Type="N">
 <Text>
-<![CDATA[[Analog_Scaling(BATT_10_504,Local:4:I.Ch06.Data) ,TRUNC(BATT_10_504.SCALED_DATA,BATT_10_504_DINT) ,MOVE(BATT_10_504.SCALED_DATA,BATT_10_504_REAL) ];]]>
+<![CDATA[[Analog_Scaling(ET_10_504,Local:4:I.Ch06.Data) ,TRUNC(ET_10_504.SCALED_DATA,ET_10_504_DINT) ,MOVE(ET_10_504.SCALED_DATA,ET_10_504_SCLD) ];]]>
 </Text>
 </Rung>
 <Rung Number="39" Type="N">
@@ -7534,10 +7631,10 @@ CR8]]>
 <Routine Name="Flow_Totalizer" Type="FBD">
 <FBDContent SheetSize="B - 11 x 17 in" SheetOrientation="Landscape">
 <Sheet Number="1">
-<IRef ID="0" X="500" Y="620" Operand="FT_10_500_REAL" HideDesc="false"/>
-<IRef ID="1" X="720" Y="40" Operand="FT_10_500_REAL" HideDesc="false"/>
-<IRef ID="2" X="500" Y="640" Operand="FT_10_501_REAL" HideDesc="false"/>
-<IRef ID="3" X="720" Y="340" Operand="FT_10_501_REAL" HideDesc="false"/>
+<IRef ID="0" X="500" Y="620" Operand="FT_10_500_SCLD" HideDesc="false"/>
+<IRef ID="1" X="720" Y="40" Operand="FT_10_500_SCLD" HideDesc="false"/>
+<IRef ID="2" X="500" Y="640" Operand="FT_10_501_SCLD" HideDesc="false"/>
+<IRef ID="3" X="720" Y="340" Operand="FT_10_501_SCLD" HideDesc="false"/>
 <IRef ID="4" X="240" Y="740" Operand="midnight" HideDesc="false"/>
 <IRef ID="5" X="300" Y="160" Operand="midnight" HideDesc="false"/>
 <IRef ID="6" X="400" Y="460" Operand="midnight" HideDesc="false"/>
@@ -7604,7 +7701,7 @@ CR8]]>
 <![CDATA[-- AC POWER FAIL TIMER -- When AC Power is lost, this timer starts. This prevents nuisance generator starts on momentary power flickers.]]>
 </Comment>
 <Text>
-<![CDATA[XIO(ACPowerOn)TON(T_AC_Fail_Delay,?,?);]]>
+<![CDATA[XIO(JSH_10_308)TON(T_AC_Fail_Delay,?,?);]]>
 </Text>
 </Rung>
 <Rung Number="1" Type="N">
@@ -7612,7 +7709,7 @@ CR8]]>
 <![CDATA[-- AUTO-START REQUEST -- If the AC Power Fail Timer completes, latch the automatic start request.]]>
 </Comment>
 <Text>
-<![CDATA[[[XIC(ValveSumpAutoStartDelay.DN) ,XIC(MeterSumpAutoStartDelay.DN) ,XIC(OpnBypasVlvSS) ,XIC(ClsBypasVlvSS) ,XIC(OpnMainVlvSS) ,XIC(ClsSiphonVlvSS) ,XIC(OpnSiphonVlvSS) ,XIC(StartGen_SCADA) ,XIC(HMI_Genset_Start_PB) ,XIC(T_AC_Fail_Delay.DN) ] OTE(Genset_AutoStart_Req) TON(GenStartDlyTmr,?,?) XIC(GenStartDlyTmr.DN) ,XIC(Genset_AutoStart_Req_Latch) XIO(Genset_MinRun.DN) XIO(Gen_FailToStart) ]XIO(Genset_Stop_Req)XIO(Genset_Fault)OTL(Genset_AutoStart_Req_Latch);]]>
+<![CDATA[[[XIC(ValveSumpAutoStartDelay.DN) ,XIC(MeterSumpAutoStartDelay.DN) ,XIC(HSO_10_302) ,XIC(HSC_10_302) ,XIC(HSO_10_300) ,XIC(HSC_10_301) ,XIC(HSO_10_301) ,XIC(StartGen_SCADA) ,XIC(HMI_Genset_Start_PB) ,XIC(T_AC_Fail_Delay.DN) ] OTE(Genset_AutoStart_Req) TON(GenStartDlyTmr,?,?) XIC(GenStartDlyTmr.DN) ,XIC(Genset_AutoStart_Req_Latch) XIO(Genset_MinRun.DN) XIO(Gen_FailToStart) ]XIO(Genset_Stop_Req)XIO(GA_10_303)OTL(Genset_AutoStart_Req_Latch);]]>
 </Text>
 </Rung>
 <Rung Number="2" Type="N">
@@ -7636,12 +7733,12 @@ CR8]]>
 <![CDATA[-- GENERATOR RUN LOGIC -- The Genset Run Output is sealed in when a start is requested. It will only stop if a stop is requested AND the minimum run time has elapsed, OR if a fault occurs.]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(Genset_Start_Req) ,XIC(Genset_Running) [XIO(Genset_MinRun.DN) ,XIO(T_AC_Stable_Delay.DN) ] ]OTE(Run_Genset);]]>
+<![CDATA[[XIC(Genset_Start_Req) ,XIC(GS_10_303_RN) [XIO(Genset_MinRun.DN) ,XIO(T_AC_Stable_Delay.DN) ] ]OTE(Run_Genset);]]>
 </Text>
 </Rung>
 <Rung Number="5" Type="N">
 <Text>
-<![CDATA[XIC(Genset_Running)CTU(Genset_Runs_cntr,?,?);]]>
+<![CDATA[XIC(GS_10_303_RN)CTU(Genset_Runs_cntr,?,?);]]>
 </Text>
 </Rung>
 <Rung Number="6" Type="N">
@@ -7649,7 +7746,7 @@ CR8]]>
 <![CDATA[When Pump is running start timer]]>
 </Comment>
 <Text>
-<![CDATA[XIC(Genset_Running)RTO(Genset_RunTimer,?,?);]]>
+<![CDATA[XIC(GS_10_303_RN)RTO(Genset_RunTimer,?,?);]]>
 </Text>
 </Rung>
 <Rung Number="7" Type="N">
@@ -7659,7 +7756,7 @@ CR8]]>
 </Rung>
 <Rung Number="8" Type="N">
 <Text>
-<![CDATA[XIC(Run_Genset)XIO(Genset_Running)TON(Gen_FailToStart_tmr,?,?)XIC(Gen_FailToStart_tmr.DN)[OTE(Gen_FailToStart) ,ONS(Gen_FailToStart_ONS) OTE(Gen_FailToStart_Pulse) ];]]>
+<![CDATA[XIC(Run_Genset)XIO(GS_10_303_RN)TON(Gen_FailToStart_tmr,?,?)XIC(Gen_FailToStart_tmr.DN)[OTE(Gen_FailToStart) ,ONS(Gen_FailToStart_ONS) OTE(Gen_FailToStart_Pulse) ];]]>
 </Text>
 </Rung>
 <Rung Number="9" Type="N">
@@ -7672,7 +7769,7 @@ CR8]]>
 <![CDATA[-- MINIMUM RUN TIMER -- When the Genset Running input confirms the engine is on, this timer begins. The output cannot be stopped until this timer is complete. The Default preset is based on the HMI screen (900 seconds = 15 minutes).]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(T_AC_Stable_Delay.DN) XIO(ACPowerOn) ,XIC(Genset_Running) ]TON(Genset_MinRun,?,?);]]>
+<![CDATA[[XIC(T_AC_Stable_Delay.DN) XIO(JSH_10_308) ,XIC(GS_10_303_RN) ]TON(Genset_MinRun,?,?);]]>
 </Text>
 </Rung>
 <Rung Number="11" Type="N">
@@ -7680,7 +7777,7 @@ CR8]]>
 <![CDATA[-- AC POWER STABLE TIMER -- This timer ensures AC power is stable for a period before an automatic stop is allowed.]]>
 </Comment>
 <Text>
-<![CDATA[XIC(ACPowerOn)TON(T_AC_Stable_Delay,?,?);]]>
+<![CDATA[XIC(JSH_10_308)TON(T_AC_Stable_Delay,?,?);]]>
 </Text>
 </Rung>
 <Rung Number="12" Type="N">
@@ -7688,7 +7785,7 @@ CR8]]>
 <![CDATA[-- AUTO-STOP LOGIC -- The generator will be commanded to stop automatically only if AC Power has been stable, the minimum run time is complete, AND it was started automatically.]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(T_AC_Stable_Delay.DN) XIC(Genset_MinRun.DN) XIO(Genset_AutoStart_Req) ,XIC(Genset_Fault) ,XIC(Gen_FailToStart) ][OTL(Genset_Stop_Req) ,OTU(Genset_AutoStart_Req_Latch) ,XIC(Genset_Stop_Req) OTU(Genset_Stop_Req) ];]]>
+<![CDATA[[XIC(T_AC_Stable_Delay.DN) XIC(Genset_MinRun.DN) XIO(Genset_AutoStart_Req) ,XIC(GA_10_303) ,XIC(Gen_FailToStart) ][OTL(Genset_Stop_Req) ,OTU(Genset_AutoStart_Req_Latch) ,XIC(Genset_Stop_Req) OTU(Genset_Stop_Req) ];]]>
 </Text>
 </Rung>
 <Rung Number="13" Type="N">
@@ -7709,7 +7806,7 @@ CR8]]>
 <![CDATA[-- STOP CONDITION -- The overall stop condition is met if a stop is requested AND the minimum run timer is done, OR if a Genset Fault is active. This bit directly controls the seal-in for the Run_Genset output.]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(Genset_Stop_Req) XIC(Genset_MinRun.DN) ,XIC(Genset_Fault) ]OTE(Genset_Stop_Condition);]]>
+<![CDATA[[XIC(Genset_Stop_Req) XIC(Genset_MinRun.DN) ,XIC(GA_10_303) ]OTE(Genset_Stop_Condition);]]>
 </Text>
 </Rung>
 </RLLContent>
@@ -7863,7 +7960,7 @@ If 30 minutes of inactivity passes, the final instruction executes, moving the l
 <![CDATA[-- METER CHAMBER PUMP AUTO LOGIC -- In Auto mode (HMI Override is OFF), the Meter Sump Pump is commanded to run when the Meter Chamber Float is high.]]>
 </Comment>
 <Text>
-<![CDATA[XIO(HMI_MeterSump_Override)[XIC(MtrChmbrFloat) ,XIC(MeterSumpAutoStop_Delay.DN) ][TON(MeterSumpAutoStartDelay,?,?) XIC(MeterSumpAutoStartDelay.DN) OTE(MeterPump_Auto_CMD) ,[XIO(MeterSumpAutoStop_Delay.DN) ,XIC(MtrChmbrFloat) ] TOF(MeterSumpAutoStop_Delay,?,?) ];]]>
+<![CDATA[XIO(HMI_MeterSump_Override)[XIC(LAH_10_305) ,XIC(MeterSumpAutoStop_Delay.DN) ][TON(MeterSumpAutoStartDelay,?,?) XIC(MeterSumpAutoStartDelay.DN) OTE(MeterPump_Auto_CMD) ,[XIO(MeterSumpAutoStop_Delay.DN) ,XIC(LAH_10_305) ] TOF(MeterSumpAutoStop_Delay,?,?) ];]]>
 </Text>
 </Rung>
 <Rung Number="1" Type="N">
@@ -7918,7 +8015,7 @@ If 30 minutes of inactivity passes, the final instruction executes, moving the l
 <![CDATA[-- VALVE CHAMBER PUMP AUTO LOGIC -- In Auto mode (HMI Override is OFF), the Valve Sump Pump is commanded to run when the Valve Chamber Float is high.]]>
 </Comment>
 <Text>
-<![CDATA[XIO(HMI_ValveSump_Override)[XIC(VlvChmbrFloat) ,XIC(ValveSumpAutoStop_Delay.DN) ][TON(ValveSumpAutoStartDelay,?,?) XIC(ValveSumpAutoStartDelay.DN) OTE(ValvePump_Auto_CMD) ,[XIO(ValveSumpAutoStop_Delay.DN) ,XIC(VlvChmbrFloat) ] TOF(ValveSumpAutoStop_Delay,?,?) ];]]>
+<![CDATA[XIO(HMI_ValveSump_Override)[XIC(LAH_10_304) ,XIC(ValveSumpAutoStop_Delay.DN) ][TON(ValveSumpAutoStartDelay,?,?) XIC(ValveSumpAutoStartDelay.DN) OTE(ValvePump_Auto_CMD) ,[XIO(ValveSumpAutoStop_Delay.DN) ,XIC(LAH_10_304) ] TOF(ValveSumpAutoStop_Delay,?,?) ];]]>
 </Text>
 </Rung>
 <Rung Number="9" Type="N">
@@ -7977,7 +8074,7 @@ If 30 minutes of inactivity passes, the final instruction executes, moving the l
 <![CDATA[-- BYPASS VALVE REMOTE MODE -- The valve is in Remote when the panel switch is not in the Open or Close position.]]>
 </Comment>
 <Text>
-<![CDATA[XIO(OpnBypasVlvSS)XIO(ClsBypasVlvSS)OTE(Bypass_Remote_Mode_Permissive);]]>
+<![CDATA[XIO(HSO_10_302)XIO(HSC_10_302)OTE(Bypass_Remote_Mode_Permissive);]]>
 </Text>
 </Rung>
 <Rung Number="1" Type="N">
@@ -7985,7 +8082,7 @@ If 30 minutes of inactivity passes, the final instruction executes, moving the l
 <![CDATA[-- BYPASS VALVE OPEN PERMISSIVE -- A command to open is active if from the panel switch OR from a remote command when in remote mode.]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(OpnBypasVlvSS) ,XIC(Bypass_Remote_Mode_Permissive) XIC(Bypass_Remote_Open_CMD) ]XIO(Bypass_Cooldown_Active)XIO(Bypass_Cmd_Held)ONS(ONS_Valves[0])XIO(Bypass_Open_Permissive)XIO(Bypass_Close_Permissive)OTL(Bypass_Open_Permissive);]]>
+<![CDATA[[XIC(HSO_10_302) ,XIC(Bypass_Remote_Mode_Permissive) XIC(Bypass_Remote_Open_CMD) ]XIO(Bypass_Cooldown_Active)XIO(Bypass_Cmd_Held)ONS(ONS_Valves[0])XIO(Bypass_Open_Permissive)XIO(Bypass_Close_Permissive)OTL(Bypass_Open_Permissive);]]>
 </Text>
 </Rung>
 <Rung Number="2" Type="N">
@@ -7993,7 +8090,7 @@ If 30 minutes of inactivity passes, the final instruction executes, moving the l
 <![CDATA[-- BYPASS VALVE OPEN OUTPUT -- Energize the open output if the permissive is active and the valve is not already fully open.]]>
 </Comment>
 <Text>
-<![CDATA[XIC(Bypass_Open_Permissive)XIO(ZSO_10_300)OTE(OpnBypasValve_10);]]>
+<![CDATA[XIC(Bypass_Open_Permissive)XIO(ZSO_10_302)OTE(OpnBypasValve_10);]]>
 </Text>
 </Rung>
 <Rung Number="3" Type="N">
@@ -8001,7 +8098,7 @@ If 30 minutes of inactivity passes, the final instruction executes, moving the l
 <![CDATA[-- BYPASS VALVE CLOSE PERMISSIVE -- A command to close is active if from the panel switch OR from a remote command when in remote mode.]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(ClsBypasVlvSS) ,XIC(Bypass_Remote_Mode_Permissive) XIC(Bypass_Remote_Close_CMD) ]XIO(Bypass_Cooldown_Active)XIO(Bypass_Cmd_Held)ONS(ONS_Valves[3])XIO(Bypass_Close_Permissive)XIO(Bypass_Open_Permissive)OTL(Bypass_Close_Permissive);]]>
+<![CDATA[[XIC(HSC_10_302) ,XIC(Bypass_Remote_Mode_Permissive) XIC(Bypass_Remote_Close_CMD) ]XIO(Bypass_Cooldown_Active)XIO(Bypass_Cmd_Held)ONS(ONS_Valves[3])XIO(Bypass_Close_Permissive)XIO(Bypass_Open_Permissive)OTL(Bypass_Close_Permissive);]]>
 </Text>
 </Rung>
 <Rung Number="4" Type="N">
@@ -8009,7 +8106,7 @@ If 30 minutes of inactivity passes, the final instruction executes, moving the l
 <![CDATA[-- BYPASS VALVE CLOSE OUTPUT -- Energize the close output if the permissive is active and the valve is not already fully closed.]]>
 </Comment>
 <Text>
-<![CDATA[XIC(Bypass_Close_Permissive)XIO(ZSC_10_300)OTE(ClsByPasValve_10);]]>
+<![CDATA[XIC(Bypass_Close_Permissive)XIO(ZSC_10_302)OTE(ClsByPasValve_10);]]>
 </Text>
 </Rung>
 <Rung Number="5" Type="N">
@@ -8025,7 +8122,7 @@ If 30 minutes of inactivity passes, the final instruction executes, moving the l
 <![CDATA[If HMI Request the valve to move then HMI setpoint is the valve move time Preset]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(HMI_Bypass_Open_CMD) ,XIC(HMI_Bypass_Close_CMD) ,XIC(OpnBypasVlvSS) ,XIC(ClsBypasVlvSS) ]MOVE(HMI_Bypass_MoveTmr_pre,Actual_Bypass_MoveTmr_pre);]]>
+<![CDATA[[XIC(HMI_Bypass_Open_CMD) ,XIC(HMI_Bypass_Close_CMD) ,XIC(HSO_10_302) ,XIC(HSC_10_302) ]MOVE(HMI_Bypass_MoveTmr_pre,Actual_Bypass_MoveTmr_pre);]]>
 </Text>
 </Rung>
 <Rung Number="7" Type="N">
@@ -8088,12 +8185,12 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="14" Type="N">
 <Text>
-<![CDATA[XIC(ZSC_10_300)MOVE(Bypass_Position_Counter,Bypass_InRawMin);]]>
+<![CDATA[XIC(ZSC_10_302)MOVE(Bypass_Position_Counter,Bypass_InRawMin);]]>
 </Text>
 </Rung>
 <Rung Number="15" Type="N">
 <Text>
-<![CDATA[XIC(ZSO_10_300)MOVE(Bypass_Position_Counter,Bypass_InRawMax);]]>
+<![CDATA[XIC(ZSO_10_302)MOVE(Bypass_Position_Counter,Bypass_InRawMax);]]>
 </Text>
 </Rung>
 <Rung Number="16" Type="N">
@@ -8106,12 +8203,12 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="17" Type="N">
 <Text>
-<![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(ZSO_10_300) ][OTU(Bypass_Open_Permissive) ,OTU(Bypass_Remote_Open_CMD) ];]]>
+<![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(ZSO_10_302) ][OTU(Bypass_Open_Permissive) ,OTU(Bypass_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
 <Rung Number="18" Type="N">
 <Text>
-<![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(ZSC_10_300) ][OTU(Bypass_Close_Permissive) ,OTU(Bypass_Remote_Close_CMD) ];]]>
+<![CDATA[[XIC(Bypass_MoveTmr.DN) ,XIC(ZSC_10_302) ][OTU(Bypass_Close_Permissive) ,OTU(Bypass_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
 <Rung Number="19" Type="N">
@@ -8139,7 +8236,7 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="23" Type="N">
 <Text>
-<![CDATA[XIO(OpnBypasVlvSS)XIO(ClsBypasVlvSS)XIO(HMI_Bypass_Open_CMD)XIO(VTS_Bypass_Open_CMD)XIO(HMI_Bypass_Close_CMD)XIO(VTS_Bypass_Close_CMD)OTU(Bypass_Cmd_Held);]]>
+<![CDATA[XIO(HSO_10_302)XIO(HSC_10_302)XIO(HMI_Bypass_Open_CMD)XIO(VTS_Bypass_Open_CMD)XIO(HMI_Bypass_Close_CMD)XIO(VTS_Bypass_Close_CMD)OTU(Bypass_Cmd_Held);]]>
 </Text>
 </Rung>
 <Rung Number="24" Type="N">
@@ -8155,7 +8252,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- MAIN VALVE REMOTE MODE --]]>
 </Comment>
 <Text>
-<![CDATA[XIO(OpnMainVlvSS)XIO(ClsMainVlvSS)OTE(Main_Remote_Mode_Permissive);]]>
+<![CDATA[XIO(HSO_10_300)XIO(HSC_10_300)OTE(Main_Remote_Mode_Permissive);]]>
 </Text>
 </Rung>
 <Rung Number="26" Type="N">
@@ -8163,7 +8260,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- MAIN VALVE OPEN PERMISSIVE --]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(OpnMainVlvSS) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Open_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[4])XIO(Main_Open_Permissive)XIO(Main_Close_Permissive)OTL(Main_Open_Permissive);]]>
+<![CDATA[[XIC(HSO_10_300) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Open_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[4])XIO(Main_Open_Permissive)XIO(Main_Close_Permissive)OTL(Main_Open_Permissive);]]>
 </Text>
 </Rung>
 <Rung Number="27" Type="N">
@@ -8171,7 +8268,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- MAIN VALVE OPEN OUTPUT --]]>
 </Comment>
 <Text>
-<![CDATA[XIC(Main_Open_Permissive)XIO(ZSO_10_301)OTE(OpnMainValve_20);]]>
+<![CDATA[XIC(Main_Open_Permissive)XIO(ZSO_10_300)OTE(OpnMainValve_20);]]>
 </Text>
 </Rung>
 <Rung Number="28" Type="N">
@@ -8179,7 +8276,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- MAIN VALVE CLOSE PERMISSIVE --]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(ClsMainVlvSS) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Close_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[5])XIO(Main_Close_Permissive)XIO(Main_Open_Permissive)OTL(Main_Close_Permissive);]]>
+<![CDATA[[XIC(HSC_10_300) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Close_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[5])XIO(Main_Close_Permissive)XIO(Main_Open_Permissive)OTL(Main_Close_Permissive);]]>
 </Text>
 </Rung>
 <Rung Number="29" Type="N">
@@ -8187,7 +8284,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- MAIN VALVE CLOSE OUTPUT --]]>
 </Comment>
 <Text>
-<![CDATA[XIC(Main_Close_Permissive)XIO(ZSC_10_301)OTE(ClsMainValve_20);]]>
+<![CDATA[XIC(Main_Close_Permissive)XIO(ZSC_10_300)OTE(ClsMainValve_20);]]>
 </Text>
 </Rung>
 <Rung Number="30" Type="N">
@@ -8203,7 +8300,7 @@ NEEDS CORRECTION]]>
 <![CDATA[If HMI Request the valve to move then HMI setpoint is the valve move time Preset]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(HMI_Main_Open_CMD) ,XIC(HMI_Main_Close_CMD) ,XIC(OpnMainVlvSS) ,XIC(ClsMainVlvSS) ]MOVE(HMI_Main_MoveTmr_pre,Actual_Main_MoveTmr_pre);]]>
+<![CDATA[[XIC(HMI_Main_Open_CMD) ,XIC(HMI_Main_Close_CMD) ,XIC(HSO_10_300) ,XIC(HSC_10_300) ]MOVE(HMI_Main_MoveTmr_pre,Actual_Main_MoveTmr_pre);]]>
 </Text>
 </Rung>
 <Rung Number="32" Type="N">
@@ -8256,12 +8353,12 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="38" Type="N">
 <Text>
-<![CDATA[XIC(ZSC_10_301)MOVE(Main_Position_Counter,Main_InRawMin);]]>
+<![CDATA[XIC(ZSC_10_300)MOVE(Main_Position_Counter,Main_InRawMin);]]>
 </Text>
 </Rung>
 <Rung Number="39" Type="N">
 <Text>
-<![CDATA[XIC(ZSO_10_301)MOVE(Main_Position_Counter,Main_InRawMax);]]>
+<![CDATA[XIC(ZSO_10_300)MOVE(Main_Position_Counter,Main_InRawMax);]]>
 </Text>
 </Rung>
 <Rung Number="40" Type="N">
@@ -8274,12 +8371,12 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="41" Type="N">
 <Text>
-<![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSO_10_301) ][OTU(Main_Open_Permissive) ,OTU(Main_Remote_Open_CMD) ];]]>
+<![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSO_10_300) ][OTU(Main_Open_Permissive) ,OTU(Main_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
 <Rung Number="42" Type="N">
 <Text>
-<![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSC_10_301) ][OTU(Main_Close_Permissive) ,OTU(Main_Remote_Close_CMD) ];]]>
+<![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSC_10_300) ][OTU(Main_Close_Permissive) ,OTU(Main_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
 <Rung Number="43" Type="N">
@@ -8307,7 +8404,7 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="47" Type="N">
 <Text>
-<![CDATA[XIO(OpnMainVlvSS)XIO(ClsMainVlvSS)XIO(HMI_Main_Open_CMD)XIO(VTS_Main_Open_CMD)XIO(HMI_Main_Close_CMD)XIO(VTS_Main_Close_CMD)OTU(Main_Cmd_Held);]]>
+<![CDATA[XIO(HSO_10_300)XIO(HSC_10_300)XIO(HMI_Main_Open_CMD)XIO(VTS_Main_Open_CMD)XIO(HMI_Main_Close_CMD)XIO(VTS_Main_Close_CMD)OTU(Main_Cmd_Held);]]>
 </Text>
 </Rung>
 <Rung Number="48" Type="N">
@@ -8323,7 +8420,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- SIPHON VALVE REMOTE MODE --]]>
 </Comment>
 <Text>
-<![CDATA[XIO(OpnSiphonVlvSS)XIO(ClsSiphonVlvSS)OTE(Siphon_Remote_Mode_Permissive);]]>
+<![CDATA[XIO(HSO_10_301)XIO(HSC_10_301)OTE(Siphon_Remote_Mode_Permissive);]]>
 </Text>
 </Rung>
 <Rung Number="50" Type="N">
@@ -8331,7 +8428,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- SIPHON VALVE OPEN PERMISSIVE --]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(OpnSiphonVlvSS) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Open_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[13])XIO(Siphon_Open_Permissive)XIO(Siphon_Close_Permissive)OTL(Siphon_Open_Permissive);]]>
+<![CDATA[[XIC(HSO_10_301) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Open_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[13])XIO(Siphon_Open_Permissive)XIO(Siphon_Close_Permissive)OTL(Siphon_Open_Permissive);]]>
 </Text>
 </Rung>
 <Rung Number="51" Type="N">
@@ -8339,7 +8436,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- SIPHON VALVE OPEN OUTPUT --]]>
 </Comment>
 <Text>
-<![CDATA[XIC(Siphon_Open_Permissive)XIO(ZSO_10_302)OTE(OpnSiphonValve_14);]]>
+<![CDATA[XIC(Siphon_Open_Permissive)XIO(ZSO_10_301)OTE(OpnSiphonValve_14);]]>
 </Text>
 </Rung>
 <Rung Number="52" Type="N">
@@ -8347,7 +8444,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- SIPHON VALVE CLOSE PERMISSIVE --]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(ClsSiphonVlvSS) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Close_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[14])XIO(Siphon_Close_Permissive)XIO(Siphon_Open_Permissive)OTL(Siphon_Close_Permissive);]]>
+<![CDATA[[XIC(HSC_10_301) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Close_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[14])XIO(Siphon_Close_Permissive)XIO(Siphon_Open_Permissive)OTL(Siphon_Close_Permissive);]]>
 </Text>
 </Rung>
 <Rung Number="53" Type="N">
@@ -8355,7 +8452,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- SIPHON VALVE CLOSE OUTPUT --]]>
 </Comment>
 <Text>
-<![CDATA[XIC(Siphon_Close_Permissive)XIO(ZSC_10_302)OTE(ClsSiphonValve_14);]]>
+<![CDATA[XIC(Siphon_Close_Permissive)XIO(ZSC_10_301)OTE(ClsSiphonValve_14);]]>
 </Text>
 </Rung>
 <Rung Number="54" Type="N">
@@ -8371,7 +8468,7 @@ NEEDS CORRECTION]]>
 <![CDATA[If HMI Request the valve to move then HMI setpoint is the valve move time Preset]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(HMI_Siphon_Open_CMD) ,XIC(HMI_Siphon_Close_CMD) ,XIC(OpnSiphonVlvSS) ,XIC(ClsSiphonVlvSS) ]MOVE(HMI_Siphon_MoveTmr_pre,Actual_Siphon_MoveTmr_pre);]]>
+<![CDATA[[XIC(HMI_Siphon_Open_CMD) ,XIC(HMI_Siphon_Close_CMD) ,XIC(HSO_10_301) ,XIC(HSC_10_301) ]MOVE(HMI_Siphon_MoveTmr_pre,Actual_Siphon_MoveTmr_pre);]]>
 </Text>
 </Rung>
 <Rung Number="56" Type="N">
@@ -8424,12 +8521,12 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="62" Type="N">
 <Text>
-<![CDATA[XIC(ZSC_10_302)MOVE(Siphon_Position_Counter,Siphon_InRawMin);]]>
+<![CDATA[XIC(ZSC_10_301)MOVE(Siphon_Position_Counter,Siphon_InRawMin);]]>
 </Text>
 </Rung>
 <Rung Number="63" Type="N">
 <Text>
-<![CDATA[XIC(ZSO_10_302)MOVE(Siphon_Position_Counter,Siphon_InRawMax);]]>
+<![CDATA[XIC(ZSO_10_301)MOVE(Siphon_Position_Counter,Siphon_InRawMax);]]>
 </Text>
 </Rung>
 <Rung Number="64" Type="N">
@@ -8445,7 +8542,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- SIPHON VALVE STOP OPEN -- Unlatch the open permissive and remote command when the move timer is done or the fully open limit switch is hit]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSO_10_302) ][OTU(Siphon_Open_Permissive) ,OTU(Siphon_Remote_Open_CMD) ];]]>
+<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSO_10_301) ][OTU(Siphon_Open_Permissive) ,OTU(Siphon_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
 <Rung Number="66" Type="N">
@@ -8453,7 +8550,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- SIPHON VALVE STOP CLOSE -- Unlatch the close permissive and remote command when the move timer is done or the fully closed limit switch is hit]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSC_10_302) ][OTU(Siphon_Close_Permissive) ,OTU(Siphon_Remote_Close_CMD) ];]]>
+<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSC_10_301) ][OTU(Siphon_Close_Permissive) ,OTU(Siphon_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
 <Rung Number="67" Type="N">
@@ -8493,7 +8590,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
 </Comment>
 <Text>
-<![CDATA[XIO(OpnSiphonVlvSS)XIO(ClsSiphonVlvSS)XIO(HMI_Siphon_Open_CMD)XIO(VTS_Siphon_Open_CMD)XIO(HMI_Siphon_Close_CMD)XIO(VTS_Siphon_Close_CMD)OTU(Siphon_Cmd_Held);]]>
+<![CDATA[XIO(HSO_10_301)XIO(HSC_10_301)XIO(HMI_Siphon_Open_CMD)XIO(VTS_Siphon_Open_CMD)XIO(HMI_Siphon_Close_CMD)XIO(VTS_Siphon_Close_CMD)OTU(Siphon_Cmd_Held);]]>
 </Text>
 </Rung>
 </RLLContent>
@@ -8521,7 +8618,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- STATE 10: DRIVE TO CLOSE -- The valve is driven to the fully closed position to establish a zero-point. A safety timeout is active.]]>
 </Comment>
 <Text>
-<![CDATA[EQ(DEV_Cal_Step,10)[XIC(ZSC_10_300) [RES(DEV_Timeout_Timer) ,MOVE(20,DEV_Cal_Step) ] ,XIO(ZSC_10_300) [OTE(ClsByPasValve_10) ,TON(DEV_Timeout_Timer,?,?) ] ];]]>
+<![CDATA[EQ(DEV_Cal_Step,10)[XIC(ZSC_10_302) [RES(DEV_Timeout_Timer) ,MOVE(20,DEV_Cal_Step) ] ,XIO(ZSC_10_302) [OTE(ClsByPasValve_10) ,TON(DEV_Timeout_Timer,?,?) ] ];]]>
 </Text>
 </Rung>
 <Rung Number="3" Type="N">
@@ -8537,7 +8634,7 @@ NEEDS CORRECTION]]>
 <![CDATA[-- STATE 30: DRIVE TO OPEN & MEASURE STROKE -- The valve is driven to the fully open position. The stroke timer measures the travel time.]]>
 </Comment>
 <Text>
-<![CDATA[EQ(DEV_Cal_Step,30)[XIC(ZSO_10_300) MOVE(40,DEV_Cal_Step) ,XIO(ZSO_10_300) [OTE(OpnBypasValve_10) ,TON(DEV_Stroke_Timer,?,?) ,TON(DEV_Timeout_Timer,?,?) ] ];]]>
+<![CDATA[EQ(DEV_Cal_Step,30)[XIC(ZSO_10_302) MOVE(40,DEV_Cal_Step) ,XIO(ZSO_10_302) [OTE(OpnBypasValve_10) ,TON(DEV_Stroke_Timer,?,?) ,TON(DEV_Timeout_Timer,?,?) ] ];]]>
 </Text>
 </Rung>
 <Rung Number="5" Type="N">
@@ -8672,22 +8769,22 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="1" Type="N">
 <Text>
-<![CDATA[DIV(FT_10_500_REAL,1,FT_10_500_HMI);]]>
+<![CDATA[DIV(FT_10_500_SCLD,1,FT_10_500_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="2" Type="N">
 <Text>
-<![CDATA[DIV(PT_10_505_REAL,1,PT_10_505_HMI);]]>
+<![CDATA[DIV(PT_10_505_SCLD,1,PT_10_505_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="3" Type="N">
 <Text>
-<![CDATA[DIV(FT_10_501_REAL,1,FT_10_501_HMI);]]>
+<![CDATA[DIV(FT_10_501_SCLD,1,FT_10_501_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="4" Type="N">
 <Text>
-<![CDATA[DIV(PT_10_506_REAL,1,PT_10_506_HMI);]]>
+<![CDATA[DIV(PT_10_506_SCLD,1,PT_10_506_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="5" Type="N">
@@ -8757,34 +8854,42 @@ NEEDS CORRECTION]]>
 </Text>
 </Rung>
 <Rung Number="17" Type="N">
+<Comment>
+<![CDATA[Genset Running Status to HMI]]>
+</Comment>
 <Text>
-<![CDATA[MOVE(Genset_RunTimer_Counter.ACC,Gen_RunTimer_Minutes_HMI);]]>
+<![CDATA[XIC(GS_10_303_RN)OTE(Genset_Running);]]>
 </Text>
 </Rung>
 <Rung Number="18" Type="N">
 <Text>
-<![CDATA[MOVE(Genset_Runs_cntr.ACC,Gen_Runs_cntr_HMI);]]>
+<![CDATA[MOVE(Genset_RunTimer_Counter.ACC,Gen_RunTimer_Minutes_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="19" Type="N">
 <Text>
-<![CDATA[MOVE(Gen_FailToStart_cntr.ACC,Gen_FailToStart_cntr_HMI);]]>
+<![CDATA[MOVE(Genset_Runs_cntr.ACC,Gen_Runs_cntr_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="20" Type="N">
 <Text>
-<![CDATA[XIC(Run_Genset)[SUB(Genset_MinRun.PRE,Genset_MinRun.ACC,Genset_MinRun_ACC) ,DIV(Genset_MinRun_ACC,1000,Genset_MinRun_ACC) ];]]>
+<![CDATA[MOVE(Gen_FailToStart_cntr.ACC,Gen_FailToStart_cntr_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="21" Type="N">
+<Text>
+<![CDATA[XIC(Run_Genset)[SUB(Genset_MinRun.PRE,Genset_MinRun.ACC,Genset_MinRun_ACC) ,DIV(Genset_MinRun_ACC,1000,Genset_MinRun_ACC) ];]]>
+</Text>
+</Rung>
+<Rung Number="22" Type="N">
 <Comment>
-<![CDATA[Miscellanious Values]]>
+<![CDATA[############################          Sump Pump Data to HMI          #############################]]>
 </Comment>
 <Text>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="22" Type="N">
+<Rung Number="23" Type="N">
 <Comment>
 <![CDATA[Meter Sump Remaining Lockout (Minutes) to HMI]]>
 </Comment>
@@ -8792,7 +8897,7 @@ NEEDS CORRECTION]]>
 <![CDATA[MOVE(MeterSump_LockoutTime,MeterSump_Lockout_Rem_Min_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="23" Type="N">
+<Rung Number="24" Type="N">
 <Comment>
 <![CDATA[Valve Sump Remaining Lockout (Minutes) to HMI]]>
 </Comment>
@@ -8800,21 +8905,12 @@ NEEDS CORRECTION]]>
 <![CDATA[MOVE(ValveSump_LockoutTime,ValveSump_Lockout_Rem_Min_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="24" Type="N">
-<Comment>
-<![CDATA[Outside Temperature
-(-)40 to +30C]]>
-</Comment>
-<Text>
-<![CDATA[MOVE(TT_10_503.SCALED_DATA,TT_10_503_HMI);]]>
-</Text>
-</Rung>
 <Rung Number="25" Type="N">
 <Comment>
-<![CDATA[Battery Level=0-30Vdc]]>
+<![CDATA[############################          Misc Data to HMI          #############################]]>
 </Comment>
 <Text>
-<![CDATA[MOVE(BATT_10_504.SCALED_DATA,BATT_10_504_HMI);]]>
+<![CDATA[NOP();]]>
 </Text>
 </Rung>
 <Rung Number="26" Type="N">
@@ -8823,7 +8919,49 @@ NEEDS CORRECTION]]>
 (0-100M)]]>
 </Comment>
 <Text>
-<![CDATA[MOVE(LT_10_502.SCALED_DATA,LT_10_502_HMI);]]>
+<![CDATA[MOVE(LT_10_502_SCLD,LT_10_502_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="27" Type="N">
+<Comment>
+<![CDATA[Outside Temperature
+(-)40 to +30C]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(TT_10_503_SCLD,TT_10_503_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="28" Type="N">
+<Comment>
+<![CDATA[Battery Level=0-30Vdc]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(ET_10_504_SCLD,BATT_10_504_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="29" Type="N">
+<Text>
+<![CDATA[XIC(XA_10_300)OTE(BuildingDoorSw);]]>
+</Text>
+</Rung>
+<Rung Number="30" Type="N">
+<Text>
+<![CDATA[XIC(ES_10_504_STS)OTE(BatryChgOK);]]>
+</Text>
+</Rung>
+<Rung Number="31" Type="N">
+<Text>
+<![CDATA[XIC(EA_10_504_FLT)OTE(BatryChgFault);]]>
+</Text>
+</Rung>
+<Rung Number="32" Type="N">
+<Text>
+<![CDATA[XIC(XAL_10_306)OTE(BldTempLow);]]>
+</Text>
+</Rung>
+<Rung Number="33" Type="N">
+<Text>
+<![CDATA[XIC(JSH_10_308)OTE(ACPowerOn);]]>
 </Text>
 </Rung>
 </RLLContent>
@@ -8868,12 +9006,12 @@ NEEDS CORRECTION]]>
 </Rung>
 <Rung Number="6" Type="N">
 <Text>
-<![CDATA[XIC(RunMeterSumpPmp)[OTE(Local:3:O.Pt06.Data) ,OTE(To_HMI_Bool.0) ];]]>
+<![CDATA[XIC(RunMeterSumpPmp)OTE(Local:3:O.Pt06.Data);]]>
 </Text>
 </Rung>
 <Rung Number="7" Type="N">
 <Text>
-<![CDATA[XIC(RunValveSumpPmp)[OTE(Local:3:O.Pt07.Data) ,OTE(To_HMI_Bool.1) ];]]>
+<![CDATA[XIC(RunValveSumpPmp)OTE(Local:3:O.Pt07.Data);]]>
 </Text>
 </Rung>
 <Rung Number="8" Type="N">
