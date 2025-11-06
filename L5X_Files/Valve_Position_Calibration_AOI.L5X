@@ -215,7 +215,7 @@
 <![CDATA[Measured full stroke time in seconds]]>
 </Description>
 </Parameter>
-<Parameter Name="Position_Percent" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="false" Visible="true">
+<Parameter Name="Position_Percent" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true">
 <Description>
 <![CDATA[Position percentage for display]]>
 </Description>
