@@ -9793,6 +9793,9 @@ Intruder Alarm Section
 </Text>
 </Rung>
 <Rung Number="9" Type="N">
+<Comment>
+<![CDATA[Disarm the building alarm if HMI activity is detected during the entry delay period.]]>
+</Comment>
 <Text>
 <![CDATA[XIC(Building_Entry_Delay.TT)NE(HMI_Current_Screen_Num,1)OTL(Building_Entry_Disarmed);]]>
 </Text>
