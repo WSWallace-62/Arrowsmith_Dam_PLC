@@ -15,15 +15,15 @@
 <DataValue DataType="DINT" Radix="Decimal" Value="3300000"/>
 </Data>
 </Tag>
-<Tag Name="Bypass_Position_Increment_X" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="Bypass_Position_Increment" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
-<![CDATA[Position Counter]]>
+<![CDATA[Calculated position increment per 100ms scan for Bypass Valve]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[5000]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="5000"/>
 </Data>
 </Tag>
 <Tag Name="Dev_Abort_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -313,7 +313,7 @@
 <![CDATA[-- STATE 40: CALCULATE & COMPLETE -- With the full stroke time measured, the new position increment is calculated. The 'Complete' bit is pulsed.]]>
 </Comment>
 <Text>
-<![CDATA[EQ(DEV_Cal_Step,40)GT(DEV_Stroke_Timer.ACC,0)DIV(5000000,DEV_Stroke_Timer.ACC,Bypass_Position_Increment_X)[OTL(DEV_Cal_Complete) ,MOVE(50,DEV_Cal_Step) ];]]>
+<![CDATA[EQ(DEV_Cal_Step,40)GT(DEV_Stroke_Timer.ACC,0)DIV(5000000,DEV_Stroke_Timer.ACC,Bypass_Position_Increment)[OTL(DEV_Cal_Complete) ,MOVE(50,DEV_Cal_Step) ];]]>
 </Text>
 </Rung>
 <Rung Number="6" Type="N">

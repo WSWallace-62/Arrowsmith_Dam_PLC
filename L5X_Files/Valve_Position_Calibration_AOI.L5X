@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Valve_Position_Calibration" TargetType="AddOnInstructionDefinition" TargetRevision="1.0 " TargetLastEdited="2025-11-06T12:00:00.000Z" ContainsContext="true" ExportDate="Wed Nov 06 12:00:00 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="Arrowsmith_Dam">
+<DataTypes Use="Context">
+</DataTypes>
+<AddOnInstructionDefinitions Use="Context">
+<AddOnInstructionDefinition Use="Target" Name="Valve_Position_Calibration" Revision="1.0" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2025-11-06T12:00:00.000Z" CreatedBy="GitHub Copilot" EditedDate="2025-11-06T12:00:00.000Z" EditedBy="Scott Wallace" SoftwareRevision="v36.00">
+<Description>
+<![CDATA[Semi-automatic valve position calibration routine. Moves valve from closed to open, measures stroke time, sets min/max raw values, and verifies 50% position. User confirmations required at key steps.]]>
+</Description>
+<Parameters>
+<Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Input - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Output - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="Enable" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Start calibration (HMI button)]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Confirm_CMD" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[User confirmation button (HMI)]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Abort_CMD" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[User abort button (HMI)]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="ZSC" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Valve fully closed limit switch]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="ZSO" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Valve fully open limit switch]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Timeout_Preset" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Movement timeout in milliseconds (default 60000 = 1 minute)]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[60000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="60000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Delay_Preset" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Start delay before opening in milliseconds (default 500)]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[500]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="500"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Confirmation_Preset" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Confirmation timeout in milliseconds (default 10000 = 10 seconds)]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[10000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="10000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Valve_Open_CMD" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Command to open valve]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Valve_Close_CMD" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Command to close valve]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cal_In_Progress" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Calibration is actively running]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cal_Complete" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Calibration successfully completed]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cal_Aborted" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Calibration was aborted by user]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cal_Failed" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Calibration failed (timeout)]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Awaiting_Confirm" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Waiting for user confirmation]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Cal_Step" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Current calibration step number]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="Position_Counter" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Real-time position counter]]>
+</Description>
+</Parameter>
+<Parameter Name="InRawMin" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Minimum raw position value (set at closed)]]>
+</Description>
+</Parameter>
+<Parameter Name="InRawMax" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Maximum raw position value (set at open)]]>
+</Description>
+</Parameter>
+<Parameter Name="Full_Stroke_Time_SP" TagType="Base" DataType="REAL" Usage="InOut" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Measured full stroke time in seconds]]>
+</Description>
+</Parameter>
+<Parameter Name="Position_Percent" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Description>
+<![CDATA[Position percentage for display]]>
+</Description>
+</Parameter>
+</Parameters>
+<LocalTags>
+<LocalTag Name="Confirmation_Timer" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[[0,0,0]]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Timeout_Timer" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[[0,0,0]]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Delay_Timer" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[[0,0,0]]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Stroke_Timer" DataType="TIMER" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[[0,0,0]]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="ONS" DataType="BOOL" Dimensions="32" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<Array DataType="BOOL" Dimensions="32" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="0"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="0"/>
+<Element Index="[9]" Value="0"/>
+<Element Index="[10]" Value="0"/>
+<Element Index="[11]" Value="0"/>
+<Element Index="[12]" Value="0"/>
+<Element Index="[13]" Value="0"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="0"/>
+<Element Index="[16]" Value="0"/>
+<Element Index="[17]" Value="0"/>
+<Element Index="[18]" Value="0"/>
+<Element Index="[19]" Value="0"/>
+<Element Index="[20]" Value="0"/>
+<Element Index="[21]" Value="0"/>
+<Element Index="[22]" Value="0"/>
+<Element Index="[23]" Value="0"/>
+<Element Index="[24]" Value="0"/>
+<Element Index="[25]" Value="0"/>
+<Element Index="[26]" Value="0"/>
+<Element Index="[27]" Value="0"/>
+<Element Index="[28]" Value="0"/>
+<Element Index="[29]" Value="0"/>
+<Element Index="[30]" Value="0"/>
+<Element Index="[31]" Value="0"/>
+</Array>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Stroke_Time_Sec" DataType="REAL" Radix="Float" ExternalAccess="None">
+<Description>
+<![CDATA[Temporary variable for converting ms to seconds]]>
+</Description>
+<DefaultData Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</DefaultData>
+</LocalTag>
+</LocalTags>
+<Routines>
+<Routine Name="Logic" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Comment>
+<![CDATA[STATE 0: IDLE - Waiting for operator to press Enable button]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,0)XIC(Enable)ONS(ONS[0])[OTL(Awaiting_Confirm) ,MOV(Confirmation_Preset,Confirmation_Timer.PRE) ,TON(Confirmation_Timer,?,?) ,MOV(5,Cal_Step) ];]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Comment>
+<![CDATA[STATE 5: AWAITING CONFIRMATION - 10 second window for operator to confirm calibration start]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,5)[XIC(Confirm_CMD) ONS(ONS[1]) [RES(Confirmation_Timer) ,OTL(Cal_In_Progress) ,OTU(Awaiting_Confirm) ,MOV(10,Cal_Step) ] ,XIC(Confirmation_Timer.DN) [OTU(Awaiting_Confirm) ,MOV(0,Cal_Step) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Comment>
+<![CDATA[STATE 10: CLOSING - Drive valve to fully closed position to establish zero reference. Timeout: 60 seconds.]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,10)[XIC(ZSC) [RES(Timeout_Timer) ,MOV(15,Cal_Step) ] ,XIO(ZSC) [OTE(Valve_Close_CMD) ,MOV(Timeout_Preset,Timeout_Timer.PRE) ,TON(Timeout_Timer,?,?) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Comment>
+<![CDATA[STATE 15: CLOSED CONFIRMED - Set InRawMin and Position_Counter to 0, wait for user confirmation to proceed]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,15)[CLR(InRawMin) ,CLR(Position_Counter) ,OTL(Awaiting_Confirm) ,XIC(Confirm_CMD) ONS(ONS[2]) [OTU(Awaiting_Confirm) ,MOV(20,Cal_Step) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Comment>
+<![CDATA[STATE 20: DELAY BEFORE OPENING - 500ms delay to compensate for valve stickage before starting stroke timer]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,20)[MOV(Delay_Preset,Delay_Timer.PRE) ,TON(Delay_Timer,?,?) ,OTE(Valve_Open_CMD) ,XIC(Delay_Timer.DN) [RES(Delay_Timer) ,RES(Stroke_Timer) ,MOV(25,Cal_Step) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Comment>
+<![CDATA[STATE 25: OPENING - Drive valve to fully open while measuring stroke time. Timeout: 60 seconds.]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,25)[XIC(ZSO) [RES(Timeout_Timer) ,MOV(30,Cal_Step) ] ,XIO(ZSO) [OTE(Valve_Open_CMD) ,TON(Stroke_Timer,?,?) ,MOV(Timeout_Preset,Timeout_Timer.PRE) ,TON(Timeout_Timer,?,?) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Comment>
+<![CDATA[STATE 30: OPEN CONFIRMED - Set InRawMax to 5,000,000, save stroke time in seconds, wait for user confirmation to move to 50%]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,30)ONS(ONS[3])[MOV(5000000,InRawMax) ,MOV(5000000,Position_Counter) ,CPT(Stroke_Time_Sec,Stroke_Timer.ACC/1000.0) ,MOV(Stroke_Time_Sec,Full_Stroke_Time_SP) ,OTL(Awaiting_Confirm) ,MOV(31,Cal_Step) ];]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Comment>
+<![CDATA[STATE 31: WAITING FOR CONFIRMATION TO MOVE TO 50%]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,31)XIC(Confirm_CMD)ONS(ONS[4])[OTU(Awaiting_Confirm) ,MOV(35,Cal_Step) ];]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Comment>
+<![CDATA[STATE 35: MOVING TO 50% - Command valve to 50% position (2,500,000 +/- 50,000 tolerance)]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,35)[LES(Position_Counter,2450000) [OTE(Valve_Open_CMD) ,OTU(Valve_Close_CMD) ] ,GRT(Position_Counter,2550000) [OTE(Valve_Close_CMD) ,OTU(Valve_Open_CMD) ] ,GEQ(Position_Counter,2450000) LEQ(Position_Counter,2550000) [OTU(Valve_Open_CMD) ,OTU(Valve_Close_CMD) ,MOV(40,Cal_Step) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Comment>
+<![CDATA[STATE 40: AT 50% COMPLETE - Calibration successfully completed, auto-advance to cleanup]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,40)ONS(ONS[5])[OTL(Cal_Complete) ,MOV(50,Cal_Step) ];]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Comment>
+<![CDATA[STATE 50: CLEANUP - Reset flags and return to idle]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,50)[OTU(Cal_Complete) ,OTU(Cal_In_Progress) ,MOV(0,Cal_Step) ];]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Comment>
+<![CDATA[ABORT LOGIC - Operator can abort calibration at any active step]]>
+</Comment>
+<Text>
+<![CDATA[[EQ(Cal_Step,10) ,EQ(Cal_Step,15) ,EQ(Cal_Step,20) ,EQ(Cal_Step,25) ,EQ(Cal_Step,30) ,EQ(Cal_Step,31) ,EQ(Cal_Step,35) ]XIC(Abort_CMD)ONS(ONS[6])MOV(98,Cal_Step);]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Comment>
+<![CDATA[STATE 98: ABORTED - Calibration stopped by user, wait for Enable to be released]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,98)[OTL(Cal_Aborted) ,OTU(Cal_In_Progress) ,OTU(Valve_Open_CMD) ,OTU(Valve_Close_CMD) ,OTU(Awaiting_Confirm) ,XIO(Enable) ONS(ONS[7]) [OTU(Cal_Aborted) ,MOV(0,Cal_Step) ] ];]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Comment>
+<![CDATA[FAULT LOGIC - Timeout during movement steps (10 or 25) triggers fault. Timeout preset: 60,000ms (1 minute)]]>
+</Comment>
+<Text>
+<![CDATA[[EQ(Cal_Step,10) ,EQ(Cal_Step,25) ]XIC(Timeout_Timer.DN)[OTL(Cal_Failed) ,MOV(99,Cal_Step) ];]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Comment>
+<![CDATA[STATE 99: FAULTED - Timeout occurred, wait for Enable to be cycled]]>
+</Comment>
+<Text>
+<![CDATA[EQ(Cal_Step,99)[OTU(Cal_In_Progress) ,OTU(Valve_Open_CMD) ,OTU(Valve_Close_CMD) ,OTU(Awaiting_Confirm) ,XIO(Enable) ONS(ONS[8]) [OTU(Cal_Failed) ,MOV(0,Cal_Step) ] ];]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+</Routines>
+</AddOnInstructionDefinition>
+</AddOnInstructionDefinitions>
+</Controller>
+</RSLogix5000Content>
