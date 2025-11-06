@@ -82,6 +82,8 @@ XIC(TagA)XIO(TagB)OTE(TagC);
 
 **Example:**
 
+Rung #
+```
 Rung Comment:
 ```
 Start pump when level switch is active and no faults present
@@ -118,6 +120,8 @@ Along with each L5X rung string, provide:
 |-------------|-----------|
 | MOV         | MOVE      |
 | EQU         | EQ        |
+| LES         | LT        |
+| GRT         | GT        |
 
 ### Critical Syntax Rules:
 - **Parallel Branching:** Use `[A,B]` for OR logic
@@ -128,7 +132,7 @@ Along with each L5X rung string, provide:
 
 ## Workflow Best Practices
 
-### ❌ DO NOT:
+### ❌ DO NOT: Unless requested
 - Attempt to modify and re-load the full L5X file (unreliable process)
 - Make direct edits to L5X files
 - Include references to specific rung numbers in comments
@@ -183,7 +187,7 @@ When creating new tags, provide:
 Before responding, verify:
 - [ ] Kept response concise (unless detail requested)
 - [ ] Asked at least 1 clarifying question
-- [ ] Used correct L5X syntax (MOVE not MOV, EQ not EQU)
+- [ ] Used correct L5X syntax (MOVE not MOV, EQ not EQU) etc
 - [ ] Placed each code element in separate code block with copy button
 - [ ] Checked if logic applies to multiple similar units
 - [ ] Based rung numbers on latest GitHub L5X
