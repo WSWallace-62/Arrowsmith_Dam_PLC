@@ -195,27 +195,27 @@
 <DataValue DataType="DINT" Radix="Decimal" Value="0"/>
 </DefaultData>
 </Parameter>
-<Parameter Name="Position_Counter" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Parameter Name="Position_Counter" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true">
 <Description>
 <![CDATA[Real-time position counter]]>
 </Description>
 </Parameter>
-<Parameter Name="InRawMin" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Parameter Name="InRawMin" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true">
 <Description>
 <![CDATA[Minimum raw position value (set at closed)]]>
 </Description>
 </Parameter>
-<Parameter Name="InRawMax" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Parameter Name="InRawMax" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true">
 <Description>
 <![CDATA[Maximum raw position value (set at open)]]>
 </Description>
 </Parameter>
-<Parameter Name="Full_Stroke_Time_SP" TagType="Base" DataType="REAL" Usage="InOut" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+<Parameter Name="Full_Stroke_Time_SP" TagType="Base" DataType="REAL" Usage="InOut" Radix="Float" Required="true" Visible="true">
 <Description>
 <![CDATA[Measured full stroke time in seconds]]>
 </Description>
 </Parameter>
-<Parameter Name="Position_Percent" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<Parameter Name="Position_Percent" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="false" Visible="true">
 <Description>
 <![CDATA[Position percentage for display]]>
 </Description>
