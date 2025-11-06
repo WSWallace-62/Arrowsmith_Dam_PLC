@@ -200,12 +200,12 @@
 <![CDATA[Real-time position counter]]>
 </Description>
 </Parameter>
-<Parameter Name="InRawMin" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true">
+<Parameter Name="InRawMin" TagType="Base" DataType="REAL" Usage="InOut" Radix="Float" Required="true" Visible="true">
 <Description>
 <![CDATA[Minimum raw position value (set at closed)]]>
 </Description>
 </Parameter>
-<Parameter Name="InRawMax" TagType="Base" DataType="DINT" Usage="InOut" Radix="Decimal" Required="true" Visible="true">
+<Parameter Name="InRawMax" TagType="Base" DataType="REAL" Usage="InOut" Radix="Float" Required="true" Visible="true">
 <Description>
 <![CDATA[Maximum raw position value (set at open)]]>
 </Description>
