@@ -31,11 +31,14 @@ This comprehensive control system manages three motorized dam valves with sophis
 ```
 Arrowsmith_Dam_PLC/
 ├── README.md
+├── AI_INSTRUCTIONS.md
+├── Valve_Calibration_AOI_Implementation_Summary.md
 ├── L5X_Files/
-│   ├── Arrowsmith_Dam_Nov5_R3.L5X        # Complete project file (current)
+│   ├── Arrowsmith_Dam_Nov8_R0.L5X        # Complete project file (current)
+│   ├── Valve_Position_Calibration_R2_AOI.L5X  # Valve calibration AOI
 │   └── _PowerUp_Init_Routine_RLL.L5X     # Power-up initialization routine
 ├── Tag_Info/
-│   ├── Arrowsmith_Dam_Nov5_R3_Controller_Tags.CSV
+│   ├── Arrowsmith_Dam_Nov8_R0_Controller_Tags.CSV
 │   └── C-more-TagDatabase Nov4_R0.CSV
 ├── Misc_Docs/
 │   └── IOChecksheet-SFAT_Arrowsmith - Update Oct 28 by Burke.csv
@@ -104,7 +107,7 @@ The MainProgram executes the following routines in order:
 6. **Misc** - Utility functions and miscellaneous control
 7. **SumpPumps** - Automatic sump pump control with protection
 8. **Valves** - **Primary valve control logic (68 rungs)**
-9. **Valve_Position_Calibrate_NotAvailable** - Future enhancement placeholder
+9. **Valve_Pos_Cal** - Semi-automatic valve position calibration using AOI
 10. **X_Alarms** - Alarm processing and latching
 11. **X_Outputs_to_VTS** - Sends status to VTScada
 12. **Y_Outputs_To_HMI** - Sends status and data to HMI
@@ -214,7 +217,41 @@ Each valve operates in one of two modes:
 
 ---
 
+## Valve Position Calibration
+
+### Valve_Position_Calibration Add-On Instruction (AOI)
+
+A reusable AOI provides **semi-automatic valve position calibration** for all three motorized valves. The calibration sequence establishes accurate position tracking by setting raw minimum/maximum values and measuring full stroke time.
+
+**Key Features:**
+- **3 user confirmations** (initial start, closed position, open position)
+- **Automatic 50% verification** after calibration
+- **Safety timeouts** (60 seconds for movements, 10 seconds for confirmations)
+- **Abort capability** at any step
+- **Stroke time measurement** in seconds
+- **Delay compensation** (500ms adjustable) for valve stickage
+
+**Implementation:**
+- **Hybrid control approach:** Single set of `CAL_...` control tags
+- **Valve selector:** `CAL_Valve_Select` (0=None, 1=Bypass, 2=Main, 3=Siphon)
+- **One HMI screen** works for all three valves
+- **Prevents simultaneous calibrations**
+
+For detailed documentation, see `Valve_Calibration_AOI_Implementation_Summary.md`.
+
+---
+
 ## Add-On Instructions (AOI)
+
+### Valve_Position_Calibration (Rev 2.0)
+Semi-automatic valve calibration AOI for establishing position tracking parameters.
+
+**Parameters:**
+- **Inputs:** `Enable`, `Confirm_CMD`, `Abort_CMD`, `ZSC`, `ZSO`, timeout/delay presets
+- **Outputs:** `Valve_Open_CMD`, `Valve_Close_CMD`, status flags, `Cal_Step`
+- **InOuts:** `Position_Counter`, `InRawMin`, `InRawMax`, `Full_Stroke_Time_SP`, `Position_Percent`
+
+**Calibration States:** 0→5→10→15→20→25→30→31→35→40→50 (plus abort/fault states 98/99)
 
 ### Analog_Scaling (Rev 1.0)
 Custom AOI for linear scaling of analog inputs.
@@ -251,7 +288,7 @@ FT_10_500 (High Level Flow)
 
 ### Opening the Project
 1. Launch Rockwell Studio 5000 v36.00 or later
-2. Open `L5X_Files/Arrowsmith_Dam_Nov5_R3.L5X`
+2. Open `L5X_Files/Arrowsmith_Dam_Nov8_R0.L5X`
 3. Controller will appear offline until connected to hardware
 
 ### Downloading to Controller
@@ -275,6 +312,7 @@ FT_10_500 (High Level Flow)
 
 ## Change Log
 
+* **Nov 08, 2025:** Added Valve_Position_Calibration AOI with hybrid control approach
 * **Nov 05, 2025:** Updated README to reflect current project state
 * **Nov 01, 2025:** Replaced old Routine L5X files with current Project L5X file
 * **Oct 24, 2025:** Added "Cooldown" and "Anti-Repeat" (Cmd_Held) logic to all three valves
