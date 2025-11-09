@@ -12,15 +12,17 @@ Automatically clear Type 01 Code 01 (Power lost and restored in RUN mode) faults
 Check if most recent fault is Type 01 (Power-up Fault) Code 01 (Power lost and restored in RUN). If true, clear the fault automatically to allow controller to resume RUN mode without operator intervention.
 ```
 
-**L5X Rung String:**
+**L5X Rung String (Option 1 - using FAULTRECORD):**
 ```
-EQU(FAULTLOG[0].Type,1)EQU(FAULTLOG[0].Code,1)CLF();
+EQ(FAULTRECORD.Type,1)EQ(FAULTRECORD.Code,1)CLF();
 ```
 
-**Alternative (more explicit fault clearing):**
+**L5X Rung String (Option 2 - using MAJORFAULTRECORD):**
 ```
-EQU(FAULTLOG[0].Type,1)EQU(FAULTLOG[0].Code,1)GSV(FaultLog,0,MajorFaultBits,Fault_MajorBits)CLR(Fault_MajorBits);
+EQ(MAJORFAULTRECORD.Type,1)EQ(MAJORFAULTRECORD.Code,1)CLF();
 ```
+
+**Note:** The correct system tag name varies by CompactLogix model. Check Controller Tags → System folder to find the actual fault record tag (FAULTRECORD, MAJORFAULTRECORD, or FAULTLOG).
 
 ## Tag Definitions
 
