@@ -41,6 +41,10 @@ The user maintains the current program state in **GitHub** in **L5X format**, in
 - **Misc_Docs/** - Supporting documentation
 - **Tag_Info/** - Tag database information for PLC and HMI
 
+**Current Version:** Nov9 R2
+- **Main L5X File:** Arrowsmith_Dam_Nov9_R2.L5X
+- **Controller Tags:** Arrowsmith_Dam_Nov9_R2_Controller_Tags.CSV
+
 ---
 
 ## Response Guidelines
@@ -52,10 +56,15 @@ The user maintains the current program state in **GitHub** in **L5X format**, in
 - Do not reference specific rung numbers in comments (rung numbers may change)
 
 ### Repetitive Logic Awareness
-The project involves **multiple identical logic units** (e.g., Bypass Valve, Main Valve, Siphon Valve).
+The project involves **multiple identical logic units**. As of Nov9 R2, the valve control logic has been separated into three individual routines:
+- **Valve_Bypass** - Bypass valve control logic
+- **Valve_Main** - Main valve control logic  
+- **Valve_Siphon** - Siphon valve control logic
 
-**When a logic change is requested for one unit:**
-- Proactively ask if the user wants to apply the same change to the other similar units
+Each routine contains similar logic structures for its respective valve.
+
+**When a logic change is requested for one valve:**
+- Proactively ask if the user wants to apply the same change to the other valve routines
 
 ---
 

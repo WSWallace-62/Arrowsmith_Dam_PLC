@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Sat Nov 08 09:37:14 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
-<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" ProjectCreationDate="Wed Sep 17 15:52:20 2025" LastModifiedDate="Sat Nov 08 09:30:29 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent" SFCLastScan="DontScan"
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Sun Nov 09 10:16:07 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" ProjectCreationDate="Wed Sep 17 15:52:20 2025" LastModifiedDate="Sun Nov 09 09:38:48 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent" SFCLastScan="DontScan"
  ProjectSN="16#d0a9_2b6a" MatchProjectToController="false" CanUseRPIFromProducer="false" InhibitAutomaticFirmwareUpdate="0" PassThroughConfiguration="EnabledWithAppend" DownloadProjectDocumentationAndExtendedProperties="true" DownloadProjectCustomProperties="true" ReportMinorOverflow="false" EtherNetIPMode="A1/A2: Linear/DLR" AutoDiagsEnabled="true" WebServerEnabled="false"
 >
 <Description>
@@ -2190,10 +2190,10 @@ Switch to HMI]]>
 <![CDATA[Status bit indicating the building entry alarm system is armed]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[1]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
 </Data>
 </Tag>
 <Tag Name="Building_Arming_Delay" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -2201,15 +2201,15 @@ Switch to HMI]]>
 <![CDATA[30-minute timer to auto-arm system after door closes]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072981454,1800000,1358810]]]>
+<![CDATA[[538072472,1800000,1800000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1800000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="1358810"/>
-<DataValueMember Name="EN" DataType="BOOL" Value="1"/>
-<DataValueMember Name="TT" DataType="BOOL" Value="1"/>
-<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="1800000"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="1"/>
 </Structure>
 </Data>
 </Tag>
@@ -2246,10 +2246,10 @@ Switch to HMI]]>
 <![CDATA[Anti-repeat interlock; blocks new commands until all HMI, SCADA, and local switches are released.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[1]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
 </Data>
 </Tag>
 <Tag Name="Bypass_CoolDownTmr" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -2257,7 +2257,7 @@ Switch to HMI]]>
 <![CDATA[Cooldown timer for the Bypass Valve; ensures a rest period equal to the last move time.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[431796,2000,0]]]>
+<![CDATA[[911572,2000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -2318,7 +2318,7 @@ Switch to HMI]]>
 <![CDATA[Bypass Move Timer]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[429796,8000,0]]]>
+<![CDATA[[909572,8000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -2346,10 +2346,10 @@ Switch to HMI]]>
 <![CDATA[Internal counter for Bypass Valve raw position]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3300000]]>
+<![CDATA[2900000]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="3300000"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="2900000"/>
 </Data>
 </Tag>
 <Tag Name="Bypass_Position_Increment" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -2380,10 +2380,41 @@ Switch to HMI]]>
 (%)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[66]]>
+<![CDATA[58]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="66"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="58"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_Valve_Cal" TagType="Base" DataType="Valve_Position_Calibration_R2" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[AOI instance for Bypass valve calibration]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[1,60000,500,10000,0,[0,0,0],[0,0,0],[0,0,0],[0,0,0],[2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0
+		,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0],0.00000000e+000]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="Valve_Position_Calibration_R2">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Enable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Confirm_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Abort_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZSC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZSO" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Timeout_Preset" DataType="DINT" Radix="Decimal" Value="60000"/>
+<DataValueMember Name="Delay_Preset" DataType="DINT" Radix="Decimal" Value="500"/>
+<DataValueMember Name="Confirmation_Preset" DataType="DINT" Radix="Decimal" Value="10000"/>
+<DataValueMember Name="Valve_Open_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Valve_Close_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_In_Progress" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Complete" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Aborted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Failed" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Awaiting_Confirm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Step" DataType="DINT" Radix="Decimal" Value="0"/>
+</Structure>
 </Data>
 </Tag>
 <Tag Name="Bypass_Valve_Pos" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -2395,6 +2426,209 @@ Switch to HMI]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="DINT" Radix="Decimal" Value="50"/>
+</Data>
+</Tag>
+<Tag Name="CAL_Aborted_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Calibration Aborted]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CAL_Abort_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Abort command done]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CAL_Awaiting_Confirm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Waiting for confirmation]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CAL_Calibrate_Enable" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Calibrate enable]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CAL_Cal_Complete" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Calibration Complete]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CAL_Cal_Failed" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Calibration Failed]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CAL_Cal_In_Progress" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Calibration in progress]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CAL_Cal_Step" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Calibration step Number]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CAL_Confirmation_Timer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[10 second timer for  confirmation window]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,10000,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="CAL_Confirm_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[HMI Confirm PB]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CAL_ONS" TagType="Base" DataType="BOOL" Dimensions="32" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0
+		,2#0,2#0,2#0,2#0,2#0]]]>
+</Data>
+<Data Format="Decorated">
+<Array DataType="BOOL" Dimensions="32" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="0"/>
+<Element Index="[2]" Value="0"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="0"/>
+<Element Index="[9]" Value="0"/>
+<Element Index="[10]" Value="0"/>
+<Element Index="[11]" Value="0"/>
+<Element Index="[12]" Value="0"/>
+<Element Index="[13]" Value="0"/>
+<Element Index="[14]" Value="0"/>
+<Element Index="[15]" Value="0"/>
+<Element Index="[16]" Value="0"/>
+<Element Index="[17]" Value="0"/>
+<Element Index="[18]" Value="0"/>
+<Element Index="[19]" Value="0"/>
+<Element Index="[20]" Value="0"/>
+<Element Index="[21]" Value="0"/>
+<Element Index="[22]" Value="0"/>
+<Element Index="[23]" Value="0"/>
+<Element Index="[24]" Value="0"/>
+<Element Index="[25]" Value="0"/>
+<Element Index="[26]" Value="0"/>
+<Element Index="[27]" Value="0"/>
+<Element Index="[28]" Value="0"/>
+<Element Index="[29]" Value="0"/>
+<Element Index="[30]" Value="0"/>
+<Element Index="[31]" Value="0"/>
+</Array>
+</Data>
+</Tag>
+<Tag Name="CAL_Stroke_Timer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Stroke timer]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="CAL_Timeout_Timer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Timeout timer]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="CAL_Valve_Select" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Valve selector for calibration: 0=None, 1=Bypass, 2=Main, 3=Siphon]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="ClsBpVlv_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -2432,10 +2666,10 @@ Switch to HMI]]>
 </Tag>
 <Tag Name="Current_Day" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[1]]>
+<![CDATA[2]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="2"/>
 </Data>
 </Tag>
 <Tag Name="Dam_Level_Alarm_HI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -2658,12 +2892,12 @@ Switch to HMI]]>
 <![CDATA[1-minute periodic timer for ROC calculation]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072981446,60000,25472]]]>
+<![CDATA[[-1072277351,60000,9951]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="25472"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="9951"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -2672,209 +2906,17 @@ Switch to HMI]]>
 </Tag>
 <Tag Name="Day_Counter" TagType="Base" DataType="COUNTER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[0,999999999,16]]]>
+<![CDATA[[0,999999999,17]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="COUNTER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="16"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="17"/>
 <DataValueMember Name="CU" DataType="BOOL" Value="0"/>
 <DataValueMember Name="CD" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="OV" DataType="BOOL" Value="0"/>
 <DataValueMember Name="UN" DataType="BOOL" Value="0"/>
-</Structure>
-</Data>
-</Tag>
-<Tag Name="DEV_Aborted_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Calibration Aborted]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="Dev_Abort_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Abort command done]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="DEV_Awaiting_Confirm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Waiting for confirmation]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="DEV_Calibrate_Enable" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Calibrate enable]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="DEV_Cal_Complete" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Calibration Complete]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="DEV_Cal_Failed" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Calibration Failed]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="DEV_Cal_In_Progress" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Calibration in progress]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="DEV_Cal_Step" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Calibration step Number]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="DEV_Confirmation_Timer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[10 second timer for  confirmation window]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[[0,10000,0]]]>
-</Data>
-<Data Format="Decorated">
-<Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
-<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
-<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
-<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
-</Structure>
-</Data>
-</Tag>
-<Tag Name="DEV_Confirm_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[HMI Confirm PB]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
-<Tag Name="DEV_ONS" TagType="Base" DataType="BOOL" Dimensions="32" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Data Format="L5K">
-<![CDATA[[2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0
-		,2#0,2#0,2#0,2#0,2#0]]]>
-</Data>
-<Data Format="Decorated">
-<Array DataType="BOOL" Dimensions="32" Radix="Decimal">
-<Element Index="[0]" Value="0"/>
-<Element Index="[1]" Value="0"/>
-<Element Index="[2]" Value="0"/>
-<Element Index="[3]" Value="0"/>
-<Element Index="[4]" Value="0"/>
-<Element Index="[5]" Value="0"/>
-<Element Index="[6]" Value="0"/>
-<Element Index="[7]" Value="0"/>
-<Element Index="[8]" Value="0"/>
-<Element Index="[9]" Value="0"/>
-<Element Index="[10]" Value="0"/>
-<Element Index="[11]" Value="0"/>
-<Element Index="[12]" Value="0"/>
-<Element Index="[13]" Value="0"/>
-<Element Index="[14]" Value="0"/>
-<Element Index="[15]" Value="0"/>
-<Element Index="[16]" Value="0"/>
-<Element Index="[17]" Value="0"/>
-<Element Index="[18]" Value="0"/>
-<Element Index="[19]" Value="0"/>
-<Element Index="[20]" Value="0"/>
-<Element Index="[21]" Value="0"/>
-<Element Index="[22]" Value="0"/>
-<Element Index="[23]" Value="0"/>
-<Element Index="[24]" Value="0"/>
-<Element Index="[25]" Value="0"/>
-<Element Index="[26]" Value="0"/>
-<Element Index="[27]" Value="0"/>
-<Element Index="[28]" Value="0"/>
-<Element Index="[29]" Value="0"/>
-<Element Index="[30]" Value="0"/>
-<Element Index="[31]" Value="0"/>
-</Array>
-</Data>
-</Tag>
-<Tag Name="DEV_Stroke_Timer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Stroke timer]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[[0,0,0]]]>
-</Data>
-<Data Format="Decorated">
-<Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
-<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
-<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
-<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
-</Structure>
-</Data>
-</Tag>
-<Tag Name="DEV_Timeout_Timer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Timeout timer]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[[0,0,0]]]>
-</Data>
-<Data Format="Decorated">
-<Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
-<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
-<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
-<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 </Structure>
 </Data>
 </Tag>
@@ -3637,10 +3679,10 @@ Converted to DINT]]>
 (%)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[6.60000000e+001]]>
+<![CDATA[5.80000000e+001]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="66.0"/>
+<DataValue DataType="REAL" Radix="Float" Value="58.0"/>
 </Data>
 </Tag>
 <Tag Name="HCV_10_502M_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3649,10 +3691,10 @@ Converted to DINT]]>
 (%)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5.40000000e+001]]>
+<![CDATA[5.00000000e+001]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="54.0"/>
+<DataValue DataType="REAL" Radix="Float" Value="50.0"/>
 </Data>
 </Tag>
 <Tag Name="HCV_10_502S_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3660,15 +3702,26 @@ Converted to DINT]]>
 <![CDATA[Siphon Valve Position to HMI]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[4.40000000e+001]]>
+<![CDATA[5.00000000e+001]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="44.0"/>
+<DataValue DataType="REAL" Radix="Float" Value="50.0"/>
 </Data>
 </Tag>
 <Tag Name="HMI_Activity_Falling_ONS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Storage bit for HMI activity falling edge one-shot.]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Activity_Heartbeat" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Toggled by HMI on any screen touch to prove user activity.]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[1]]>
@@ -3677,26 +3730,15 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
 </Data>
 </Tag>
-<Tag Name="HMI_Activity_Heartbeat" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
-<Description>
-<![CDATA[Toggled by HMI on any screen touch to prove user activity.]]>
-</Description>
-<Data Format="L5K">
-<![CDATA[0]]>
-</Data>
-<Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
-</Data>
-</Tag>
 <Tag Name="HMI_Activity_Rising_ONS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Storage bit for HMI activity rising edge one-shot.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[1]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
 </Data>
 </Tag>
 <Tag Name="HMI_Bypass_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3737,10 +3779,10 @@ Converted to DINT]]>
 <![CDATA[Open Bypass valve from HMI]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[1]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
 </Data>
 </Tag>
 <Tag Name="HMI_Current_Screen_Num" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3770,12 +3812,12 @@ Converted to DINT]]>
 <![CDATA[30-minute inactivity timer. Resets on HMI activity.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072981448,1800000,685470]]]>
+<![CDATA[[-1072277352,1800000,562900]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1800000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="685470"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="562900"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -4329,7 +4371,7 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Cooldown timer for the Main Valve; ensures a rest period equal to the last move time.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[143070,2000,0]]]>
+<![CDATA[[1183660,2000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -4358,10 +4400,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[4.15251055e+004]]>
+<![CDATA[3.88032031e+003]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="41525.105"/>
+<DataValue DataType="REAL" Radix="Float" Value="3880.3203"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4369,10 +4411,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Totalized Main Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[4.15251016e+004]]>
+<![CDATA[3.88031519e+003]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="41525.1"/>
+<DataValue DataType="REAL" Radix="Float" Value="3880.3152"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4381,10 +4423,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.07761031e+005]]>
+<![CDATA[1.48625391e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="107761.03"/>
+<DataValue DataType="REAL" Radix="Float" Value="148625.39"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Yesterday_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4392,10 +4434,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Totalized MainFlow Yesterday]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.07761031e+005]]>
+<![CDATA[1.48625391e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="107761.03"/>
+<DataValue DataType="REAL" Radix="Float" Value="148625.39"/>
 </Data>
 </Tag>
 <Tag Name="Main_Full_Stroke_Time_SP" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4436,7 +4478,7 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Main Valve Move Timer]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[141070,4000,0]]]>
+<![CDATA[[1181660,4000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -4472,10 +4514,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Internal counter for Main Valve raw position]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2700000]]>
+<![CDATA[2500000]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="2700000"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="2500000"/>
 </Data>
 </Tag>
 <Tag Name="Main_Position_Increment" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4495,10 +4537,41 @@ Level=0-42M 810M base to get Geodetic Level]]>
 (%)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[54]]>
+<![CDATA[50]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="54"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
+</Data>
+</Tag>
+<Tag Name="Main_Valve_Cal" TagType="Base" DataType="Valve_Position_Calibration_R2" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[AOI instance for Main valve calibration]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[1,60000,500,10000,0,[0,0,0],[0,0,0],[0,0,0],[0,0,0],[2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0
+		,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0],0.00000000e+000]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="Valve_Position_Calibration_R2">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Enable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Confirm_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Abort_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZSC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZSO" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Timeout_Preset" DataType="DINT" Radix="Decimal" Value="60000"/>
+<DataValueMember Name="Delay_Preset" DataType="DINT" Radix="Decimal" Value="500"/>
+<DataValueMember Name="Confirmation_Preset" DataType="DINT" Radix="Decimal" Value="10000"/>
+<DataValueMember Name="Valve_Open_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Valve_Close_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_In_Progress" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Complete" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Aborted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Failed" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Awaiting_Confirm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Step" DataType="DINT" Radix="Decimal" Value="0"/>
+</Structure>
 </Data>
 </Tag>
 <Tag Name="Main_Valve_Pos" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4543,7 +4616,7 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Meter Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[760378,10000,10000]]]>
+<![CDATA[[1464473,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -4826,17 +4899,17 @@ Level=0-42M 810M base to get Geodetic Level]]>
 </Comment>
 </Comments>
 <Data Format="L5K">
-<![CDATA[[1998,1,1,0,11,59,844524]]]>
+<![CDATA[[1998,1,2,0,51,44,335479]]]>
 </Data>
 <Data Format="Decorated">
 <Array DataType="DINT" Dimensions="7" Radix="Decimal">
 <Element Index="[0]" Value="1998"/>
 <Element Index="[1]" Value="1"/>
-<Element Index="[2]" Value="1"/>
+<Element Index="[2]" Value="2"/>
 <Element Index="[3]" Value="0"/>
-<Element Index="[4]" Value="11"/>
-<Element Index="[5]" Value="59"/>
-<Element Index="[6]" Value="844524"/>
+<Element Index="[4]" Value="51"/>
+<Element Index="[5]" Value="44"/>
+<Element Index="[6]" Value="335479"/>
 </Array>
 </Data>
 </Tag>
@@ -4906,10 +4979,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Open Bypass Valve Request from HMI]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[1]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
 </Data>
 </Tag>
 <Tag Name="OpnBypasValve_20" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4950,12 +5023,12 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[1-second free-running timer to pulse the PLC_Watchdog_Out counter.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072981466,1000,452]]]>
+<![CDATA[[-1072277375,1000,927]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="452"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="927"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -4967,12 +5040,12 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[PLC heartbeat counter for VTScada to monitor.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[0,999999999,167255]]]>
+<![CDATA[[0,999999999,256039]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="COUNTER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="167255"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="256039"/>
 <DataValueMember Name="CU" DataType="BOOL" Value="0"/>
 <DataValueMember Name="CD" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -5000,10 +5073,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 </Tag>
 <Tag Name="Previous_day" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[1]]>
+<![CDATA[2]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="2"/>
 </Data>
 </Tag>
 <Tag Name="PT_10_505" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5181,7 +5254,7 @@ Converted to DINT]]>
 <![CDATA[Cooldown timer for the Siphon Valve; ensures a rest period equal to the last move time.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[462884,2000,0]]]>
+<![CDATA[[1390657,2000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -5210,10 +5283,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[8.30504375e+004]]>
+<![CDATA[7.76067285e+003]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="83050.44"/>
+<DataValue DataType="REAL" Radix="Float" Value="7760.673"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5222,10 +5295,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[8.30504297e+004]]>
+<![CDATA[7.76066309e+003]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="83050.43"/>
+<DataValue DataType="REAL" Radix="Float" Value="7760.663"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5234,10 +5307,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2.15522141e+005]]>
+<![CDATA[2.97250969e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="215522.14"/>
+<DataValue DataType="REAL" Radix="Float" Value="297250.97"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Yesterday_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5246,10 +5319,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2.15522141e+005]]>
+<![CDATA[2.97250969e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="215522.14"/>
+<DataValue DataType="REAL" Radix="Float" Value="297250.97"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Full_Stroke_Time_SP" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5290,7 +5363,7 @@ Converted to DINT]]>
 <![CDATA[Siphon Move Timer]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[460884,6000,0]]]>
+<![CDATA[[1388657,6000,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -5318,10 +5391,10 @@ Converted to DINT]]>
 <![CDATA[Internal counter for Bypass Valve raw position]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2195000]]>
+<![CDATA[2495000]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="2195000"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="2495000"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Position_Increment" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5341,10 +5414,10 @@ Converted to DINT]]>
 (%)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[44]]>
+<![CDATA[50]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="44"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Remote_Close_CMD" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5353,6 +5426,37 @@ Converted to DINT]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Valve_Cal" TagType="Base" DataType="Valve_Position_Calibration_R2" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[AOI instance for Siphon valve calibration]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[1,60000,500,10000,0,[0,0,0],[0,0,0],[0,0,0],[0,0,0],[2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0
+		,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0,2#0],0.00000000e+000]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="Valve_Position_Calibration_R2">
+<DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Enable" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Confirm_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Abort_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZSC" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZSO" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Timeout_Preset" DataType="DINT" Radix="Decimal" Value="60000"/>
+<DataValueMember Name="Delay_Preset" DataType="DINT" Radix="Decimal" Value="500"/>
+<DataValueMember Name="Confirmation_Preset" DataType="DINT" Radix="Decimal" Value="10000"/>
+<DataValueMember Name="Valve_Open_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Valve_Close_CMD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_In_Progress" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Complete" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Aborted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Failed" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Awaiting_Confirm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Cal_Step" DataType="DINT" Radix="Decimal" Value="0"/>
+</Structure>
 </Data>
 </Tag>
 <Tag Name="Siphon_Valve_Pos" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5564,10 +5668,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.24575414e+005]]>
+<![CDATA[1.16408896e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="124575.414"/>
+<DataValue DataType="REAL" Radix="Float" Value="11640.89"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5575,10 +5679,10 @@ Converted to DINT]]>
 <![CDATA[Totalized Total Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.24575438e+005]]>
+<![CDATA[1.16409229e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="124575.44"/>
+<DataValue DataType="REAL" Radix="Float" Value="11640.923"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5587,10 +5691,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3.23283125e+005]]>
+<![CDATA[4.45876312e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="323283.12"/>
+<DataValue DataType="REAL" Radix="Float" Value="445876.3"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Yesterday_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5598,10 +5702,10 @@ Converted to DINT]]>
 <![CDATA[Totalized Total Flow Yesterday]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3.23283125e+005]]>
+<![CDATA[4.45876312e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="323283.12"/>
+<DataValue DataType="REAL" Radix="Float" Value="445876.3"/>
 </Data>
 </Tag>
 <Tag Name="To_HMI_Bool" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5736,7 +5840,7 @@ Converted to DINT]]>
 <![CDATA[Valve Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[760354,10000,10000]]]>
+<![CDATA[[1464445,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -6022,12 +6126,12 @@ Converted to DINT]]>
 <![CDATA[10-second watchdog timer for VTScada communication.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072981471,10000,5447]]]>
+<![CDATA[[-1072277380,10000,9922]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="5447"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="9922"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -8109,20 +8213,20 @@ CR8]]>
 </Tag>
 <Tag Name="SCL_03" TagType="Base" DataType="SCALE" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[1,3.30000000e+006,5.00000000e+006,0.00000000e+000,1.00000000e+002,0.00000000e+000,1,6.60000000e+001
-		,0,0.00000000e+000,5.00000000e+006,2.00000000e-007,6.60000000e+001]]]>
+<![CDATA[[1,2.90000000e+006,5.00000000e+006,0.00000000e+000,1.00000000e+002,0.00000000e+000,1,5.80000000e+001
+		,0,0.00000000e+000,5.00000000e+006,2.00000000e-007,5.80000000e+001]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="SCALE">
 <DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
-<DataValueMember Name="In" DataType="REAL" Radix="Float" Value="3300000.0"/>
+<DataValueMember Name="In" DataType="REAL" Radix="Float" Value="2900000.0"/>
 <DataValueMember Name="InRawMax" DataType="REAL" Radix="Float" Value="5000000.0"/>
 <DataValueMember Name="InRawMin" DataType="REAL" Radix="Float" Value="0.0"/>
 <DataValueMember Name="InEUMax" DataType="REAL" Radix="Float" Value="100.0"/>
 <DataValueMember Name="InEUMin" DataType="REAL" Radix="Float" Value="0.0"/>
 <DataValueMember Name="Limiting" DataType="BOOL" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="66.0"/>
+<DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="58.0"/>
 <DataValueMember Name="MaxAlarm" DataType="BOOL" Value="0"/>
 <DataValueMember Name="MinAlarm" DataType="BOOL" Value="0"/>
 <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
@@ -8133,20 +8237,20 @@ CR8]]>
 </Tag>
 <Tag Name="SCL_04" TagType="Base" DataType="SCALE" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[1,2.19500000e+006,5.00000000e+006,0.00000000e+000,1.00000000e+002,0.00000000e+000,1,4.38999977e+001
-		,0,0.00000000e+000,5.00000000e+006,2.00000000e-007,4.38999977e+001]]]>
+<![CDATA[[1,2.49500000e+006,5.00000000e+006,0.00000000e+000,1.00000000e+002,0.00000000e+000,1,4.98999977e+001
+		,0,0.00000000e+000,5.00000000e+006,2.00000000e-007,4.98999977e+001]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="SCALE">
 <DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
-<DataValueMember Name="In" DataType="REAL" Radix="Float" Value="2195000.0"/>
+<DataValueMember Name="In" DataType="REAL" Radix="Float" Value="2495000.0"/>
 <DataValueMember Name="InRawMax" DataType="REAL" Radix="Float" Value="5000000.0"/>
 <DataValueMember Name="InRawMin" DataType="REAL" Radix="Float" Value="0.0"/>
 <DataValueMember Name="InEUMax" DataType="REAL" Radix="Float" Value="100.0"/>
 <DataValueMember Name="InEUMin" DataType="REAL" Radix="Float" Value="0.0"/>
 <DataValueMember Name="Limiting" DataType="BOOL" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="43.899998"/>
+<DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="49.899998"/>
 <DataValueMember Name="MaxAlarm" DataType="BOOL" Value="0"/>
 <DataValueMember Name="MinAlarm" DataType="BOOL" Value="0"/>
 <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
@@ -8157,20 +8261,20 @@ CR8]]>
 </Tag>
 <Tag Name="SCL_05" TagType="Base" DataType="SCALE" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[1,2.70000000e+006,5.00000000e+006,0.00000000e+000,1.00000000e+002,0.00000000e+000,1,5.40000000e+001
-		,0,0.00000000e+000,5.00000000e+006,2.00000000e-007,5.40000000e+001]]]>
+<![CDATA[[1,2.50000000e+006,5.00000000e+006,0.00000000e+000,1.00000000e+002,0.00000000e+000,1,5.00000000e+001
+		,0,0.00000000e+000,5.00000000e+006,2.00000000e-007,5.00000000e+001]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="SCALE">
 <DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
-<DataValueMember Name="In" DataType="REAL" Radix="Float" Value="2700000.0"/>
+<DataValueMember Name="In" DataType="REAL" Radix="Float" Value="2500000.0"/>
 <DataValueMember Name="InRawMax" DataType="REAL" Radix="Float" Value="5000000.0"/>
 <DataValueMember Name="InRawMin" DataType="REAL" Radix="Float" Value="0.0"/>
 <DataValueMember Name="InEUMax" DataType="REAL" Radix="Float" Value="100.0"/>
 <DataValueMember Name="InEUMin" DataType="REAL" Radix="Float" Value="0.0"/>
 <DataValueMember Name="Limiting" DataType="BOOL" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="54.0"/>
+<DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="50.0"/>
 <DataValueMember Name="MaxAlarm" DataType="BOOL" Value="0"/>
 <DataValueMember Name="MinAlarm" DataType="BOOL" Value="0"/>
 <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
@@ -8249,9 +8353,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,3.75000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,1.24576227e+005,3.23283125e+005,1.00000000e-003
-		,0,1.40129846e-045,1.06579258e-039,0.00000000e+000,7.89211295e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,3.75000000e+000,7.95044088e+000,-1.00305636e-026]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,1.16418750e+004,4.45876312e+005,1.00000000e-003
+		,0,1.40129846e-045,1.00786767e-035,0.00000000e+000,7.89211295e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,3.75000000e+000,6.21056366e+000,8.31385438e-030]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -8281,8 +8385,8 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="124576.23"/>
-<DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="323283.12"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="11641.875"/>
+<DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="445876.3"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
 <DataValueMember Name="ProgResetDone" DataType="BOOL" Value="0"/>
@@ -8309,9 +8413,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,1.25000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,4.15253398e+004,1.07761031e+005,1.00000000e-003
-		,0,0.00000000e+000,1.06577016e-039,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,1.25000000e+000,7.13362598e+000,-2.29792089e+016]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,3.88060034e+003,1.48625391e+005,1.00000000e-003
+		,0,0.00000000e+000,1.00786623e-035,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,1.25000000e+000,5.44741200e+000,1.97499776e+014]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -8341,8 +8445,8 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="41525.34"/>
-<DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="107761.03"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="3880.6003"/>
+<DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="148625.39"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
 <DataValueMember Name="ProgResetDone" DataType="BOOL" Value="0"/>
@@ -8369,9 +8473,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,2.50000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,8.30509453e+004,2.15522141e+005,1.00000000e-003
-		,0,0.00000000e+000,1.06581220e-039,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,2.50000000e+000,7.63362837e+000,4.05910722e-012]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,7.76128809e+003,2.97250969e+005,1.00000000e-003
+		,0,0.00000000e+000,1.00786874e-035,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,2.50000000e+000,5.94742250e+000,-7.52582550e-002]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -8401,8 +8505,8 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="83050.945"/>
-<DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="215522.14"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="7761.288"/>
+<DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="297250.97"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
 <DataValueMember Name="ProgResetDone" DataType="BOOL" Value="0"/>
@@ -8546,12 +8650,12 @@ CR8]]>
 </Tag>
 <Tag Name="T_Position_Pulse" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[-1072981295,100,23]]]>
+<![CDATA[[-1072277167,100,35]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="23"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="35"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -9095,25 +9199,35 @@ CR8]]>
 </Rung>
 <Rung Number="7" Type="N">
 <Text>
-<![CDATA[JSR(Valves,0);]]>
+<![CDATA[JSR(Valve_Bypass,0);]]>
 </Text>
 </Rung>
 <Rung Number="8" Type="N">
 <Text>
-<![CDATA[JSR(Scaling_Averaging,0);]]>
+<![CDATA[JSR(Valve_Main,0);]]>
 </Text>
 </Rung>
 <Rung Number="9" Type="N">
 <Text>
-<![CDATA[JSR(X_Alarms,0);]]>
+<![CDATA[JSR(Valve_Siphon,0);]]>
 </Text>
 </Rung>
 <Rung Number="10" Type="N">
 <Text>
-<![CDATA[JSR(Y_Outputs_To_HMI,0);]]>
+<![CDATA[JSR(Scaling_Averaging,0);]]>
 </Text>
 </Rung>
 <Rung Number="11" Type="N">
+<Text>
+<![CDATA[JSR(X_Alarms,0);]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Text>
+<![CDATA[JSR(Y_Outputs_To_HMI,0);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
 <Text>
 <![CDATA[JSR(Z_Output_Mapping,0);]]>
 </Text>
@@ -9590,7 +9704,7 @@ The current level is then stored for the next cycle.
 </Rung>
 </RLLContent>
 </Routine>
-<Routine Name="Valves" Type="RLL">
+<Routine Name="Valve_Bypass" Type="RLL">
 <RLLContent>
 <Rung Number="0" Type="N">
 <Comment>
@@ -9754,7 +9868,14 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(HSO_10_302)XIO(HSC_10_302)XIO(HMI_Bypass_Open_CMD)XIO(VTS_Bypass_Open_CMD)XIO(HMI_Bypass_Close_CMD)XIO(VTS_Bypass_Close_CMD)OTU(Bypass_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="23" Type="N">
+</RLLContent>
+</Routine>
+<Routine Name="Valve_Main" Type="RLL">
+<Description>
+<![CDATA[Main Valve Control]]>
+</Description>
+<RLLContent>
+<Rung Number="0" Type="N">
 <Comment>
 <![CDATA[######################### MAIN VALVE LOGIC ##########################]]>
 </Comment>
@@ -9762,7 +9883,7 @@ NEEDS CORRECTION]]>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="24" Type="N">
+<Rung Number="1" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE REMOTE MODE --]]>
 </Comment>
@@ -9770,7 +9891,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(HSO_10_300)XIO(HSC_10_300)OTE(Main_Remote_Mode_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="25" Type="N">
+<Rung Number="2" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE OPEN PERMISSIVE --]]>
 </Comment>
@@ -9778,7 +9899,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(HSO_10_300) XIC(HMI_Idle_Timer.TT) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Open_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[4])XIO(Main_Open_Permissive)XIO(Main_Close_Permissive)XIO(ZSO_10_300)OTL(Main_Open_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="26" Type="N">
+<Rung Number="3" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE OPEN OUTPUT --]]>
 </Comment>
@@ -9786,7 +9907,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Main_Open_Permissive)XIO(ZSO_10_300)OTE(MOV_10_300_OP);]]>
 </Text>
 </Rung>
-<Rung Number="27" Type="N">
+<Rung Number="4" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE CLOSE PERMISSIVE --]]>
 </Comment>
@@ -9794,7 +9915,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(HSC_10_300) XIC(HMI_Idle_Timer.TT) ,XIC(Main_Remote_Mode_Permissive) XIC(Main_Remote_Close_CMD) ]XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)ONS(ONS_Valves[5])XIO(Main_Close_Permissive)XIO(Main_Open_Permissive)XIO(ZSC_10_300)OTL(Main_Close_Permissive);]]>
 </Text>
 </Rung>
-<Rung Number="28" Type="N">
+<Rung Number="5" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE CLOSE OUTPUT --]]>
 </Comment>
@@ -9802,7 +9923,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIC(Main_Close_Permissive)XIO(ZSC_10_300)OTE(MOV_10_300_CL);]]>
 </Text>
 </Rung>
-<Rung Number="29" Type="N">
+<Rung Number="6" Type="N">
 <Comment>
 <![CDATA[##### Handle HMI vs VTS setpoint handling #####]]>
 </Comment>
@@ -9810,7 +9931,7 @@ NEEDS CORRECTION]]>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="30" Type="N">
+<Rung Number="7" Type="N">
 <Comment>
 <![CDATA[If HMI Request the valve to move then HMI setpoint is the valve move time Preset]]>
 </Comment>
@@ -9818,7 +9939,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(HMI_Main_Open_CMD) ,XIC(HMI_Main_Close_CMD) ,XIC(HSO_10_300) XIC(HMI_Idle_Timer.TT) ,XIC(HSC_10_300) XIC(HMI_Idle_Timer.TT) ]MOVE(HMI_Main_MoveTmr_pre,Actual_Main_MoveTmr_pre);]]>
 </Text>
 </Rung>
-<Rung Number="31" Type="N">
+<Rung Number="8" Type="N">
 <Comment>
 <![CDATA[If VTS Request the valve to move then VTS setpoint is the valve move time Preset]]>
 </Comment>
@@ -9826,7 +9947,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(VTS_Main_Open_CMD) ,XIC(VTS_Main_Close_CMD) ]MOVE(VTS_Main_MoveTmr_pre,Actual_Main_MoveTmr_pre);]]>
 </Text>
 </Rung>
-<Rung Number="32" Type="N">
+<Rung Number="9" Type="N">
 <Comment>
 <![CDATA[Apply the selected Actual Preset (converted to milliseconds) to the Bypass Move Timer.]]>
 </Comment>
@@ -9834,7 +9955,7 @@ NEEDS CORRECTION]]>
 <![CDATA[MUL(Actual_Main_MoveTmr_pre,1000,Main_MoveTmr.PRE);]]>
 </Text>
 </Rung>
-<Rung Number="33" Type="N">
+<Rung Number="10" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE REMOTE COMMAND TIMER --]]>
 </Comment>
@@ -9842,7 +9963,7 @@ NEEDS CORRECTION]]>
 <![CDATA[[XIC(MOV_10_300_OP) ,XIC(MOV_10_300_CL) ]TON(Main_MoveTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="34" Type="N">
+<Rung Number="11" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE REMOTE COMMAND LOGIC --]]>
 </Comment>
@@ -9850,7 +9971,7 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(Main_MoveTmr.TT)XIO(Main_Cooldown_Active)XIO(Main_Cmd_Held)[[XIC(HMI_Main_Open_CMD) ,XIC(VTS_Main_Open_CMD) ] ONS(ONS_Valves[6]) OTL(Main_Remote_Open_CMD) ,[XIC(HMI_Main_Close_CMD) ,XIC(VTS_Main_Close_CMD) ] ONS(ONS_Valves[7]) OTL(Main_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="35" Type="N">
+<Rung Number="12" Type="N">
 <Comment>
 <![CDATA[Calculate the Main Valve position increment based on the full stroke time setpoint and 100ms timer pulse]]>
 </Comment>
@@ -9858,7 +9979,7 @@ NEEDS CORRECTION]]>
 <![CDATA[CPT(Main_Position_Increment,(Main_InRawMax/Main_Full_Stroke_Time_SP)*0.1);]]>
 </Text>
 </Rung>
-<Rung Number="36" Type="N">
+<Rung Number="13" Type="N">
 <Comment>
 <![CDATA[-- MAIN VALVE POSITION CALCULATION --]]>
 </Comment>
@@ -9866,17 +9987,17 @@ NEEDS CORRECTION]]>
 <![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[9])[XIC(MOV_10_300_OP) ADD(Main_Position_Counter,Main_Position_Increment,Main_Position_Counter) ,XIC(MOV_10_300_CL) SUB(Main_Position_Counter,Main_Position_Increment,Main_Position_Counter) ];]]>
 </Text>
 </Rung>
-<Rung Number="37" Type="N">
+<Rung Number="14" Type="N">
 <Text>
 <![CDATA[XIC(ZSC_10_300)MOVE(Main_Position_Counter,Main_InRawMin);]]>
 </Text>
 </Rung>
-<Rung Number="38" Type="N">
+<Rung Number="15" Type="N">
 <Text>
 <![CDATA[XIC(ZSO_10_300)MOVE(Main_Position_Counter,Main_InRawMax);]]>
 </Text>
 </Rung>
-<Rung Number="39" Type="N">
+<Rung Number="16" Type="N">
 <Comment>
 <![CDATA[################ SEE VALVE POSITION SCALING #########################]]>
 </Comment>
@@ -9884,304 +10005,34 @@ NEEDS CORRECTION]]>
 <![CDATA[MOVE(Main_Position_Percent,Main_Position_Percent);]]>
 </Text>
 </Rung>
-<Rung Number="40" Type="N">
+<Rung Number="17" Type="N">
 <Text>
 <![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSO_10_300) ][OTU(Main_Open_Permissive) ,OTU(Main_Remote_Open_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="41" Type="N">
+<Rung Number="18" Type="N">
 <Text>
 <![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(ZSC_10_300) ][OTU(Main_Close_Permissive) ,OTU(Main_Remote_Close_CMD) ];]]>
 </Text>
 </Rung>
-<Rung Number="42" Type="N">
+<Rung Number="19" Type="N">
 <Text>
 <![CDATA[[XIC(Main_MoveTmr.DN) ,XIC(Main_CooldownTmr.TT) ]XIO(Main_CooldownTmr.DN)OTE(Main_Cooldown_Active);]]>
 </Text>
 </Rung>
-<Rung Number="43" Type="N">
+<Rung Number="20" Type="N">
 <Text>
 <![CDATA[XIC(Main_Cooldown_Active)TON(Main_CooldownTmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="44" Type="N">
+<Rung Number="21" Type="N">
 <Text>
 <![CDATA[XIC(Main_Cooldown_Active)OTL(Main_Cmd_Held);]]>
 </Text>
 </Rung>
-<Rung Number="45" Type="N">
+<Rung Number="22" Type="N">
 <Text>
 <![CDATA[XIO(HSO_10_300)XIO(HSC_10_300)XIO(HMI_Main_Open_CMD)XIO(VTS_Main_Open_CMD)XIO(HMI_Main_Close_CMD)XIO(VTS_Main_Close_CMD)OTU(Main_Cmd_Held);]]>
-</Text>
-</Rung>
-<Rung Number="46" Type="N">
-<Comment>
-<![CDATA[------------------------------------ SIPHON VALVE LOGIC ------------------------------------]]>
-</Comment>
-<Text>
-<![CDATA[NOP();]]>
-</Text>
-</Rung>
-<Rung Number="47" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE REMOTE MODE --]]>
-</Comment>
-<Text>
-<![CDATA[XIO(HSO_10_301)XIO(HSC_10_301)OTE(Siphon_Remote_Mode_Permissive);]]>
-</Text>
-</Rung>
-<Rung Number="48" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE OPEN PERMISSIVE --]]>
-</Comment>
-<Text>
-<![CDATA[[XIC(HSO_10_301) XIC(HMI_Idle_Timer.TT) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Open_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[13])XIO(Siphon_Open_Permissive)XIO(Siphon_Close_Permissive)XIO(ZSO_10_301)OTL(Siphon_Open_Permissive);]]>
-</Text>
-</Rung>
-<Rung Number="49" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE OPEN OUTPUT --]]>
-</Comment>
-<Text>
-<![CDATA[XIC(Siphon_Open_Permissive)XIO(ZSO_10_301)OTE(MOV_10_301_OP);]]>
-</Text>
-</Rung>
-<Rung Number="50" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE CLOSE PERMISSIVE --]]>
-</Comment>
-<Text>
-<![CDATA[[XIC(HSC_10_301) XIC(HMI_Idle_Timer.TT) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Close_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[14])XIO(Siphon_Close_Permissive)XIO(Siphon_Open_Permissive)XIO(ZSC_10_301)OTL(Siphon_Close_Permissive);]]>
-</Text>
-</Rung>
-<Rung Number="51" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE CLOSE OUTPUT --]]>
-</Comment>
-<Text>
-<![CDATA[XIC(Siphon_Close_Permissive)XIO(ZSC_10_301)OTE(MOV_10_301_CL);]]>
-</Text>
-</Rung>
-<Rung Number="52" Type="N">
-<Comment>
-<![CDATA[##### Handle HMI vs VTS setpoint handling #####]]>
-</Comment>
-<Text>
-<![CDATA[NOP();]]>
-</Text>
-</Rung>
-<Rung Number="53" Type="N">
-<Comment>
-<![CDATA[If HMI Request the valve to move then HMI setpoint is the valve move time Preset]]>
-</Comment>
-<Text>
-<![CDATA[[XIC(HMI_Siphon_Open_CMD) ,XIC(HMI_Siphon_Close_CMD) ,XIC(HSO_10_301) XIC(HMI_Idle_Timer.TT) ,XIC(HSC_10_301) XIC(HMI_Idle_Timer.TT) ]MOVE(HMI_Siphon_MoveTmr_pre,Actual_Siphon_MoveTmr_pre);]]>
-</Text>
-</Rung>
-<Rung Number="54" Type="N">
-<Comment>
-<![CDATA[If VTS Request the valve to move then VTS setpoint is the valve move time Preset]]>
-</Comment>
-<Text>
-<![CDATA[[XIC(VTS_Siphon_Open_CMD) ,XIC(VTS_Siphon_Close_CMD) ]MOVE(VTS_Siphon_MoveTmr_pre,Actual_Siphon_MoveTmr_pre);]]>
-</Text>
-</Rung>
-<Rung Number="55" Type="N">
-<Comment>
-<![CDATA[Apply the selected Actual Preset (converted to milliseconds) to the Bypass Move Timer.]]>
-</Comment>
-<Text>
-<![CDATA[MUL(Actual_Siphon_MoveTmr_pre,1000,Siphon_MoveTmr.PRE);]]>
-</Text>
-</Rung>
-<Rung Number="56" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE REMOTE COMMAND TIMER --]]>
-</Comment>
-<Text>
-<![CDATA[[XIC(MOV_10_301_OP) ,XIC(MOV_10_301_CL) ]TON(Siphon_MoveTmr,?,?);]]>
-</Text>
-</Rung>
-<Rung Number="57" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE REMOTE COMMAND LOGIC --]]>
-</Comment>
-<Text>
-<![CDATA[XIO(Siphon_MoveTmr.TT)XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)[[XIC(HMI_Siphon_Open_CMD) ,XIC(VTS_Siphon_Open_CMD) ] ONS(ONS_Valves[11]) OTE(Siphon_Remote_Open_CMD) ,[XIC(HMI_Siphon_Close_CMD) ,XIC(VTS_Siphon_Close_CMD) ] ONS(ONS_Valves[12]) OTE(Siphon_Remote_Close_CMD) ];]]>
-</Text>
-</Rung>
-<Rung Number="58" Type="N">
-<Comment>
-<![CDATA[Calculate the Siphon Valve position increment based on the full stroke time setpoint and 100ms timer pulse]]>
-</Comment>
-<Text>
-<![CDATA[CPT(Siphon_Position_Increment,(Siphon_InRawMax/Siphon_Full_Stroke_Time_SP)*0.1);]]>
-</Text>
-</Rung>
-<Rung Number="59" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE POSITION CALCULATION --]]>
-</Comment>
-<Text>
-<![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[10])[XIC(MOV_10_301_OP) ADD(Siphon_Position_Counter,Siphon_Position_Increment,Siphon_Position_Counter) ,XIC(MOV_10_301_CL) SUB(Siphon_Position_Counter,Siphon_Position_Increment,Siphon_Position_Counter) ];]]>
-</Text>
-</Rung>
-<Rung Number="60" Type="N">
-<Text>
-<![CDATA[XIC(ZSC_10_301)MOVE(Siphon_Position_Counter,Siphon_InRawMin);]]>
-</Text>
-</Rung>
-<Rung Number="61" Type="N">
-<Text>
-<![CDATA[XIC(ZSO_10_301)MOVE(Siphon_Position_Counter,Siphon_InRawMax);]]>
-</Text>
-</Rung>
-<Rung Number="62" Type="N">
-<Comment>
-<![CDATA[################ SEE VALVE POSITION SCALING #########################]]>
-</Comment>
-<Text>
-<![CDATA[MOVE(Siphon_Position_Percent,Siphon_Position_Percent);]]>
-</Text>
-</Rung>
-<Rung Number="63" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE STOP OPEN -- Unlatch the open permissive and remote command when the move timer is done or the fully open limit switch is hit]]>
-</Comment>
-<Text>
-<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSO_10_301) ][OTU(Siphon_Open_Permissive) ,OTU(Siphon_Remote_Open_CMD) ];]]>
-</Text>
-</Rung>
-<Rung Number="64" Type="N">
-<Comment>
-<![CDATA[-- SIPHON VALVE STOP CLOSE -- Unlatch the close permissive and remote command when the move timer is done or the fully closed limit switch is hit]]>
-</Comment>
-<Text>
-<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSC_10_301) ][OTU(Siphon_Close_Permissive) ,OTU(Siphon_Remote_Close_CMD) ];]]>
-</Text>
-</Rung>
-<Rung Number="65" Type="N">
-<Comment>
-<![CDATA[-- ACTIVATE COOLDOWN PERIOD -- The 'Cooldown_Active' bit turns on as soon as the move timer is done and stays on while the 'CooldownTmr' is running]]>
-</Comment>
-<Text>
-<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(Siphon_CooldownTmr.TT) ]XIO(Siphon_CooldownTmr.DN)OTE(Siphon_Cooldown_Active);]]>
-</Text>
-</Rung>
-<Rung Number="66" Type="N">
-<Comment>
-<![CDATA[-- RUN COOLDOWN TIMER -- As long as the 'Cooldown_Active' bit is on, this timer will run for a duration equal to the last valve move.]]>
-</Comment>
-<Text>
-<![CDATA[XIC(Siphon_Cooldown_Active)TON(Siphon_CooldownTmr,?,?);]]>
-</Text>
-</Rung>
-<Rung Number="67" Type="N">
-<Comment>
-<![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
-</Comment>
-<Text>
-<![CDATA[XIC(Siphon_Cooldown_Active)OTL(Siphon_Cmd_Held);]]>
-</Text>
-</Rung>
-<Rung Number="68" Type="N">
-<Comment>
-<![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
-</Comment>
-<Text>
-<![CDATA[XIO(HSO_10_301)XIO(HSC_10_301)XIO(HMI_Siphon_Open_CMD)XIO(VTS_Siphon_Open_CMD)XIO(HMI_Siphon_Close_CMD)XIO(VTS_Siphon_Close_CMD)OTU(Siphon_Cmd_Held);]]>
-</Text>
-</Rung>
-</RLLContent>
-</Routine>
-<Routine Name="Valve_Position_Calibrate_OLD" Type="RLL">
-<RLLContent>
-<Rung Number="0" Type="N">
-<Comment>
-<![CDATA[-- STATE 0: IDLE -- This is the default state. When the operator presses the 'Calibrate' button, it moves to the confirmation step.]]>
-</Comment>
-<Text>
-<![CDATA[EQ(DEV_Cal_Step,0)XIC(DEV_Calibrate_Enable)ONS(DEV_ONS[0])[OTL(DEV_Awaiting_Confirm) ,TON(DEV_Confirmation_Timer,?,?) ,MOVE(5,DEV_Cal_Step) ];]]>
-</Text>
-</Rung>
-<Rung Number="1" Type="N">
-<Comment>
-<![CDATA[-- STATE 5: AWAITING CONFIRMATION -- The system waits for 10 seconds for the operator to press 'Confirm'. If confirmed, calibration begins. If not, it returns to Idle.]]>
-</Comment>
-<Text>
-<![CDATA[EQ(DEV_Cal_Step,5)[XIC(DEV_Confirm_CMD) ONS(DEV_ONS[1]) [RES(DEV_Confirmation_Timer) ,OTL(DEV_Cal_In_Progress) ,OTU(DEV_Awaiting_Confirm) ,MOVE(10,DEV_Cal_Step) ] ,XIC(DEV_Confirmation_Timer.DN) [OTU(DEV_Awaiting_Confirm) ,MOVE(0,DEV_Cal_Step) ] ];]]>
-</Text>
-</Rung>
-<Rung Number="2" Type="N">
-<Comment>
-<![CDATA[-- STATE 10: DRIVE TO CLOSE -- The valve is driven to the fully closed position to establish a zero-point. A safety timeout is active.]]>
-</Comment>
-<Text>
-<![CDATA[EQ(DEV_Cal_Step,10)[XIC(ZSC_10_302) [RES(DEV_Timeout_Timer) ,MOVE(20,DEV_Cal_Step) ] ,XIO(ZSC_10_302) [OTE(MOV_10_302_CL) ,TON(DEV_Timeout_Timer,?,?) ] ];]]>
-</Text>
-</Rung>
-<Rung Number="3" Type="N">
-<Comment>
-<![CDATA[-- STATE 20: RESET AND PREPARE -- Once closed, the stroke timer and position counter are cleared before starting the open stroke.]]>
-</Comment>
-<Text>
-<![CDATA[EQ(DEV_Cal_Step,20)[RES(DEV_Stroke_Timer) ,CLR(Bypass_Position_Counter) ,MOVE(30,DEV_Cal_Step) ];]]>
-</Text>
-</Rung>
-<Rung Number="4" Type="N">
-<Comment>
-<![CDATA[-- STATE 30: DRIVE TO OPEN & MEASURE STROKE -- The valve is driven to the fully open position. The stroke timer measures the travel time.]]>
-</Comment>
-<Text>
-<![CDATA[EQ(DEV_Cal_Step,30)[XIC(ZSO_10_302) MOVE(40,DEV_Cal_Step) ,XIO(ZSO_10_302) [OTE(MOV_10_302_OP) ,TON(DEV_Stroke_Timer,?,?) ,TON(DEV_Timeout_Timer,?,?) ] ];]]>
-</Text>
-</Rung>
-<Rung Number="5" Type="N">
-<Comment>
-<![CDATA[-- STATE 40: CALCULATE & COMPLETE -- With the full stroke time measured, the new position increment is calculated. The 'Complete' bit is pulsed.]]>
-</Comment>
-<Text>
-<![CDATA[EQ(DEV_Cal_Step,40)GT(DEV_Stroke_Timer.ACC,0)DIV(5000000,DEV_Stroke_Timer.ACC,Bypass_Position_Increment_X)[OTL(DEV_Cal_Complete) ,MOVE(50,DEV_Cal_Step) ];]]>
-</Text>
-</Rung>
-<Rung Number="6" Type="N">
-<Comment>
-<![CDATA[-- STATE 50: CLEANUP -- Reset the In-Progress and Complete flags and return to Idle.]]>
-</Comment>
-<Text>
-<![CDATA[EQ(DEV_Cal_Step,50)[OTU(DEV_Cal_Complete) ,OTU(DEV_Cal_In_Progress) ,MOVE(0,DEV_Cal_Step) ];]]>
-</Text>
-</Rung>
-<Rung Number="7" Type="N">
-<Comment>
-<![CDATA[-- ABORT LOGIC -- The operator can abort the calibration at any active step. This will safely stop the valve and move to the aborted state.]]>
-</Comment>
-<Text>
-<![CDATA[[EQ(DEV_Cal_Step,10) ,EQ(DEV_Cal_Step,20) ,EQ(DEV_Cal_Step,30) ]XIC(Dev_Abort_CMD)ONS(DEV_ONS[2])MOVE(98,DEV_Cal_Step);]]>
-</Text>
-</Rung>
-<Rung Number="8" Type="N">
-<Comment>
-<![CDATA[-- STATE 98: ABORTED -- The sequence was stopped by the user. It waits for the HMI command to be released before resetting to Idle.]]>
-</Comment>
-<Text>
-<![CDATA[EQ(DEV_Cal_Step,98)[OTL(DEV_Aborted_CMD) ,OTU(DEV_Cal_In_Progress) ,OTU(MOV_10_302_OP) ,OTU(MOV_10_302_CL) ,XIO(DEV_Calibrate_Enable) [OTU(DEV_Aborted_CMD) ,MOVE(0,DEV_Cal_Step) ] ];]]>
-</Text>
-</Rung>
-<Rung Number="9" Type="N">
-<Comment>
-<![CDATA[-- FAULT LOGIC -- If the timeout timer completes during any movement step, the sequence fails and jumps to the faulted state.]]>
-</Comment>
-<Text>
-<![CDATA[[EQ(DEV_Cal_Step,10) ,EQ(DEV_Cal_Step,30) ]XIC(DEV_Timeout_Timer.DN)[OTL(DEV_Cal_Failed) ,MOVE(99,DEV_Cal_Step) ];]]>
-</Text>
-</Rung>
-<Rung Number="10" Type="N">
-<Comment>
-<![CDATA[-- STATE 99: FAULTED -- The sequence has faulted. All outputs are stopped. It requires the 'Calibrate' button to be cycled to reset.]]>
-</Comment>
-<Text>
-<![CDATA[EQ(DEV_Cal_Step,99)[OTU(DEV_Cal_In_Progress) ,OTU(MOV_10_302_OP) ,OTU(MOV_10_302_CL) ,XIO(DEV_Calibrate_Enable) ONS(DEV_ONS[3]) [OTU(DEV_Cal_Failed) ,MOVE(0,DEV_Cal_Step) ] ];]]>
 </Text>
 </Rung>
 </RLLContent>
@@ -10190,6 +10041,217 @@ NEEDS CORRECTION]]>
 <Description>
 <![CDATA[Valve Position Calibration]]>
 </Description>
+<RLLContent>
+<Rung Number="0" Type="N">
+<Comment>
+<![CDATA[Bypass Valve Calibration - Only active when CAL_Valve_Select = 1. Uses shared CAL_ control/status tags with Bypass-specific InOut parameters.]]>
+</Comment>
+<Text>
+<![CDATA[EQ(CAL_Valve_Select,1)Valve_Position_Calibration_R2(Bypass_Valve_Cal,CAL_Calibrate_Enable,CAL_Confirm_CMD,CAL_Abort_CMD,ZSC_10_302,ZSO_10_302,MOV_10_302_OP,MOV_10_302_CL,CAL_Cal_In_Progress,CAL_Cal_Complete,CAL_Aborted_CMD,CAL_Cal_Failed,CAL_Awaiting_Confirm,CAL_Cal_Step,Bypass_Position_Counter,Bypass_InRawMin,Bypass_InRawMax,Bypass_Full_Stroke_Time_SP,Bypass_Position_Percent);]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Comment>
+<![CDATA[Main Valve Calibration - Only active when CAL_Valve_Select = 2. Uses shared CAL_ control/status tags with Main-specific InOut parameters.]]>
+</Comment>
+<Text>
+<![CDATA[EQ(CAL_Valve_Select,2)Valve_Position_Calibration_R2(Main_Valve_Cal,CAL_Calibrate_Enable,CAL_Confirm_CMD,CAL_Abort_CMD,ZSC_10_300,ZSO_10_300,MOV_10_300_OP,MOV_10_300_CL,CAL_Cal_In_Progress,CAL_Cal_Complete,CAL_Aborted_CMD,CAL_Cal_Failed,CAL_Awaiting_Confirm,CAL_Cal_Step,Main_Position_Counter,Main_InRawMin,Main_InRawMax,Main_Full_Stroke_Time_SP,Main_Position_Percent);]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Comment>
+<![CDATA[Siphon Valve Calibration - Only active when CAL_Valve_Select = 3. Uses shared CAL_ control/status tags with Siphon-specific InOut parameters.]]>
+</Comment>
+<Text>
+<![CDATA[EQ(CAL_Valve_Select,3)Valve_Position_Calibration_R2(Siphon_Valve_Cal,CAL_Calibrate_Enable,CAL_Confirm_CMD,CAL_Abort_CMD,ZSC_10_301,ZSO_10_301,MOV_10_301_OP,MOV_10_301_CL,CAL_Cal_In_Progress,CAL_Cal_Complete,CAL_Aborted_CMD,CAL_Cal_Failed,CAL_Awaiting_Confirm,CAL_Cal_Step,Siphon_Position_Counter,Siphon_InRawMin,Siphon_InRawMax,Siphon_Full_Stroke_Time_SP,Siphon_Position_Percent);]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+<Routine Name="Valve_Siphon" Type="RLL">
+<Description>
+<![CDATA[Siphon Valve Routine]]>
+</Description>
+<RLLContent>
+<Rung Number="0" Type="N">
+<Comment>
+<![CDATA[------------------------------------ SIPHON VALVE LOGIC ------------------------------------]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE REMOTE MODE --]]>
+</Comment>
+<Text>
+<![CDATA[XIO(HSO_10_301)XIO(HSC_10_301)OTE(Siphon_Remote_Mode_Permissive);]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE OPEN PERMISSIVE --]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(HSO_10_301) XIC(HMI_Idle_Timer.TT) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Open_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[13])XIO(Siphon_Open_Permissive)XIO(Siphon_Close_Permissive)XIO(ZSO_10_301)OTL(Siphon_Open_Permissive);]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE OPEN OUTPUT --]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Siphon_Open_Permissive)XIO(ZSO_10_301)OTE(MOV_10_301_OP);]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE CLOSE PERMISSIVE --]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(HSC_10_301) XIC(HMI_Idle_Timer.TT) ,XIC(Siphon_Remote_Mode_Permissive) XIC(Siphon_Remote_Close_CMD) ]XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)ONS(ONS_Valves[14])XIO(Siphon_Close_Permissive)XIO(Siphon_Open_Permissive)XIO(ZSC_10_301)OTL(Siphon_Close_Permissive);]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE CLOSE OUTPUT --]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Siphon_Close_Permissive)XIO(ZSC_10_301)OTE(MOV_10_301_CL);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Comment>
+<![CDATA[##### Handle HMI vs VTS setpoint handling #####]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Comment>
+<![CDATA[If HMI Request the valve to move then HMI setpoint is the valve move time Preset]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(HMI_Siphon_Open_CMD) ,XIC(HMI_Siphon_Close_CMD) ,XIC(HSO_10_301) XIC(HMI_Idle_Timer.TT) ,XIC(HSC_10_301) XIC(HMI_Idle_Timer.TT) ]MOVE(HMI_Siphon_MoveTmr_pre,Actual_Siphon_MoveTmr_pre);]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Comment>
+<![CDATA[If VTS Request the valve to move then VTS setpoint is the valve move time Preset]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(VTS_Siphon_Open_CMD) ,XIC(VTS_Siphon_Close_CMD) ]MOVE(VTS_Siphon_MoveTmr_pre,Actual_Siphon_MoveTmr_pre);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Comment>
+<![CDATA[Apply the selected Actual Preset (converted to milliseconds) to the Bypass Move Timer.]]>
+</Comment>
+<Text>
+<![CDATA[MUL(Actual_Siphon_MoveTmr_pre,1000,Siphon_MoveTmr.PRE);]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE REMOTE COMMAND TIMER --]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(MOV_10_301_OP) ,XIC(MOV_10_301_CL) ]TON(Siphon_MoveTmr,?,?);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE REMOTE COMMAND LOGIC --]]>
+</Comment>
+<Text>
+<![CDATA[XIO(Siphon_MoveTmr.TT)XIO(Siphon_Cooldown_Active)XIO(Siphon_Cmd_Held)[[XIC(HMI_Siphon_Open_CMD) ,XIC(VTS_Siphon_Open_CMD) ] ONS(ONS_Valves[11]) OTE(Siphon_Remote_Open_CMD) ,[XIC(HMI_Siphon_Close_CMD) ,XIC(VTS_Siphon_Close_CMD) ] ONS(ONS_Valves[12]) OTE(Siphon_Remote_Close_CMD) ];]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Comment>
+<![CDATA[Calculate the Siphon Valve position increment based on the full stroke time setpoint and 100ms timer pulse]]>
+</Comment>
+<Text>
+<![CDATA[CPT(Siphon_Position_Increment,(Siphon_InRawMax/Siphon_Full_Stroke_Time_SP)*0.1);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE POSITION CALCULATION --]]>
+</Comment>
+<Text>
+<![CDATA[XIO(T_Position_Pulse.DN)ONS(ONS_Valves[10])[XIC(MOV_10_301_OP) ADD(Siphon_Position_Counter,Siphon_Position_Increment,Siphon_Position_Counter) ,XIC(MOV_10_301_CL) SUB(Siphon_Position_Counter,Siphon_Position_Increment,Siphon_Position_Counter) ];]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Text>
+<![CDATA[XIC(ZSC_10_301)MOVE(Siphon_Position_Counter,Siphon_InRawMin);]]>
+</Text>
+</Rung>
+<Rung Number="15" Type="N">
+<Text>
+<![CDATA[XIC(ZSO_10_301)MOVE(Siphon_Position_Counter,Siphon_InRawMax);]]>
+</Text>
+</Rung>
+<Rung Number="16" Type="N">
+<Comment>
+<![CDATA[################ SEE VALVE POSITION SCALING #########################]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(Siphon_Position_Percent,Siphon_Position_Percent);]]>
+</Text>
+</Rung>
+<Rung Number="17" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE STOP OPEN -- Unlatch the open permissive and remote command when the move timer is done or the fully open limit switch is hit]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSO_10_301) ][OTU(Siphon_Open_Permissive) ,OTU(Siphon_Remote_Open_CMD) ];]]>
+</Text>
+</Rung>
+<Rung Number="18" Type="N">
+<Comment>
+<![CDATA[-- SIPHON VALVE STOP CLOSE -- Unlatch the close permissive and remote command when the move timer is done or the fully closed limit switch is hit]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(ZSC_10_301) ][OTU(Siphon_Close_Permissive) ,OTU(Siphon_Remote_Close_CMD) ];]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
+<Comment>
+<![CDATA[-- ACTIVATE COOLDOWN PERIOD -- The 'Cooldown_Active' bit turns on as soon as the move timer is done and stays on while the 'CooldownTmr' is running]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Siphon_MoveTmr.DN) ,XIC(Siphon_CooldownTmr.TT) ]XIO(Siphon_CooldownTmr.DN)OTE(Siphon_Cooldown_Active);]]>
+</Text>
+</Rung>
+<Rung Number="20" Type="N">
+<Comment>
+<![CDATA[-- RUN COOLDOWN TIMER -- As long as the 'Cooldown_Active' bit is on, this timer will run for a duration equal to the last valve move.]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Siphon_Cooldown_Active)TON(Siphon_CooldownTmr,?,?);]]>
+</Text>
+</Rung>
+<Rung Number="21" Type="N">
+<Comment>
+<![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Siphon_Cooldown_Active)OTL(Siphon_Cmd_Held);]]>
+</Text>
+</Rung>
+<Rung Number="22" Type="N">
+<Comment>
+<![CDATA[-- LATCH ANTI-REPEAT INTERLOCK -- While the valve is in its cooldown period, latch the 'Cmd_Held' bit. This bit blocks any new commands until all operator inputs are released.]]>
+</Comment>
+<Text>
+<![CDATA[XIO(HSO_10_301)XIO(HSC_10_301)XIO(HMI_Siphon_Open_CMD)XIO(VTS_Siphon_Open_CMD)XIO(HMI_Siphon_Close_CMD)XIO(VTS_Siphon_Close_CMD)OTU(Siphon_Cmd_Held);]]>
+</Text>
+</Rung>
+</RLLContent>
 </Routine>
 <Routine Name="X_Alarms" Type="RLL">
 <Description>
@@ -10844,18 +10906,26 @@ Intruder Alarm Section
 <WatchTag Specifier="Bypass_MoveTmr.ACC" Scope=""/>
 <WatchTag Specifier="Bypass_MoveTmr.PRE" Scope=""/>
 <WatchTag Specifier="Bypass_Position_Counter" Scope=""/>
+<WatchTag Specifier="ClsBpVlv_HMI" Scope=""/>
 <WatchTag Specifier="HMI_Bypass_Close_CMD" Scope=""/>
 <WatchTag Specifier="HMI_Bypass_Open_CMD" Scope=""/>
 <WatchTag Specifier="MOV_10_302_CL" Scope=""/>
 <WatchTag Specifier="MOV_10_302_OP" Scope=""/>
+<WatchTag Specifier="OpnBpVlv_HMI" Scope=""/>
 </QuickWatchList>
 <QuickWatchList Name="Main_Valve_Cooldown_test">
+<WatchTag Specifier="ClsMnVlv_HMI" Scope=""/>
 <WatchTag Specifier="MOV_10_300_CL" Scope=""/>
 <WatchTag Specifier="MOV_10_300_OP" Scope=""/>
 <WatchTag Specifier="Main_CooldownTmr.ACC" Scope=""/>
 <WatchTag Specifier="Main_MoveTmr.ACC" Scope=""/>
+<WatchTag Specifier="Main_MoveTmr.PRE" Scope=""/>
+<WatchTag Specifier="Main_Position_Counter" Scope=""/>
+<WatchTag Specifier="Main_Position_Percent" Scope=""/>
+<WatchTag Specifier="OpnMnVlv_HMI" Scope=""/>
 </QuickWatchList>
 <QuickWatchList Name="Siphon_Control">
+<WatchTag Specifier="Actual_Siphon_MoveTmr_pre" Scope=""/>
 <WatchTag Specifier="ClsSiVlv_HMI" Scope=""/>
 <WatchTag Specifier="OpnSiVlv_HMI" Scope=""/>
 <WatchTag Specifier="Siphon_CooldownTmr.ACC" Scope=""/>
