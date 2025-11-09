@@ -34,12 +34,12 @@ Arrowsmith_Dam_PLC/
 ├── AI_INSTRUCTIONS.md
 ├── Valve_Calibration_AOI_Implementation_Summary.md
 ├── L5X_Files/
-│   ├── Arrowsmith_Dam_Nov8_R0.L5X        # Complete project file (current)
+│   ├── Arrowsmith_Dam_Nov9_R2.L5X        # Complete project file (current)
 │   ├── Valve_Position_Calibration_R2_AOI.L5X  # Valve calibration AOI
 │   └── _PowerUp_Init_Routine_RLL.L5X     # Power-up initialization routine
 ├── Tag_Info/
-│   ├── Arrowsmith_Dam_Nov8_R0_Controller_Tags.CSV
-│   └── C-more-TagDatabase Nov4_R0.CSV
+│   ├── Arrowsmith_Dam_Nov9_R2_Controller_Tags.CSV
+│   └── C-more-TagDataBase_Nov9_R0.CSV
 ├── Misc_Docs/
 │   └── IOChecksheet-SFAT_Arrowsmith - Update Oct 28 by Burke.csv
 └── HMI_Images/
@@ -106,12 +106,14 @@ The MainProgram executes the following routines in order:
 5. **MainRoutine** - Calls subordinate routines in sequence
 6. **Misc** - Utility functions and miscellaneous control
 7. **SumpPumps** - Automatic sump pump control with protection
-8. **Valves** - **Primary valve control logic (68 rungs)**
-9. **Valve_Pos_Cal** - Semi-automatic valve position calibration using AOI
-10. **X_Alarms** - Alarm processing and latching
-11. **X_Outputs_to_VTS** - Sends status to VTScada
-12. **Y_Outputs_To_HMI** - Sends status and data to HMI
-13. **Z_Output_Mapping** - Maps internal tags to physical outputs
+8. **Valve_Bypass** - Bypass valve control logic
+9. **Valve_Main** - Main valve control logic
+10. **Valve_Siphon** - Siphon valve control logic
+11. **Valve_Pos_Cal** - Semi-automatic valve position calibration using AOI
+12. **X_Alarms** - Alarm processing and latching
+13. **X_Outputs_to_VTS** - Sends status to VTScada
+14. **Y_Outputs_To_HMI** - Sends status and data to HMI
+15. **Z_Output_Mapping** - Maps internal tags to physical outputs
 
 ### Special Programs
 - **_PowerUp_Init** - Executes once on controller power-up to initialize critical tags
@@ -288,7 +290,7 @@ FT_10_500 (High Level Flow)
 
 ### Opening the Project
 1. Launch Rockwell Studio 5000 v36.00 or later
-2. Open `L5X_Files/Arrowsmith_Dam_Nov8_R0.L5X`
+2. Open `L5X_Files/Arrowsmith_Dam_Nov9_R2.L5X`
 3. Controller will appear offline until connected to hardware
 
 ### Downloading to Controller
@@ -312,6 +314,7 @@ FT_10_500 (High Level Flow)
 
 ## Change Log
 
+* **Nov 09, 2025 (R2):** Split Valves routine into three separate routines (Valve_Bypass, Valve_Main, Valve_Siphon) for improved organization and maintainability
 * **Nov 08, 2025:** Added Valve_Position_Calibration AOI with hybrid control approach
 * **Nov 05, 2025:** Updated README to reflect current project state
 * **Nov 01, 2025:** Replaced old Routine L5X files with current Project L5X file
