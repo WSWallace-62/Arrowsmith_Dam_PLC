@@ -251,23 +251,67 @@ Valve_Position_Calibration(
 
 ---
 
+## Tag Naming Convention & Control Strategy
+
+### **Hybrid Approach (Selected)**
+
+We are using a **hybrid approach** with shared calibration control tags that work for all valves:
+
+**Shared Control Tags (CAL_...):**
+- `CAL_Enable` - Enable/Start calibration
+- `CAL_Confirm_CMD` - Confirmation button for all steps
+- `CAL_Abort_CMD` - Abort current calibration
+- `CAL_Step` - Current calibration step number
+- `CAL_In_Progress` - Calibration running flag
+- `CAL_Complete` - Calibration success flag
+- `CAL_Aborted` - Calibration aborted flag
+- `CAL_Failed` - Calibration failed/timeout flag
+- `CAL_Awaiting_Confirm` - Waiting for operator confirmation
+
+**Valve Selector:**
+- `CAL_Valve_Select` (DINT) - Selects which valve to calibrate:
+  - `0` = None (disabled)
+  - `1` = Bypass Valve
+  - `2` = Main Valve
+  - `3` = Siphon Valve
+
+**Implementation:**
+- Only **one AOI instance is active** at a time based on `CAL_Valve_Select` value
+- Each AOI instance has conditional logic: `EQU(CAL_Valve_Select, 1)` enables Bypass AOI, etc.
+- **One HMI calibration screen** works for any valve selected
+- Prevents multiple valves from being calibrated simultaneously
+
+**Valve-Specific Tags (remain unique per valve):**
+- `Bypass_Position_Counter`, `Main_Position_Counter`, `Siphon_Position_Counter`
+- `Bypass_InRawMin`, `Main_InRawMin`, `Siphon_InRawMin`
+- `Bypass_InRawMax`, `Main_InRawMax`, `Siphon_InRawMax`
+- `Bypass_Full_Stroke_Time_SP`, `Main_Full_Stroke_Time_SP`, `Siphon_Full_Stroke_Time_SP`
+- `Bypass_Position_Percent`, `Main_Position_Percent`, `Siphon_Position_Percent`
+
+---
+
 ## HMI Requirements
 
 The HMI should provide:
 
 ### **Buttons:**
-1. **Calibrate/Enable Button** (`DEV_Calibrate_Enable`)
-   - Momentary or maintained depending on design
-   - Starts the calibration sequence
+1. **Valve Selector Dropdown** (`CAL_Valve_Select`)
+   - Options: None (0), Bypass (1), Main (2), Siphon (3)
+   - Disables all AOI instances when set to 0
+   - Enables only selected valve's AOI instance
 
-2. **Confirm Button** (`DEV_Confirm_CMD`)
+2. **Calibrate/Enable Button** (`CAL_Enable`)
+   - Momentary or maintained depending on design
+   - Starts the calibration sequence for selected valve
+
+3. **Confirm Button** (`CAL_Confirm_CMD`)
    - Momentary pushbutton
    - Used 3 times during sequence:
      - Initial confirmation (within 10s)
      - After closed position set
      - After open position set (to move to 50%)
 
-3. **Abort Button** (`Dev_Abort_CMD`)
+4. **Abort Button** (`CAL_Abort_CMD`)
    - Momentary pushbutton
    - Available anytime during active calibration
 
