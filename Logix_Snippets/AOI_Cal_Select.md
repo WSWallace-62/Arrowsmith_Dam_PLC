@@ -14,7 +14,7 @@ Bypass Valve Calibration - Only active when CAL_Valve_Select = 1. Uses shared CA
 
 **L5X Rung String:**
 ```
-EQ(CAL_Valve_Select,1)Valve_Position_Calibration_R2(CAL_Calibrate_Enable,CAL_Confirm_CMD,CAL_Abort_CMD,ZSC_10_302,ZSO_10_302,MOV_10_302_OP,MOV_10_302_CL,CAL_Cal_In_Progress,CAL_Cal_Complete,CAL_Aborted_CMD,CAL_Cal_Failed,CAL_Awaiting_Confirm,CAL_Cal_Step,Bypass_Position_Counter,Bypass_InRawMin,Bypass_InRawMax,Bypass_Full_Stroke_Time_SP,Bypass_Position_Percent);
+EQ(CAL_Valve_Select,1)Valve_Position_Calibration_R2(Bypass_Valve_Cal,CAL_Calibrate_Enable,CAL_Confirm_CMD,CAL_Abort_CMD,ZSC_10_302,ZSO_10_302,MOV_10_302_OP,MOV_10_302_CL,CAL_Cal_In_Progress,CAL_Cal_Complete,CAL_Aborted_CMD,CAL_Cal_Failed,CAL_Awaiting_Confirm,CAL_Cal_Step,Bypass_Position_Counter,Bypass_InRawMin,Bypass_InRawMax,Bypass_Full_Stroke_Time_SP,Bypass_Position_Percent);
 ```
 
 ---
@@ -28,7 +28,7 @@ Main Valve Calibration - Only active when CAL_Valve_Select = 2. Uses shared CAL_
 
 **L5X Rung String:**
 ```
-EQ(CAL_Valve_Select,2)Valve_Position_Calibration_R2(CAL_Calibrate_Enable,CAL_Confirm_CMD,CAL_Abort_CMD,ZSC_10_300,ZSO_10_300,MOV_10_300_OP,MOV_10_300_CL,CAL_Cal_In_Progress,CAL_Cal_Complete,CAL_Aborted_CMD,CAL_Cal_Failed,CAL_Awaiting_Confirm,CAL_Cal_Step,Main_Position_Counter,Main_InRawMin,Main_InRawMax,Main_Full_Stroke_Time_SP,Main_Position_Percent);
+EQ(CAL_Valve_Select,2)Valve_Position_Calibration_R2(Main_Valve_Cal,CAL_Calibrate_Enable,CAL_Confirm_CMD,CAL_Abort_CMD,ZSC_10_300,ZSO_10_300,MOV_10_300_OP,MOV_10_300_CL,CAL_Cal_In_Progress,CAL_Cal_Complete,CAL_Aborted_CMD,CAL_Cal_Failed,CAL_Awaiting_Confirm,CAL_Cal_Step,Main_Position_Counter,Main_InRawMin,Main_InRawMax,Main_Full_Stroke_Time_SP,Main_Position_Percent);
 ```
 
 ---
@@ -42,12 +42,12 @@ Siphon Valve Calibration - Only active when CAL_Valve_Select = 3. Uses shared CA
 
 **L5X Rung String:**
 ```
-EQ(CAL_Valve_Select,3)Valve_Position_Calibration_R2(CAL_Calibrate_Enable,CAL_Confirm_CMD,CAL_Abort_CMD,ZSC_10_301,ZSO_10_301,MOV_10_301_OP,MOV_10_301_CL,CAL_Cal_In_Progress,CAL_Cal_Complete,CAL_Aborted_CMD,CAL_Cal_Failed,CAL_Awaiting_Confirm,CAL_Cal_Step,Siphon_Position_Counter,Siphon_InRawMin,Siphon_InRawMax,Siphon_Full_Stroke_Time_SP,Siphon_Position_Percent);
+EQ(CAL_Valve_Select,3)Valve_Position_Calibration_R2(Siphon_Valve_Cal,CAL_Calibrate_Enable,CAL_Confirm_CMD,CAL_Abort_CMD,ZSC_10_301,ZSO_10_301,MOV_10_301_OP,MOV_10_301_CL,CAL_Cal_In_Progress,CAL_Cal_Complete,CAL_Aborted_CMD,CAL_Cal_Failed,CAL_Awaiting_Confirm,CAL_Cal_Step,Siphon_Position_Counter,Siphon_InRawMin,Siphon_InRawMax,Siphon_Full_Stroke_Time_SP,Siphon_Position_Percent);
 ```
 
 ---
 
-## Required Tag
+## Required Tags
 
 **Tag Name:** `CAL_Valve_Select`  
 **Data Type:** DINT  
@@ -55,6 +55,27 @@ EQ(CAL_Valve_Select,3)Valve_Position_Calibration_R2(CAL_Calibrate_Enable,CAL_Con
 **Tag Comment:**
 ```
 Valve selector for calibration: 0=None, 1=Bypass, 2=Main, 3=Siphon
+```
+
+**Tag Name:** `Bypass_Valve_Cal`  
+**Data Type:** Valve_Position_Calibration_R2  
+**Tag Comment:**
+```
+AOI instance for Bypass valve calibration
+```
+
+**Tag Name:** `Main_Valve_Cal`  
+**Data Type:** Valve_Position_Calibration_R2  
+**Tag Comment:**
+```
+AOI instance for Main valve calibration
+```
+
+**Tag Name:** `Siphon_Valve_Cal`  
+**Data Type:** Valve_Position_Calibration_R2  
+**Tag Comment:**
+```
+AOI instance for Siphon valve calibration
 ```
 
 ---
