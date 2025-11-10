@@ -28,9 +28,15 @@ XIC(GA_10_303)OTE(Genset_Fault_HMI);
 Genset fault status to HMI
 ```
 
-**New Tag:**
+**New Tag: BOOL**
+
+Tag Name:
 ```
-Genset_Fault_HMI, BOOL
+Genset_Fault_HMI
+```
+
+Tag Comment:
+```
 Genset fault indication for HMI display
 ```
 
@@ -48,9 +54,15 @@ XIC(LAL_10_303)OTE(Genset_LowFuel_HMI);
 Genset low fuel alarm status to HMI
 ```
 
-**New Tag:**
+**New Tag: BOOL**
+
+Tag Name:
 ```
-Genset_LowFuel_HMI, BOOL
+Genset_LowFuel_HMI
+```
+
+Tag Comment:
+```
 Genset low fuel alarm for HMI display
 ```
 
