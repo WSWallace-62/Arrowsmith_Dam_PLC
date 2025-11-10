@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Sun Nov 09 16:40:52 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
-<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" MajorFaultProgram="Fault_Handler" ProjectCreationDate="Wed Sep 17 15:52:20 2025" LastModifiedDate="Sun Nov 09 16:19:36 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent"
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Mon Nov 10 09:05:43 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" MajorFaultProgram="Fault_Handler" ProjectCreationDate="Wed Sep 17 15:52:20 2025" LastModifiedDate="Mon Nov 10 09:04:48 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent"
  SFCLastScan="DontScan" ProjectSN="16#d0a9_2b6a" MatchProjectToController="false" CanUseRPIFromProducer="false" InhibitAutomaticFirmwareUpdate="0" PassThroughConfiguration="EnabledWithAppend" DownloadProjectDocumentationAndExtendedProperties="true" DownloadProjectCustomProperties="true" ReportMinorOverflow="false" EtherNetIPMode="A1/A2: Linear/DLR" AutoDiagsEnabled="true"
  WebServerEnabled="false">
 <Description>
@@ -948,7 +948,7 @@
 		,0.00000000e+000],[5,0,2,1,0,0,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
 		,0.00000000e+000,0.00000000e+000,1.00000000e+002,1.00000000e+002,0.00000000e+000,0.00000000e+000
 		],[5,0,2,1,0,0,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000
-		,0.00000000e+000,1.00000000e+002,1.00000000e+002,0.00000000e+000,0.00000000e+000],[5,0,2,1,0,0
+		,0.00000000e+000,1.00000000e+002,1.00000000e+002,0.00000000e+000,0.00000000e+000],[5,0,2,0,0,0
 		,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000
 		,1.00000000e+002,1.00000000e+002,0.00000000e+000,0.00000000e+000]]]]>
 </Data>
@@ -1112,7 +1112,7 @@
 <DataValueMember Name="Range" DataType="SINT" Radix="Decimal" Value="5"/>
 <DataValueMember Name="SensorType" DataType="SINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="NotchFilter" DataType="SINT" Radix="Decimal" Value="2"/>
-<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="1"/>
+<DataValueMember Name="AlarmDisable" DataType="BOOL" Value="0"/>
 <DataValueMember Name="ProcessAlarmLatchEn" DataType="BOOL" Value="0"/>
 <DataValueMember Name="RateAlarmLatchEn" DataType="BOOL" Value="0"/>
 <DataValueMember Name="OpenWireEn" DataType="BOOL" Value="0"/>
@@ -2050,6 +2050,28 @@
 <DataValue DataType="DINT" Radix="Decimal" Value="6"/>
 </Data>
 </Tag>
+<Tag Name="AI_Ch07_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Analog Input Ch07 signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="AI_Ch07_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Analog Input Ch07 signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="AI_S4_SP7" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Spare]]>
@@ -2119,6 +2141,28 @@ Alarm Reset]]>
 </Data>
 </Tag>
 <Tag Name="Always_off" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Analog_OOR_General_Alarm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Analog Input General Alarm]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Analog_OOR_General_Alarm_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Analog Input General Alarm to HMI]]>
+</Description>
 <Data Format="L5K">
 <![CDATA[0]]>
 </Data>
@@ -2960,12 +3004,12 @@ To HMI]]>
 <![CDATA[1-minute periodic timer for ROC calculation]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072820521,60000,40586]]]>
+<![CDATA[[-1072395627,60000,25736]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="40586"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="25736"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -3169,6 +3213,17 @@ Converted to DINT]]>
 <DataValue DataType="DINT" Radix="Decimal" Value="32"/>
 </Data>
 </Tag>
+<Tag Name="ET_10_504_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Battery Voltage transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="ET_10_504_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[BATTERY VOLTAGE
@@ -3179,6 +3234,17 @@ Converted to DINT]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="REAL" Radix="Float" Value="32.76"/>
+</Data>
+</Tag>
+<Tag Name="ET_10_504_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Battery Voltage transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="FaultHandler_Control" TagType="Base" DataType="CONTROL" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3223,6 +3289,23 @@ Converted to DINT]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="REAL" Radix="Float" Value="3.75"/>
+</Data>
+</Tag>
+<Tag Name="ForceSCRN_Timer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Force to Login page]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[1346205,2000,2000]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="2000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="2000"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
 </Data>
 </Tag>
 <Tag Name="FT_10_500" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3273,6 +3356,17 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="1.25"/>
 </Data>
 </Tag>
+<Tag Name="FT_10_500_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Main Flow transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="FT_10_500_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[MAIN FLOW
@@ -3294,6 +3388,17 @@ Converted to DINT]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="REAL" Radix="Float" Value="3.75"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_500_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Main Flow transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="FT_10_501" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3344,6 +3449,17 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="2.5"/>
 </Data>
 </Tag>
+<Tag Name="FT_10_501_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Flow transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="FT_10_501_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[SIPHON FLOW
@@ -3354,6 +3470,17 @@ Converted to DINT]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="REAL" Radix="Float" Value="2.5"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_501_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Flow transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="GA_10_303" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3957,10 +4084,10 @@ Converted to DINT]]>
 <![CDATA[PLC reads current Screen number]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[50]]>
+<![CDATA[10]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
 </Data>
 </Tag>
 <Tag Name="HMI_Force_Screen_Num" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3968,10 +4095,10 @@ Converted to DINT]]>
 <![CDATA[PLC writes Login Screen # here to force HMI to change screens.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1]]>
+<![CDATA[10]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="10"/>
 </Data>
 </Tag>
 <Tag Name="HMI_Idle_Timer" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -3979,12 +4106,12 @@ Converted to DINT]]>
 <![CDATA[30-minute inactivity timer. Resets on HMI activity.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072820522,1800000,760585]]]>
+<![CDATA[[-1072395630,1800000,1240819]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1800000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="760585"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="1240819"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -4366,6 +4493,17 @@ FUEL]]>
 <DataValue DataType="REAL" Radix="Float" Value="0.0"/>
 </Data>
 </Tag>
+<Tag Name="LT_10_500_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Reservoir Level transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="LT_10_502" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[RESERVOIR LEVEL
@@ -4425,6 +4563,17 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="21.0"/>
 </Data>
 </Tag>
+<Tag Name="LT_10_502_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Reservoir Level transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="LT_10_502_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[RESERVOIR LEVEL
@@ -4446,6 +4595,17 @@ Level=0-42M 810M base to get Geodetic Level]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="REAL" Radix="Float" Value="831.66"/>
+</Data>
+</Tag>
+<Tag Name="LT_10_502_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Reservoir Level transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="Main_Close_Permissive" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4501,10 +4661,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2.64808945e+004]]>
+<![CDATA[1.00412336e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="26480.895"/>
+<DataValue DataType="REAL" Radix="Float" Value="100412.336"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4512,10 +4672,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Totalized Main Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2.64808906e+004]]>
+<![CDATA[1.00412336e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="26480.89"/>
+<DataValue DataType="REAL" Radix="Float" Value="100412.336"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -4763,7 +4923,7 @@ Warning]]>
 <![CDATA[Meter Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[921303,10000,10000]]]>
+<![CDATA[[1346196,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -4841,10 +5001,10 @@ Warning]]>
 <![CDATA[Meter Sump remaining lockout time in minutes for VTS]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[59]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="59"/>
 </Data>
 </Tag>
 <Tag Name="MeterSump_MaxRunTime" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5046,17 +5206,17 @@ Warning]]>
 </Comment>
 </Comments>
 <Data Format="L5K">
-<![CDATA[[1998,1,2,7,15,45,222133]]]>
+<![CDATA[[1998,1,2,23,41,30,374309]]]>
 </Data>
 <Data Format="Decorated">
 <Array DataType="DINT" Dimensions="7" Radix="Decimal">
 <Element Index="[0]" Value="1998"/>
 <Element Index="[1]" Value="1"/>
 <Element Index="[2]" Value="2"/>
-<Element Index="[3]" Value="7"/>
-<Element Index="[4]" Value="15"/>
-<Element Index="[5]" Value="45"/>
-<Element Index="[6]" Value="222133"/>
+<Element Index="[3]" Value="23"/>
+<Element Index="[4]" Value="41"/>
+<Element Index="[5]" Value="30"/>
+<Element Index="[6]" Value="374309"/>
 </Array>
 </Data>
 </Tag>
@@ -5170,12 +5330,12 @@ Warning]]>
 <![CDATA[1-second free-running timer to pulse the PLC_Watchdog_Out counter.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072820546,1000,561]]]>
+<![CDATA[[-1072395648,1000,715]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="561"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="715"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -5187,12 +5347,12 @@ Warning]]>
 <![CDATA[PLC heartbeat counter for VTScada to monitor.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[0,999999999,274116]]]>
+<![CDATA[[0,999999999,333261]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="COUNTER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="274116"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="333261"/>
 <DataValueMember Name="CU" DataType="BOOL" Value="0"/>
 <DataValueMember Name="CD" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -5273,6 +5433,17 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="172.25"/>
 </Data>
 </Tag>
+<Tag Name="PT_10_505_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm -  Pressure transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="PT_10_505_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[MAIN PRESSURE
@@ -5283,6 +5454,17 @@ Converted to DINT]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="REAL" Radix="Float" Value="172.25"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_505_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Main Pressure transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="PT_10_506" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5332,6 +5514,17 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="344.5"/>
 </Data>
 </Tag>
+<Tag Name="PT_10_506_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Pressure transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="PT_10_506_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[SIPHON PRESSURE
@@ -5342,6 +5535,17 @@ Converted to DINT]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="REAL" Radix="Float" Value="344.5"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_506_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Pressure transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="REPLACE_WITH_LOW_BATTERY_ALARM" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5430,10 +5634,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5.29621172e+004]]>
+<![CDATA[2.00825000e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="52962.117"/>
+<DataValue DataType="REAL" Radix="Float" Value="200825.0"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5442,10 +5646,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5.29621172e+004]]>
+<![CDATA[2.00825000e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="52962.117"/>
+<DataValue DataType="REAL" Radix="Float" Value="200825.0"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5698,12 +5902,12 @@ warning]]>
 <![CDATA[For tests onlt]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[0,9999999,1]]]>
+<![CDATA[[0,9999999,8]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="COUNTER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="9999999"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="8"/>
 <DataValueMember Name="CU" DataType="BOOL" Value="0"/>
 <DataValueMember Name="CD" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -5714,14 +5918,14 @@ warning]]>
 </Tag>
 <Tag Name="test_tmr" TagType="Base" DataType="TIMER" Dimensions="10" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[[4043276,1,1],[3522856,99999,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]]]]>
+<![CDATA[[[295171,5000,5000],[3522856,99999,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]]]]>
 </Data>
 <Data Format="Decorated">
 <Array DataType="TIMER" Dimensions="10">
 <Element Index="[0]">
 <Structure DataType="TIMER">
-<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="5000"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -5883,10 +6087,10 @@ warning]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[7.94427109e+004]]>
+<![CDATA[3.01237062e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="79442.71"/>
+<DataValue DataType="REAL" Radix="Float" Value="301237.06"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5894,10 +6098,10 @@ warning]]>
 <![CDATA[Totalized Total Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[7.94427422e+004]]>
+<![CDATA[3.01237094e+005]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="79442.74"/>
+<DataValue DataType="REAL" Radix="Float" Value="301237.1"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -6021,6 +6225,17 @@ Converted to DINT]]>
 <DataValue DataType="REAL" Radix="Float" Value="30.0"/>
 </Data>
 </Tag>
+<Tag Name="TT_10_503_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Outside Temperature transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="TT_10_503_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Outside Temp
@@ -6031,6 +6246,17 @@ Converted to DINT]]>
 </Data>
 <Data Format="Decorated">
 <DataValue DataType="REAL" Radix="Float" Value="30.0"/>
+</Data>
+</Tag>
+<Tag Name="TT_10_503_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Outside Temperature transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="ValveSumpAutoStartDelay" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -6055,7 +6281,7 @@ Converted to DINT]]>
 <![CDATA[Valve Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[921274,10000,10000]]]>
+<![CDATA[[1346173,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -6341,12 +6567,12 @@ Converted to DINT]]>
 <![CDATA[10-second watchdog timer for VTScada communication.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1072820551,10000,556]]]>
+<![CDATA[[-1072395652,10000,8689]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="556"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="8689"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -6452,15 +6678,26 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="VTS_Watchdog_Bit" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bit from VTS changes state every second]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="VTS_Watchdog_In" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[VTScada heartbeat. SCADA must continuously increment this tag]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5]]>
+<![CDATA[0]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="VTS_Watchdog_In_Prev" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -6468,10 +6705,10 @@ Converted to DINT]]>
 <![CDATA[Storage for the previous VTS_Watchdog_In value.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5]]>
+<![CDATA[0]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="5"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
 <Tag Name="XAL_10_306" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -8382,7 +8619,7 @@ CR8]]>
 </Tag>
 <Tag Name="MAVE_01" TagType="Base" DataType="MOVING_AVERAGE" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[1,0.00000000e+000,5,1,0.00000000e+000,0,0.00000000e+000,0.00000000e+000,1.58693123e+029,4.20389539e-045
+<![CDATA[[1,0.00000000e+000,5,1,0.00000000e+000,0,0.00000000e+000,0.00000000e+000,1.58693123e+029,2.80259693e-045
 		,0.00000000e+000,7.00649232e-045,2.00000000e-001]]]>
 </Data>
 <Data Format="Decorated">
@@ -8706,9 +8943,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,3.75000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,7.94436406e+004,4.45876312e+005,1.00000000e-003
-		,0,0.00000000e+000,1.89237482e-038,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,3.75000000e+000,7.60610676e+000,4.25322086e+009]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,3.01238000e+005,4.45876312e+005,1.00000000e-003
+		,0,0.00000000e+000,2.49845247e-036,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,3.75000000e+000,9.14913082e+000,-3.80256494e+031]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -8738,7 +8975,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="79443.64"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="301238.0"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="445876.3"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -8766,9 +9003,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,1.25000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,2.64811600e+004,1.48625391e+005,1.00000000e-003
-		,0,0.00000000e+000,1.89237272e-038,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,1.25000000e+000,6.80814075e+000,4.10884695e-008]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,1.00412600e+005,1.48625391e+005,1.00000000e-003
+		,0,0.00000000e+000,2.49844835e-036,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,1.25000000e+000,7.76608706e+000,-1.63999607e-024]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -8798,7 +9035,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="26481.16"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="100412.6"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="148625.39"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -8826,9 +9063,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,2.50000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,5.29627031e+004,2.97250969e+005,1.00000000e-003
-		,0,0.00000000e+000,1.89237721e-038,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,2.50000000e+000,7.30814648e+000,3.99038608e+029]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,2.00825609e+005,2.97250969e+005,1.00000000e-003
+		,0,0.00000000e+000,2.49845660e-036,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,2.50000000e+000,8.53217697e+000,-4.21000483e+028]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -8858,7 +9095,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="52962.703"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="200825.61"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="297250.97"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -9003,12 +9240,12 @@ CR8]]>
 </Tag>
 <Tag Name="T_Position_Pulse" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[-1072820346,100,61]]]>
+<![CDATA[[-1072395476,100,87]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="61"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="87"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -9577,10 +9814,15 @@ CR8]]>
 </Rung>
 <Rung Number="12" Type="N">
 <Text>
-<![CDATA[JSR(Y_Outputs_To_HMI,0);]]>
+<![CDATA[JSR(X_Outputs_to_VTS,0);]]>
 </Text>
 </Rung>
 <Rung Number="13" Type="N">
+<Text>
+<![CDATA[JSR(Y_Outputs_To_HMI,0);]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
 <Text>
 <![CDATA[JSR(Z_Output_Mapping,0);]]>
 </Text>
@@ -9705,14 +9947,19 @@ If 30 minutes of inactivity passes, the final instruction executes, moving the l
 </Text>
 </Rung>
 <Rung Number="12" Type="N">
+<Text>
+<![CDATA[NE(HMI_Current_Screen_Num,1)XIO(ForceSCRN_Timer.DN)MOVE(HMI_Current_Screen_Num,HMI_Force_Screen_Num);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
 <Comment>
 <![CDATA[When the idle timer expires, move the Login Screen Number (e.g., '1') into the force-screen tag.]]>
 </Comment>
 <Text>
-<![CDATA[XIC(HMI_Idle_Timer.DN)MOVE(1,HMI_Force_Screen_Num);]]>
+<![CDATA[XIC(HMI_Idle_Timer.DN)[TOF(ForceSCRN_Timer,?,?) ,XIC(ForceSCRN_Timer.DN) MOVE(1,HMI_Force_Screen_Num) ];]]>
 </Text>
 </Rung>
-<Rung Number="13" Type="N">
+<Rung Number="14" Type="N">
 <Comment>
 <![CDATA[############################################################
 
@@ -9732,7 +9979,7 @@ can monitor as a heartbeat from the PLC.
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="14" Type="N">
+<Rung Number="15" Type="N">
 <Comment>
 <![CDATA[Generate a continuous 1-second pulse.]]>
 </Comment>
@@ -9740,7 +9987,7 @@ can monitor as a heartbeat from the PLC.
 <![CDATA[XIO(PLC_Watchdog_1sec_Tmr.DN)TON(PLC_Watchdog_1sec_Tmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="15" Type="N">
+<Rung Number="16" Type="N">
 <Comment>
 <![CDATA[Increment the PLC-to-SCADA heartbeat counter once per second.]]>
 </Comment>
@@ -9748,7 +9995,7 @@ can monitor as a heartbeat from the PLC.
 <![CDATA[XIC(PLC_Watchdog_1sec_Tmr.DN)CTU(PLC_Watchdog_Out,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="16" Type="N">
+<Rung Number="17" Type="N">
 <Comment>
 <![CDATA[Reset the heartbeat counter when it reaches its preset to allow it to loop.]]>
 </Comment>
@@ -9756,7 +10003,12 @@ can monitor as a heartbeat from the PLC.
 <![CDATA[XIC(PLC_Watchdog_Out.DN)RES(PLC_Watchdog_Out);]]>
 </Text>
 </Rung>
-<Rung Number="17" Type="N">
+<Rung Number="18" Type="N">
+<Text>
+<![CDATA[[XIC(VTS_Watchdog_Bit) MOVE(1,VTS_Watchdog_In) ,XIO(VTS_Watchdog_Bit) MOVE(0,VTS_Watchdog_In) ];]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
 <Comment>
 <![CDATA[If SCADA heartbeat changes, reset timer, store new value, and clear self-healing fault.]]>
 </Comment>
@@ -9764,7 +10016,7 @@ can monitor as a heartbeat from the PLC.
 <![CDATA[NE(VTS_Watchdog_In,VTS_Watchdog_In_Prev)[RES(VTS_Comm_Watchdog_Tmr) ,MOVE(VTS_Watchdog_In,VTS_Watchdog_In_Prev) ,OTU(VTS_Comm_Fault) ];]]>
 </Text>
 </Rung>
-<Rung Number="18" Type="N">
+<Rung Number="20" Type="N">
 <Comment>
 <![CDATA[If SCADA heartbeat has NOT changed, run the 10-second watchdog timer.]]>
 </Comment>
@@ -9772,7 +10024,7 @@ can monitor as a heartbeat from the PLC.
 <![CDATA[EQ(VTS_Watchdog_In,VTS_Watchdog_In_Prev)XIO(VTS_Comm_Watchdog_Tmr.DN)TON(VTS_Comm_Watchdog_Tmr,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="19" Type="N">
+<Rung Number="21" Type="N">
 <Comment>
 <![CDATA[If the timer expires, latch the self-healing and operator-resettable communication faults.]]>
 </Comment>
@@ -9780,7 +10032,7 @@ can monitor as a heartbeat from the PLC.
 <![CDATA[XIC(VTS_Comm_Watchdog_Tmr.DN)[OTL(VTS_Comm_Fault) ,OTL(VTS_Comm_Fault_Latched) ];]]>
 </Text>
 </Rung>
-<Rung Number="20" Type="N">
+<Rung Number="22" Type="N">
 <Comment>
 <![CDATA[Reset the latched comm fault on Alarm Reset.]]>
 </Comment>
@@ -9788,7 +10040,7 @@ can monitor as a heartbeat from the PLC.
 <![CDATA[XIC(Alarm_Reset)OTU(VTS_Comm_Fault_Latched);]]>
 </Text>
 </Rung>
-<Rung Number="21" Type="N">
+<Rung Number="23" Type="N">
 <Comment>
 <![CDATA[############################################################
 
@@ -9808,7 +10060,7 @@ The current level is then stored for the next cycle.
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="22" Type="N">
+<Rung Number="24" Type="N">
 <Comment>
 <![CDATA[Run a 1-minute periodic timer for the Rate of Change calculation.]]>
 </Comment>
@@ -9816,7 +10068,7 @@ The current level is then stored for the next cycle.
 <![CDATA[XIO(Dam_Level_ROC_Timer.DN)TON(Dam_Level_ROC_Timer,?,?);]]>
 </Text>
 </Rung>
-<Rung Number="23" Type="N">
+<Rung Number="25" Type="N">
 <Comment>
 <![CDATA[Run a 1-minute periodic timer for the Rate of Change calculation.]]>
 </Comment>
@@ -9824,7 +10076,7 @@ The current level is then stored for the next cycle.
 <![CDATA[XIC(Dam_Level_ROC_Timer.DN)ONS(ONS_Misc.3)SUB(LT_10_502_SCLD_Geo,Dam_Level_Prev_Min,Dam_Level_Delta_Min);]]>
 </Text>
 </Rung>
-<Rung Number="24" Type="N">
+<Rung Number="26" Type="N">
 <Comment>
 <![CDATA[Convert the per-minute delta to a per-hour Rate of Change (m/hr).]]>
 </Comment>
@@ -9832,7 +10084,7 @@ The current level is then stored for the next cycle.
 <![CDATA[XIC(ONS_Misc.3)MUL(Dam_Level_Delta_Min,60,Dam_Level_ROC);]]>
 </Text>
 </Rung>
-<Rung Number="25" Type="N">
+<Rung Number="27" Type="N">
 <Comment>
 <![CDATA[Store the current level to use as the 'previous' value for the next 1-minute interval.]]>
 </Comment>
@@ -10645,7 +10897,7 @@ NEEDS CORRECTION]]>
 <![CDATA[A General Alarm can be trigger by various alarm states]]>
 </Comment>
 <Text>
-<![CDATA[[XIC(Intruder_Alarm) ,XIC(ValveSump_Lockout) ,XIC(MeterSump_Lockout) ,XIC(General_Alarm) ,XIC(Dam_Level_Alarm_HI) ,XIC(Dam_Level_Alarm_LO) ,XIC(Dam_Level_ROC_Alarm) ,XIC(Cal_Required_General_Alarm) ]XIO(Alarm_Reset)OTE(General_Alarm);]]>
+<![CDATA[[XIC(Intruder_Alarm) ,XIC(ValveSump_Lockout) ,XIC(MeterSump_Lockout) ,XIC(General_Alarm) ,XIC(Dam_Level_Alarm_HI) ,XIC(Dam_Level_Alarm_LO) ,XIC(Dam_Level_ROC_Alarm) ,XIC(Cal_Required_General_Alarm) ,XIC(Analog_OOR_General_Alarm) ]XIO(Alarm_Reset)OTE(General_Alarm);]]>
 </Text>
 </Rung>
 <Rung Number="1" Type="N">
@@ -10823,9 +11075,175 @@ Intruder Alarm Section
 <![CDATA[[XIC(Bypass_HighCal_Required) ,XIC(Bypass_LowCal_Required) ,XIC(Main_HighCal_Required) ,XIC(Main_LowCal_Required) ,XIC(Siphon_HighCal_Required) ,XIC(Siphon_LowCal_Required) ]OTE(Cal_Required_General_Alarm);]]>
 </Text>
 </Rung>
+<Rung Number="25" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Main Flow transmitter detects underrange condition (signal < 3.2mA). Indicates wire break or sensor fault. Unlatch with master reset button.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch00.Underrange) OTL(FT_10_500_Underrange_Latched) ,XIC(Alarm_Reset) OTU(FT_10_500_Underrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="26" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Main Flow transmitter detects overrange condition (signal > 21mA). Indicates short circuit or sensor fault. Unlatch with global alarm reset button on separate branch.]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch00.Overrange) OTL(FT_10_500_Overrange_Latched) ,XIC(Alarm_Reset) OTU(FT_10_500_Overrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="27" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Main Pressure transmitter detects underrange condition (signal < 3.2mA). Indicates wire break or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch01.Underrange) OTL(PT_10_505_Underrange_Latched) ,XIC(Alarm_Reset) OTU(PT_10_505_Underrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="28" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Main Pressure transmitter detects overrange condition (signal > 21mA). Indicates short circuit or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch01.Overrange) OTL(PT_10_505_Overrange_Latched) ,XIC(Alarm_Reset) OTU(PT_10_505_Overrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="29" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Siphon Flow transmitter detects underrange condition (signal < 3.2mA). Indicates wire break or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch02.Underrange) OTL(FT_10_501_Underrange_Latched) ,XIC(Alarm_Reset) OTU(FT_10_501_Underrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="30" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Siphon Flow transmitter detects overrange condition (signal > 21mA). Indicates short circuit or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch02.Overrange) OTL(FT_10_501_Overrange_Latched) ,XIC(Alarm_Reset) OTU(FT_10_501_Overrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="31" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Siphon Pressure transmitter detects underrange condition (signal < 3.2mA). Indicates wire break or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch03.Underrange) OTL(PT_10_506_Underrange_Latched) ,XIC(Alarm_Reset) OTU(PT_10_506_Underrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="32" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Siphon Pressure transmitter detects overrange condition (signal > 21mA). Indicates short circuit or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch03.Overrange) OTL(PT_10_506_Overrange_Latched) ,XIC(Alarm_Reset) OTU(PT_10_506_Overrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="33" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Reservoir Level transmitter detects underrange condition (signal < 3.2mA). Indicates wire break or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch04.Underrange) OTL(LT_10_502_Underrange_Latched) ,XIC(Alarm_Reset) OTU(LT_10_502_Underrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="34" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Reservior Level transmitter detects overrange condition (signal > 21mA). Indicates short circuit or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch04.Overrange) OTL(LT_10_502_Overrange_Latched) ,XIC(Alarm_Reset) OTU(LT_10_502_Overrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="35" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Outside Temperature transmitter detects underrange condition (signal < 3.2mA). Indicates wire break or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch05.Underrange) OTL(TT_10_503_Underrange_Latched) ,XIC(Alarm_Reset) OTU(TT_10_503_Underrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="36" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Outside Temperature transmitter detects overrange condition (signal > 21mA). Indicates short circuit or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch05.Overrange) OTL(TT_10_503_Overrange_Latched) ,XIC(Alarm_Reset) OTU(TT_10_503_Overrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="37" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Battery Voltage transmitter detects underrange condition (signal < 3.2mA). Indicates wire break or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch06.Underrange) OTL(ET_10_504_Underrange_Latched) ,XIC(Alarm_Reset) OTU(ET_10_504_Underrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="38" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Battery Voltage transmitter detects overrange condition (signal > 21mA). Indicates short circuit or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch06.Overrange) OTL(ET_10_504_Overrange_Latched) ,XIC(Alarm_Reset) OTU(ET_10_504_Overrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="39" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Spare Analog Input detects underrange condition (signal < 3.2mA). Indicates wire break or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch07.Underrange) OTL(AI_Ch07_Underrange_Latched) ,XIC(Alarm_Reset) OTU(AI_Ch07_Underrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="40" Type="N">
+<Comment>
+<![CDATA[Latch alarm if Spare Analog Input detects overrange condition (signal > 21mA). Indicates short circuit or sensor fault. Unlatch with global alarm reset button on separate branch.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[[XIC(Local:4:I.Ch07.Overrange) OTL(AI_Ch07_Overrange_Latched) ,XIC(Alarm_Reset) OTU(AI_Ch07_Overrange_Latched) ];]]>
+</Text>
+</Rung>
+<Rung Number="41" Type="N">
+<Text>
+<![CDATA[[XIC(FT_10_500_Underrange_Latched) ,XIC(FT_10_500_Overrange_Latched) ,XIC(PT_10_505_Underrange_Latched) ,XIC(PT_10_505_Overrange_Latched) ,XIC(FT_10_501_Underrange_Latched) ,XIC(FT_10_501_Overrange_Latched) ,XIC(PT_10_506_Underrange_Latched) ,XIC(PT_10_506_Overrange_Latched) ,XIC(LT_10_502_Underrange_Latched) ,XIC(LT_10_502_Overrange_Latched) ,XIC(TT_10_503_Underrange_Latched) ,XIC(TT_10_503_Overrange_Latched) ,XIC(ET_10_504_Underrange_Latched) ,XIC(ET_10_504_Overrange_Latched) ,XIC(AI_Ch07_Underrange_Latched) ,XIC(AI_Ch07_Overrange_Latched) ]OTE(Analog_OOR_General_Alarm);]]>
+</Text>
+</Rung>
 </RLLContent>
 </Routine>
 <Routine Name="X_Outputs_to_VTS" Type="RLL">
+<Description>
+<![CDATA[Outputs used by VTS]]>
+</Description>
 <RLLContent>
 <Rung Number="0" Type="N">
 <Comment>
@@ -11078,15 +11496,12 @@ Intruder Alarm Section
 </Rung>
 <Rung Number="38" Type="N">
 <Text>
-<![CDATA[XIC(XA_10_300)OTE(BuildingDoorSw);]]>
+<![CDATA[XIC(Analog_OOR_General_Alarm)OTE(Analog_OOR_General_Alarm_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="39" Type="N">
-<Comment>
-<![CDATA[A General Alarm can be trigger by various alarm states]]>
-</Comment>
 <Text>
-<![CDATA[XIC(Intruder_Alarm)OTE(Intruder_Alarm_HMI);]]>
+<![CDATA[XIC(XA_10_300)OTE(BuildingDoorSw);]]>
 </Text>
 </Rung>
 <Rung Number="40" Type="N">
@@ -11094,40 +11509,48 @@ Intruder Alarm Section
 <![CDATA[A General Alarm can be trigger by various alarm states]]>
 </Comment>
 <Text>
-<![CDATA[XIC(General_Alarm)OTE(General_Alarm_HMI);]]>
+<![CDATA[XIC(Intruder_Alarm)OTE(Intruder_Alarm_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="41" Type="N">
+<Comment>
+<![CDATA[A General Alarm can be trigger by various alarm states]]>
+</Comment>
 <Text>
-<![CDATA[XIC(ES_10_504_STS)OTE(BatryChgOK);]]>
+<![CDATA[XIC(General_Alarm)OTE(General_Alarm_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="42" Type="N">
 <Text>
-<![CDATA[XIC(EA_10_504_FLT)OTE(BatryChgFault);]]>
+<![CDATA[XIC(ES_10_504_STS)OTE(BatryChgOK);]]>
 </Text>
 </Rung>
 <Rung Number="43" Type="N">
 <Text>
-<![CDATA[XIC(XAL_10_306)OTE(BldTempLow);]]>
+<![CDATA[XIC(EA_10_504_FLT)OTE(BatryChgFault);]]>
 </Text>
 </Rung>
 <Rung Number="44" Type="N">
 <Text>
-<![CDATA[XIC(JSH_10_308)OTE(HMI_Main);]]>
+<![CDATA[XIC(XAL_10_306)OTE(BldTempLow);]]>
 </Text>
 </Rung>
 <Rung Number="45" Type="N">
 <Text>
-<![CDATA[XIC(VTS_Comm_Fault)OTE(VTS_Comm_Fault_HMI);]]>
+<![CDATA[XIC(JSH_10_308)OTE(HMI_Main);]]>
 </Text>
 </Rung>
 <Rung Number="46" Type="N">
 <Text>
-<![CDATA[XIC(VTS_Comm_Fault_Latched)OTE(VTS_Comm_Fault_Latched_HMI);]]>
+<![CDATA[XIC(VTS_Comm_Fault)OTE(VTS_Comm_Fault_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="47" Type="N">
+<Text>
+<![CDATA[XIC(VTS_Comm_Fault_Latched)OTE(VTS_Comm_Fault_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="48" Type="N">
 <Comment>
 <![CDATA[Move the calculated 5-min average Dam Level Rate of Change (m/hr) to the HMI tag.]]>
 </Comment>
@@ -11135,7 +11558,7 @@ Intruder Alarm Section
 <![CDATA[MOVE(Dam_Level_ROC_Avg,Dam_Level_ROC_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="48" Type="N">
+<Rung Number="49" Type="N">
 <Comment>
 <![CDATA[Move the Dam High Level Alarm status to the HMI tag.]]>
 </Comment>
@@ -11143,7 +11566,7 @@ Intruder Alarm Section
 <![CDATA[XIC(Dam_Level_Alarm_HI)OTE(Dam_Level_Alarm_HI_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="49" Type="N">
+<Rung Number="50" Type="N">
 <Comment>
 <![CDATA[Move the Dam Low Level Alarm status to the HMI tag.]]>
 </Comment>
@@ -11151,7 +11574,7 @@ Intruder Alarm Section
 <![CDATA[XIC(Dam_Level_Alarm_LO)OTE(Dam_Level_Alarm_LO_HMI);]]>
 </Text>
 </Rung>
-<Rung Number="50" Type="N">
+<Rung Number="51" Type="N">
 <Comment>
 <![CDATA[Move the Dam Rate of Change Alarm status to the HMI tag.]]>
 </Comment>
