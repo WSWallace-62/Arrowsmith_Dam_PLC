@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Tue Nov 11 09:59:47 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
-<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" MajorFaultProgram="Fault_Handler" ProjectCreationDate="Wed Sep 17 15:52:20 2025" LastModifiedDate="Tue Nov 11 09:58:46 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent"
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Tue Nov 11 11:43:42 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" MajorFaultProgram="Fault_Handler" ProjectCreationDate="Wed Sep 17 15:52:20 2025" LastModifiedDate="Tue Nov 11 11:41:26 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent"
  SFCLastScan="DontScan" ProjectSN="16#d0a9_2b6a" MatchProjectToController="false" CanUseRPIFromProducer="false" InhibitAutomaticFirmwareUpdate="0" PassThroughConfiguration="EnabledWithAppend" DownloadProjectDocumentationAndExtendedProperties="true" DownloadProjectCustomProperties="true" ReportMinorOverflow="false" EtherNetIPMode="A1/A2: Linear/DLR" AutoDiagsEnabled="true"
  WebServerEnabled="false">
 <Description>
@@ -4880,6 +4880,17 @@ Warning]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
 </Data>
 </Tag>
+<Tag Name="Bypass_HighCal_Required_Warning_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass valve high calibration warning status sent to VTScada]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
 <Tag Name="Bypass_InRawMax" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Value when ZSO is Activated]]>
@@ -4927,6 +4938,17 @@ Warning]]>
 <Tag Name="Bypass_LowCal_Required_Warning_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Bypass Valve low calibration required warning status for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_LowCal_Required_Warning_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass valve low calibration warning status sent to VTScada]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -5322,14 +5344,14 @@ To HMI]]>
 </Tag>
 <Tag Name="CurrentDateTime" TagType="Base" DataType="DateTime" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[1998,1,4,0,0,0,0]]]>
+<![CDATA[[1998,1,4,2,0,0,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="DateTime">
 <DataValueMember Name="Year" DataType="DINT" Radix="Decimal" Value="1998"/>
 <DataValueMember Name="Month" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="Day" DataType="DINT" Radix="Decimal" Value="4"/>
-<DataValueMember Name="Hour" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="Hour" DataType="DINT" Radix="Decimal" Value="2"/>
 <DataValueMember Name="Minute" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="Second" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="uSec" DataType="DINT" Radix="Decimal" Value="0"/>
@@ -5363,10 +5385,10 @@ To HMI]]>
 </Tag>
 <Tag Name="Current_Hour" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[2]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="2"/>
 </Data>
 </Tag>
 <Tag Name="Daily" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5641,12 +5663,12 @@ To HMI]]>
 <![CDATA[1-minute periodic timer for ROC calculation]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1070859805,60000,33391]]]>
+<![CDATA[[-1073030581,60000,11223]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="33391"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="11223"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -6000,7 +6022,7 @@ Converted to DINT]]>
 <![CDATA[Force to Login page]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[2882028,2000,2000]]]>
+<![CDATA[[711251,2000,2000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -7019,12 +7041,12 @@ Converted to DINT]]>
 <![CDATA[30-minute inactivity timer. Resets on HMI activity.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1070859806,1800000,153390]]]>
+<![CDATA[[-1073030584,1800000,971220]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1800000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="153390"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="971220"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -7626,10 +7648,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2.63313257e+003]]>
+<![CDATA[1.04054209e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="2633.1326"/>
+<DataValue DataType="REAL" Radix="Float" Value="10405.421"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -7637,10 +7659,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Totalized Main Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2.63312891e+003]]>
+<![CDATA[1.04054170e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="2633.129"/>
+<DataValue DataType="REAL" Radix="Float" Value="10405.417"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Today_TTL_VTS" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -7648,10 +7670,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Totalized Main Flow Today to VTS]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[2.63313400e+003]]>
+<![CDATA[1.04054248e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="2633.134"/>
+<DataValue DataType="REAL" Radix="Float" Value="10405.425"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -7733,6 +7755,17 @@ Warning]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="Main_HighCal_Required_Warning_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main valve high calibration warning status sent to VTScada]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="Main_InRawMax" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Value when ZSO is Activated]]>
@@ -7781,6 +7814,17 @@ Warning]]>
 <Tag Name="Main_LowCal_Required_Warning_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Main Valve low calibration required warning status for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Main_LowCal_Required_Warning_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main valve low calibration warning status sent to VTScada]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -7932,7 +7976,7 @@ Warning]]>
 <![CDATA[Meter Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[2882019,10000,10000]]]>
+<![CDATA[[711241,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -8218,17 +8262,17 @@ Warning]]>
 </Comment>
 </Comments>
 <Data Format="L5K">
-<![CDATA[[1998,1,4,0,35,6,602851]]]>
+<![CDATA[[1998,1,4,2,18,44,425762]]]>
 </Data>
 <Data Format="Decorated">
 <Array DataType="DINT" Dimensions="7" Radix="Decimal">
 <Element Index="[0]" Value="1998"/>
 <Element Index="[1]" Value="1"/>
 <Element Index="[2]" Value="4"/>
-<Element Index="[3]" Value="0"/>
-<Element Index="[4]" Value="35"/>
-<Element Index="[5]" Value="6"/>
-<Element Index="[6]" Value="602851"/>
+<Element Index="[3]" Value="2"/>
+<Element Index="[4]" Value="18"/>
+<Element Index="[5]" Value="44"/>
+<Element Index="[6]" Value="425762"/>
 </Array>
 </Data>
 </Tag>
@@ -8342,12 +8386,12 @@ Warning]]>
 <![CDATA[1-second free-running timer to pulse the PLC_Watchdog_Out counter.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1070859828,1000,368]]]>
+<![CDATA[[-1073030606,1000,198]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="368"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="198"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -8359,12 +8403,12 @@ Warning]]>
 <![CDATA[PLC heartbeat counter for VTScada to monitor.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[0,999999999,399095]]]>
+<![CDATA[[0,999999999,405313]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="COUNTER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="399095"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="405313"/>
 <DataValueMember Name="CU" DataType="BOOL" Value="0"/>
 <DataValueMember Name="CD" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -8400,10 +8444,10 @@ Warning]]>
 </Tag>
 <Tag Name="Previous_Hour" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[0]]>
+<![CDATA[2]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="2"/>
 </Data>
 </Tag>
 <Tag Name="PT_10_505" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -8698,10 +8742,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5.26630518e+003]]>
+<![CDATA[2.08108789e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="5266.305"/>
+<DataValue DataType="REAL" Radix="Float" Value="20810.879"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -8710,10 +8754,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5.26629541e+003]]>
+<![CDATA[2.08108691e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="5266.2954"/>
+<DataValue DataType="REAL" Radix="Float" Value="20810.87"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Today_TTL_VTS" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -8721,10 +8765,10 @@ Converted to DINT]]>
 <![CDATA[Siphon Flow Today (m3) to VTS]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5.26624561e+003]]>
+<![CDATA[2.08108242e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="5266.2456"/>
+<DataValue DataType="REAL" Radix="Float" Value="20810.824"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -8807,6 +8851,17 @@ Warning]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
+<Tag Name="Siphon_HighCal_Required_Warning_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon valve high calibration warning status sent to VTScada]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
 <Tag Name="Siphon_InRawMax" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Value when ZSO is Activated]]>
@@ -8855,6 +8910,17 @@ warning]]>
 <Tag Name="Siphon_LowCal_Required_Warning_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[Siphon Valve low calibration required warning status for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_LowCal_Required_Warning_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon valve low calibration warning status sent to VTScada]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[0]]>
@@ -8980,7 +9046,7 @@ warning]]>
 </Tag>
 <Tag Name="SNTP_MSG_DATA" TagType="Base" DataType="SKT_UDP_DATA" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[[2,[2,0,0,0,0,0]],18591,[2000,[22,'192.168.26.17?port=1233$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+<![CDATA[[[2,[2,0,0,0,0,0]],19935,[2000,[22,'192.168.26.17?port=1233$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
 		]],[5000,52],[[2,123,17,26,-88,-64],48,[-385875684,0,1833568768,1279479628,881966316,1895630080,0,0,1391705324
 		,-742781492,1391705324,-871371555,0]],[1000,[2,0,0,0,0,0],[48,'$0B$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
 		]],48]]]>
@@ -8998,7 +9064,7 @@ warning]]>
 <DataValueMember Name="IP_1st_Octect" DataType="SINT" Radix="Decimal" Value="0"/>
 </StructureMember>
 </StructureMember>
-<DataValueMember Name="Instance" DataType="DINT" Radix="Decimal" Value="18591"/>
+<DataValueMember Name="Instance" DataType="DINT" Radix="Decimal" Value="19935"/>
 <StructureMember Name="Open_Connection" DataType="SKT_Open_Connection">
 <DataValueMember Name="Timeout" DataType="DINT" Radix="Decimal" Value="2000"/>
 <StructureMember Name="Dest_Addr" DataType="STRING">
@@ -9061,25 +9127,25 @@ warning]]>
 </Tag>
 <Tag Name="SNTP_MSG_DELETE" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="Message">
-<MessageParameters MessageType="CIP Generic" RequestedLength="0" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004f" ObjectType="16#0342" TargetObject="18591" AttributeNumber="16#0000" LocalIndex="0" LargePacketUsage="false"
+<MessageParameters MessageType="CIP Generic" RequestedLength="0" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004f" ObjectType="16#0342" TargetObject="19935" AttributeNumber="16#0000" LocalIndex="0" LargePacketUsage="false"
 />
 </Data>
 </Tag>
 <Tag Name="SNTP_MSG_OPEN" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="Message">
-<MessageParameters MessageType="CIP Generic" RequestedLength="30" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004c" ObjectType="16#0342" TargetObject="18591" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Open_Connection"
+<MessageParameters MessageType="CIP Generic" RequestedLength="30" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004c" ObjectType="16#0342" TargetObject="19935" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Open_Connection"
  LargePacketUsage="false"/>
 </Data>
 </Tag>
 <Tag Name="SNTP_MSG_READ" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="Message">
-<MessageParameters MessageType="CIP Generic" RequestedLength="8" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004d" ObjectType="16#0342" TargetObject="18591" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Read_Source"
+<MessageParameters MessageType="CIP Generic" RequestedLength="8" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004d" ObjectType="16#0342" TargetObject="19935" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Read_Source"
  DestinationTag="SNTP_MSG_DATA.Read_Response" LargePacketUsage="false"/>
 </Data>
 </Tag>
 <Tag Name="SNTP_MSG_WRITE" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="Message">
-<MessageParameters MessageType="CIP Generic" RequestedLength="64" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004e" ObjectType="16#0342" TargetObject="18591" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Write_Source"
+<MessageParameters MessageType="CIP Generic" RequestedLength="64" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004e" ObjectType="16#0342" TargetObject="19935" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Write_Source"
  DestinationTag="SNTP_MSG_DATA.Write_SizeSent" LargePacketUsage="false"/>
 </Data>
 </Tag>
@@ -9331,10 +9397,10 @@ warning]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[7.89933398e+003]]>
+<![CDATA[3.12161973e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="7899.334"/>
+<DataValue DataType="REAL" Radix="Float" Value="31216.197"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -9342,10 +9408,10 @@ warning]]>
 <![CDATA[Totalized Total Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[7.89936768e+003]]>
+<![CDATA[3.12162344e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="7899.3677"/>
+<DataValue DataType="REAL" Radix="Float" Value="31216.234"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Today_TTL_VTS" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -9353,10 +9419,10 @@ warning]]>
 <![CDATA[Totalized Total Flow Today to VTS]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[7.89942773e+003]]>
+<![CDATA[3.12162871e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="7899.4277"/>
+<DataValue DataType="REAL" Radix="Float" Value="31216.287"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -9558,7 +9624,7 @@ Converted to DINT]]>
 <![CDATA[Valve Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[2881992,10000,10000]]]>
+<![CDATA[[711214,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -9888,12 +9954,12 @@ Converted to DINT]]>
 <![CDATA[10-second watchdog timer for VTScada communication.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1070859836,10000,3360]]]>
+<![CDATA[[-1073030614,10000,1190]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="3360"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="1190"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -11973,7 +12039,7 @@ CR8]]>
 </Tag>
 <Tag Name="MAVE_01" TagType="Base" DataType="MOVING_AVERAGE" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[1,0.00000000e+000,5,1,0.00000000e+000,0,0.00000000e+000,0.00000000e+000,1.58723422e+029,4.20389539e-045
+<![CDATA[[1,0.00000000e+000,5,1,0.00000000e+000,0,0.00000000e+000,0.00000000e+000,1.58723422e+029,5.60519386e-045
 		,0.00000000e+000,7.00649232e-045,2.00000000e-001]]]>
 </Data>
 <Data Format="Decorated">
@@ -12277,9 +12343,9 @@ CR8]]>
 </Tag>
 <Tag Name="SNTP_AOI_TAG" TagType="Base" DataType="AOI_SNTP_QUERY" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[151,0,1,5,3.44793344e+000,0,[2,'$01$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
-		],[0,0,0,0,0,-323161262,0],[2036,2,7,6,28,16,0],[0,0,-3741,-89767,-5386021,0,2025,2025,8,11,739870,2035,11,254],[-1070859537
-		,300000,93124],[2025,11,10,23,27,14,838230],[0,0,0,0,0,739870,2025,8,8,2025,739870,[0,0,0,0,0,0,41112]],[0,0,0,0,0,0,41112],[9
+<![CDATA[[151,0,1,5,4.81864977e+000,0,[2,'$01$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,0,0,0,0,-323161262,0],[2036,2,7,6,28,16,0],[0,0,-3741,-89767,-5386021,0,2025,2025,8,11,739870,2035,11,254],[-1073030317
+		,300000,10881],[2025,11,10,23,27,14,838230],[0,0,0,0,0,739870,2025,8,8,2025,739870,[0,0,0,0,0,0,41112]],[0,0,0,0,0,0,41112],[9
 		,'?port=123$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
 		],213974733]]]>
 </Data>
@@ -12293,7 +12359,7 @@ CR8]]>
 <DataValueMember Name="Enet_Slot_Number" DataType="SINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="Query_Interval_in_Min" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="Query_Error_Retry_in_Min" DataType="DINT" Radix="Decimal" Value="5"/>
-<DataValueMember Name="Next_Query_in_Min" DataType="REAL" Radix="Float" Value="3.4479334"/>
+<DataValueMember Name="Next_Query_in_Min" DataType="REAL" Radix="Float" Value="4.81865"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="ER" DataType="BOOL" Value="1"/>
@@ -12322,9 +12388,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,3.75000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,7.90039551e+003,2.34820797e+005,1.00000000e-003
-		,0,1.40129846e-045,4.14027037e-033,0.00000000e+000,7.89211295e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,3.75000000e+000,5.96440363e+000,4.73228283e-008]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,3.12172480e+004,2.34820797e+005,1.00000000e-003
+		,0,0.00000000e+000,6.68570273e-033,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,3.75000000e+000,6.95267439e+000,-1.24373663e+014]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -12354,7 +12420,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="7900.3955"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="31217.248"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="234820.8"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -12382,9 +12448,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,1.25000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,2.63344507e+003,7.82735391e+004,1.00000000e-003
-		,0,0.00000000e+000,4.14026449e-033,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,1.25000000e+000,5.14293051e+000,-7.69602177e+028]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,1.04057295e+004,7.82735391e+004,1.00000000e-003
+		,0,0.00000000e+000,6.68569098e-033,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,1.25000000e+000,6.13511515e+000,3.00453427e+019]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -12414,7 +12480,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="2633.445"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="10405.7295"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="78273.54"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -12442,9 +12508,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,2.50000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,5.26698047e+003,1.56547359e+005,1.00000000e-003
-		,0,0.00000000e+000,4.14027771e-033,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,2.50000000e+000,5.64294147e+000,-1.18266730e+035]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,2.08115840e+004,1.56547359e+005,1.00000000e-003
+		,0,0.00000000e+000,6.68572771e-033,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,2.50000000e+000,6.63511896e+000,3.00506907e+019]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -12474,7 +12540,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="5266.9805"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="20811.584"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="156547.36"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -12619,12 +12685,12 @@ CR8]]>
 </Tag>
 <Tag Name="T_Position_Pulse" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[-1070859597,100,99]]]>
+<![CDATA[[-1073030378,100,26]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="99"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="26"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -14782,13 +14848,61 @@ Intruder Alarm Section
 </Rung>
 <Rung Number="17" Type="N">
 <Comment>
+<![CDATA[Bypass Valve high calibration required warning status to VTScada]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Bypass_HighCal_Required_Warning)OTE(Bypass_HighCal_Required_Warning_VTS);]]>
+</Text>
+</Rung>
+<Rung Number="18" Type="N">
+<Comment>
+<![CDATA[Bypass Valve low calibration required warning status to VTScada]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Bypass_LowCal_Required_Warning)OTE(Bypass_LowCal_Required_Warning_VTS);]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
+<Comment>
+<![CDATA[Main Valve high calibration required warning status to VTScada]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Main_HighCal_Required_Warning)OTE(Main_HighCal_Required_Warning_VTS);]]>
+</Text>
+</Rung>
+<Rung Number="20" Type="N">
+<Comment>
+<![CDATA[Main Valve low calibration required warning status to VTScada]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Main_LowCal_Required_Warning)OTE(Main_LowCal_Required_Warning_VTS);]]>
+</Text>
+</Rung>
+<Rung Number="21" Type="N">
+<Comment>
+<![CDATA[Siphon Valve high calibration required warning status to VTScada]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Siphon_HighCal_Required_Warning)OTE(Siphon_HighCal_Required_Warning_VTS);]]>
+</Text>
+</Rung>
+<Rung Number="22" Type="N">
+<Comment>
+<![CDATA[Siphon Valve low calibration required warning status to VTScada]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Siphon_LowCal_Required_Warning)OTE(Siphon_LowCal_Required_Warning_VTS);]]>
+</Text>
+</Rung>
+<Rung Number="23" Type="N">
+<Comment>
 <![CDATA[############################          Generator Data to VTS          #############################]]>
 </Comment>
 <Text>
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="18" Type="N">
+<Rung Number="24" Type="N">
 <Comment>
 <![CDATA[Genset Running Status to VTS]]>
 </Comment>
@@ -14796,42 +14910,42 @@ Intruder Alarm Section
 <![CDATA[XIC(GS_10_303_RN)OTE(Genset_Running_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="19" Type="N">
+<Rung Number="25" Type="N">
 <Text>
 <![CDATA[MOVE(Genset_TotalMinRun_Counter.ACC,Gen_TotalRunTimer_Minutes_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="20" Type="N">
+<Rung Number="26" Type="N">
 <Text>
 <![CDATA[MOVE(Genset_TotalHrRun_Counter.ACC,Gen_TotalRuntimer_Hrs_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="21" Type="N">
+<Rung Number="27" Type="N">
 <Text>
 <![CDATA[MOVE(Genset_CurrentMinRun_Counter.ACC,Gen_CurrentRunTimer_Minutes_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="22" Type="N">
+<Rung Number="28" Type="N">
 <Text>
 <![CDATA[MOVE(Genset_CurrentHrRun_Counter.ACC,Gen_CurrentRuntimer_Hrs_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="23" Type="N">
+<Rung Number="29" Type="N">
 <Text>
 <![CDATA[MOVE(Genset_Runs_cntr.ACC,Gen_Runs_cntr_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="24" Type="N">
+<Rung Number="30" Type="N">
 <Text>
 <![CDATA[MOVE(Gen_FailToStart_cntr.ACC,Gen_FailToStart_cntr_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="25" Type="N">
+<Rung Number="31" Type="N">
 <Text>
 <![CDATA[MOVE(ET_10_504_SCLD,Gen_BATT_10_504_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="26" Type="N">
+<Rung Number="32" Type="N">
 <Comment>
 <![CDATA[Genset fault status to VTS]]>
 </Comment>
@@ -14839,7 +14953,7 @@ Intruder Alarm Section
 <![CDATA[XIC(GA_10_303)OTE(Genset_Fault_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="27" Type="N">
+<Rung Number="33" Type="N">
 <Comment>
 <![CDATA[Genset low fuel alarm status to VTS]]>
 </Comment>
@@ -14847,7 +14961,7 @@ Intruder Alarm Section
 <![CDATA[XIC(LAL_10_303)OTE(Genset_LowFuel_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="28" Type="N">
+<Rung Number="34" Type="N">
 <Comment>
 <![CDATA[############################          Sump Pump Data to VTS          #############################]]>
 </Comment>
@@ -14855,7 +14969,7 @@ Intruder Alarm Section
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="29" Type="N">
+<Rung Number="35" Type="N">
 <Comment>
 <![CDATA[Meter Sump Remaining Lockout (Minutes) to VTS]]>
 </Comment>
@@ -14863,7 +14977,7 @@ Intruder Alarm Section
 <![CDATA[MOVE(MeterSump_LockoutTime,MeterSump_Lockout_Rem_Min_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="30" Type="N">
+<Rung Number="36" Type="N">
 <Comment>
 <![CDATA[Valve Sump Remaining Lockout (Minutes) to VTS]]>
 </Comment>
@@ -14871,27 +14985,27 @@ Intruder Alarm Section
 <![CDATA[MOVE(ValveSump_LockoutTime,ValveSump_Lockout_Rem_Min_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="31" Type="N">
+<Rung Number="37" Type="N">
 <Text>
 <![CDATA[XIC(DR_10_100_ST)OTE(RunMeterSumpPmp_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="32" Type="N">
+<Rung Number="38" Type="N">
 <Text>
 <![CDATA[XIC(DR_10_101_ST)OTE(RunValveSumpPmp_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="33" Type="N">
+<Rung Number="39" Type="N">
 <Text>
 <![CDATA[XIC(LAH_10_305)OTE(VTS_MeterSump_Float_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="34" Type="N">
+<Rung Number="40" Type="N">
 <Text>
 <![CDATA[XIC(LAH_10_304)OTE(VTS_ValveSump_Float_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="35" Type="N">
+<Rung Number="41" Type="N">
 <Comment>
 <![CDATA[Meter Chamber Sump Pump lockout alarm status to VTS]]>
 </Comment>
@@ -14899,7 +15013,7 @@ Intruder Alarm Section
 <![CDATA[XIC(MeterSump_Lockout_Alarm)OTE(MeterSump_Lockout_Alarm_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="36" Type="N">
+<Rung Number="42" Type="N">
 <Comment>
 <![CDATA[Valve Chamber Sump Pump lockout alarm status to VTS]]>
 </Comment>
@@ -14907,7 +15021,7 @@ Intruder Alarm Section
 <![CDATA[XIC(ValveSump_Lockout_Alarm)OTE(ValveSump_Lockout_Alarm_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="37" Type="N">
+<Rung Number="43" Type="N">
 <Comment>
 <![CDATA[############################          Misc Data to VTS          #############################]]>
 </Comment>
@@ -14915,7 +15029,7 @@ Intruder Alarm Section
 <![CDATA[NOP();]]>
 </Text>
 </Rung>
-<Rung Number="38" Type="N">
+<Rung Number="44" Type="N">
 <Comment>
 <![CDATA[Reservoir Level (0-100M) to VTS]]>
 </Comment>
@@ -14923,7 +15037,7 @@ Intruder Alarm Section
 <![CDATA[MOVE(LT_10_502_SCLD,LT_10_502_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="39" Type="N">
+<Rung Number="45" Type="N">
 <Comment>
 <![CDATA[Geodetic Level to VTS]]>
 </Comment>
@@ -14931,7 +15045,7 @@ Intruder Alarm Section
 <![CDATA[MOVE(LT_10_502_SCLD_Geo,LT_10_502_Geo_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="40" Type="N">
+<Rung Number="46" Type="N">
 <Comment>
 <![CDATA[Outside Temperature (-)40 to +30C to VTS]]>
 </Comment>
@@ -14939,7 +15053,7 @@ Intruder Alarm Section
 <![CDATA[MOVE(TT_10_503_SCLD,TT_10_503_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="41" Type="N">
+<Rung Number="47" Type="N">
 <Comment>
 <![CDATA[Battery Level=0-30Vdc to VTS]]>
 </Comment>
@@ -14947,17 +15061,17 @@ Intruder Alarm Section
 <![CDATA[MOVE(ET_10_504_SCLD,BATT_10_504_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="42" Type="N">
+<Rung Number="48" Type="N">
 <Text>
 <![CDATA[XIC(Analog_OOR_General_Alarm)OTE(Analog_OOR_General_Alarm_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="43" Type="N">
+<Rung Number="49" Type="N">
 <Text>
 <![CDATA[XIC(XA_10_300)OTE(BuildingDoorSw_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="44" Type="N">
+<Rung Number="50" Type="N">
 <Comment>
 <![CDATA[Intruder alarm status to VTS]]>
 </Comment>
@@ -14965,7 +15079,7 @@ Intruder Alarm Section
 <![CDATA[XIC(Intruder_Alarm)OTE(Intruder_Alarm_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="45" Type="N">
+<Rung Number="51" Type="N">
 <Comment>
 <![CDATA[General alarm status to VTS]]>
 </Comment>
@@ -14973,37 +15087,37 @@ Intruder Alarm Section
 <![CDATA[XIC(General_Alarm)OTE(General_Alarm_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="46" Type="N">
+<Rung Number="52" Type="N">
 <Text>
 <![CDATA[XIC(ES_10_504_STS)OTE(BatryChgOK_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="47" Type="N">
+<Rung Number="53" Type="N">
 <Text>
 <![CDATA[XIC(EA_10_504_FLT)OTE(BatryChgFault_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="48" Type="N">
+<Rung Number="54" Type="N">
 <Text>
 <![CDATA[XIC(XAL_10_306)OTE(BldTempLow_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="49" Type="N">
+<Rung Number="55" Type="N">
 <Text>
 <![CDATA[XIC(JSH_10_308)OTE(VTS_Main_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="50" Type="N">
+<Rung Number="56" Type="N">
 <Text>
 <![CDATA[XIC(VTS_Comm_Fault)OTE(VTS_Comm_Fault_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="51" Type="N">
+<Rung Number="57" Type="N">
 <Text>
 <![CDATA[XIC(VTS_Comm_Fault_Latched)OTE(VTS_Comm_Fault_Latched_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="52" Type="N">
+<Rung Number="58" Type="N">
 <Comment>
 <![CDATA[Move the calculated 5-min average Dam Level Rate of Change (m/hr) to the VTS tag.]]>
 </Comment>
@@ -15011,7 +15125,7 @@ Intruder Alarm Section
 <![CDATA[MOVE(Dam_Level_ROC_Avg,Dam_Level_ROC_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="53" Type="N">
+<Rung Number="59" Type="N">
 <Comment>
 <![CDATA[Move the Dam High Level Alarm status to the VTS tag.]]>
 </Comment>
@@ -15019,7 +15133,7 @@ Intruder Alarm Section
 <![CDATA[XIC(Dam_Level_Alarm_HI)OTE(Dam_Level_Alarm_HI_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="54" Type="N">
+<Rung Number="60" Type="N">
 <Comment>
 <![CDATA[Move the Dam Low Level Alarm status to the VTS tag.]]>
 </Comment>
@@ -15027,7 +15141,7 @@ Intruder Alarm Section
 <![CDATA[XIC(Dam_Level_Alarm_LO)OTE(Dam_Level_Alarm_LO_VTS);]]>
 </Text>
 </Rung>
-<Rung Number="55" Type="N">
+<Rung Number="61" Type="N">
 <Comment>
 <![CDATA[Move the Dam Rate of Change Alarm status to the VTS tag.]]>
 </Comment>

@@ -180,10 +180,24 @@ Along with each L5X rung string, provide:
 
 ## Logic_Snippets Documentation Format
 
-**When creating .md files in Logic_Snippets/, use this enhanced format for new tags:**
+**When creating .md files in Logic_Snippets/, use this enhanced format:**
+
+### Format for Each Rung in .md Files:
 
 ```
-**New Tag: BOOL**
+## Rung [X]: [Rung Title]
+
+L5X Rung String:
+```
+[L5X rung string here]
+```
+
+Rung Comment:
+```
+[Rung comment here]
+```
+
+**New Tag: [DATA_TYPE]**
 
 Tag Name:
 ```
@@ -217,11 +231,47 @@ Initial Value:
 ```
 ```
 
-**Key Points:**
+**CRITICAL - Key Points:**
 - Data type appears in the header after "New Tag:"
-- Tag name, comment, and initial value are in separate code blocks for individual copying
+- Tag name, comment, and initial value are in **SEPARATE** code blocks for individual copying
+- Each rung section includes: L5X string, rung comment, AND tag definitions together
+- Tag information is grouped with the rung that uses it (NOT in a separate section)
 - This format is ONLY for Logic_Snippets/*.md files
 - Direct chat responses continue to use the compact two-line format
+
+**Example of CORRECT .md file structure:**
+
+```
+## Rung 5: Pump Control
+
+L5X Rung String:
+```
+XIC(Level_High)OTE(Pump_Run);
+```
+
+Rung Comment:
+```
+Start pump when high level is reached
+```
+
+**New Tag: BOOL**
+
+Tag Name:
+```
+Pump_Run
+```
+
+Tag Comment:
+```
+Command to run the pump
+```
+
+---
+
+## Rung 6: Pump Status
+
+[next rung information...]
+```
 
 ---
 
