@@ -97,6 +97,7 @@
 409,"DEV001","Dam_Level_Alarm_SP_HI","Floating_PT_32",1,0,"REALDam_Level_Alarm_SP_HI",0,0
 409,"DEV001","Dam_Level_Alarm_SP_LO","Floating_PT_32",1,0,"REALDam_Level_Alarm_SP_LO",0,0
 409,"DEV001","Dam_Level_ROC_Avg","Floating_PT_32",1,0,"REALDam_Level_ROC_Avg",0,0
+409,"DEV001","Dam_Level_ROC_Alarm_HMI","Discrete",1,0,"BOOLDam_Level_ROC_Alarm",0,0
 409,"DEV001","Dam_Level_Alarm_HI_HMI","Discrete",1,0,"BOOLDam_Level_Alarm_HI_HMI",0,0
 409,"DEV001","Dam_Level_Alarm_LO_HMI","Discrete",1,0,"BOOLDam_Level_Alarm_LO_HMI",0,0
 409,"DEV001","Gen_Batt_10_504_HMI","Floating_PT_32",1,0,"REALGen_BATT_10_504_HMI",0,0
