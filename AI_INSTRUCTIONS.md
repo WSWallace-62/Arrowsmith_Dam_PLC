@@ -169,12 +169,59 @@ Along with each L5X rung string, provide:
 
 **After providing new logic or significant modifications:**
 - Ask if the user would like a markdown file created in the `Logic_Snippets/` folder to document the logic
-- The markdown file will follow the Primary Output Format
+- The markdown file uses an enhanced format with individually copyable tag elements
 
 **Example Offers:**
 > "Would you like me to show this logic in ASCII ladder diagram format first for confirmation before I provide the L5X rung string?"
 
 > "Would you like me to create a markdown documentation file in Logic_Snippets/ for this logic?"
+
+---
+
+## Logic_Snippets Documentation Format
+
+**When creating .md files in Logic_Snippets/, use this enhanced format for new tags:**
+
+```
+**New Tag: BOOL**
+
+Tag Name:
+```
+Tag_Name_Here
+```
+
+Tag Comment:
+```
+Description of the tag here
+```
+```
+
+**For tags with initial values:**
+
+```
+**New Tag: REAL**
+
+Tag Name:
+```
+Tank_Level_SP
+```
+
+Tag Comment:
+```
+Setpoint for tank level in meters
+```
+
+Initial Value:
+```
+5.0
+```
+```
+
+**Key Points:**
+- Data type appears in the header after "New Tag:"
+- Tag name, comment, and initial value are in separate code blocks for individual copying
+- This format is ONLY for Logic_Snippets/*.md files
+- Direct chat responses continue to use the compact two-line format
 
 ---
 
