@@ -36,6 +36,12 @@
 409,"DEV001","Gen_Runs_cntr_HMI","Unsigned_int_32",1,0,"DINTGen_Runs_cntr_HMI",0,0
 409,"DEV001","Gen_FailToStart_cntr_HMI","Unsigned_int_32",1,0,"DINTGen_FailToStart_cntr_HMI",0,0
 409,"DEV001","Cal_Required_General_Alarm_HMI","Discrete",1,0,"BOOLCal_Required_General_Alarm_HMI",0,0
+409,"DEV001","Bypass_HighCal_Required_Warning_HMI","Discrete",1,0,"BOOLBypass_HighCal_Required_Warning_HMI",0,0
+409,"DEV001","Bypass_LowCal_Required_Warning_HMI","Discrete",1,0,"BOOLBypass_LowCal_Required_Warning_HMI",0,0
+409,"DEV001","Main_HighCal_Required_Warning_HMI","Discrete",1,0,"BOOLMain_HighCal_Required_Warning_HMI",0,0
+409,"DEV001","Main_LowCal_Required_Warning_HMI","Discrete",1,0,"BOOLMain_LowCal_Required_Warning_HMI",0,0
+409,"DEV001","Siphon_HighCal_Required_Warning_HMI","Discrete",1,0,"BOOLSiphon_HighCal_Required_Warning_HMI",0,0
+409,"DEV001","Siphon_LowCal_Required_Warning_HMI","Discrete",1,0,"BOOLSiphon_LowCal_Required_Warning_HMI",0,0
 409,"DEV001","PT_10_506_HMI","Floating_PT_32",1,0,"REALPT_10_506_HMI",0,0
 409,"DEV001","FT_10_501_HMI","Floating_PT_32",1,0,"REALFT_10_501_HMI",0,0
 409,"DEV001","FT_10_500_TTL_HMI","Floating_PT_32",1,0,"REALFT_10_500_TTL_HMI",0,0
