@@ -1,0 +1,2242 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Outputs to HMI-->
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Y_Outputs_To_HMI" TargetType="Routine" TargetSubType="RLL" ContainsContext="true" ExportDate="Mon Nov 11 14:30:00 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="Arrowsmith_Dam">
+<DataTypes Use="Context">
+</DataTypes>
+<Tags Use="Context">
+<Tag Name="AI_Ch07_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Analog Input Ch07 signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="AI_Ch07_Overrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Analog Input Ch07 signal above 21mA (short circuit or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="AI_Ch07_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Analog Input Ch07 signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="AI_Ch07_Underrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Analog Input Ch07 signal below 3.2mA (wire break or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Analog_OOR_General_Alarm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Analog Input General Alarm]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Analog_OOR_General_Alarm_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Analog Input General Alarm to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="BatryChgFault" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY CHARGER
+FAULT to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="BatryChgOK" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY CHARGE 
+OK to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="BATT_10_504_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Battery Level=0-30Vdc]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.27599983e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="32.76"/>
+</Data>
+</Tag>
+<Tag Name="BldTempLow" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BUILDING TEMP
+LOW to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="BuildingDoorSw" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Building Door 
+Switch to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_HighCal_Required_Warning" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass valve has reached 10% beyond the 100 range with activating ZSO
+Warning]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_HighCal_Required_Warning_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Valve high calibration required warning status for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_LowCal_Required_Warning" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass valve has reached 10% beyond the 0 range with activating ZSC]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_LowCal_Required_Warning_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Valve low calibration required warning status for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Bypass_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[105]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="105"/>
+</Data>
+</Tag>
+<Tag Name="Cal_Required_General_Alarm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[General Alarm status for Calibration required.  Out of range indication]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="Cal_Required_General_Alarm_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[General Alarm status for Calibration required.  Out of range indication
+To HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="Dam_Level_Alarm_HI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Geodetic High Level Alarm Status]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="Dam_Level_Alarm_HI_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Geodetic High Level Alarm Status]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="Dam_Level_Alarm_LO" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Geodetic Low Level Alarm Status]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Dam_Level_Alarm_LO_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Geodetic Low Level Alarm Status]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Dam_Level_ROC_Alarm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Rate of Change Alarm Status]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Dam_Level_ROC_Alarm_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Rate of Change Alarm Status]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Dam_Level_ROC_Avg" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Smoothed 5-minute average Rate of Change (m/hr)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="Dam_Level_ROC_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Calculated Rate of Change (m/hr)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="DR_10_100_ST" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Control output to RUN METER CHAMBER SUMP PUMP]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="DR_10_101_ST" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Control output to RUN VALVE CHAMBER SUMP PUMP]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="EA_10_504_FLT" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY CHARGER
+FAULT to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ES_10_504_STS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY 
+CHARGE OK]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ET_10_504_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Battery Voltage transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ET_10_504_Overrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Battery Voltage transmitter signal above 21mA (short circuit or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ET_10_504_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BATTERY VOLTAGE
+0-30Vdc]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.27599983e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="32.76"/>
+</Data>
+</Tag>
+<Tag Name="ET_10_504_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Battery Voltage transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ET_10_504_Underrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Battery Voltage transmitter signal below 3.2mA (wire break or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="FL_10_500_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Total Flow]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.75000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="3.75"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_500_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[High Level Flow
+0-5m3/sec]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.25000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.25"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_500_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Main Flow transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_500_Overrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Main Flow transmitter signal above 21mA (short circuit or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_500_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[MAIN FLOW
+0-5m3/sec]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.25000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.25"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_500_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Total Flow]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.75000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="3.75"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_500_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Main Flow transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_500_Underrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Main Flow transmitter signal below 3.2mA (wire break or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_501_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Low Level Flow
+0-2.5m3/sec]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2.50000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="2.5"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_501_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Flow transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_501_Overrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Flow transmitter signal above 21mA (short circuit or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_501_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[SIPHON FLOW
+0-2.5m3/sec]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2.50000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="2.5"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_501_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Flow transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="FT_10_501_Underrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Flow transmitter signal below 3.2mA (wire break or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="GA_10_303" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[GENSET FAULT]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Gen_BATT_10_504_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Battery Volts to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.27599983e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="32.76"/>
+</Data>
+</Tag>
+<Tag Name="Gen_CurrentRuntimer_Hrs_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Generator Current Run Timer in Hrs to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Gen_CurrentRunTimer_Minutes_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Generator Current Run Timer in Mins to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Gen_FailToStart_cntr" TagType="Base" DataType="COUNTER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Genset Failed to Start Counter]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,999999999,2]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="COUNTER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="2"/>
+<DataValueMember Name="CU" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OV" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="Gen_FailToStart_cntr_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Failed to Start counts to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="2"/>
+</Data>
+</Tag>
+<Tag Name="Gen_Runs_cntr_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Generator Start Counts to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[83]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="83"/>
+</Data>
+</Tag>
+<Tag Name="Gen_TotalRuntimer_Hrs_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Generator Run Timer in Hours to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="3"/>
+</Data>
+</Tag>
+<Tag Name="Gen_TotalRunTimer_Minutes_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Generator Run Timer In Minutes to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="General_Alarm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[General Alarms Status]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="General_Alarm_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[General Alarms Status to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="Genset_CurrentHrRun_Counter" TagType="Base" DataType="COUNTER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Current runtime hr counter]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,999999999,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="COUNTER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="CU" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OV" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="Genset_CurrentMinRun_Counter" TagType="Base" DataType="COUNTER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Current minute runtime counter]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,60,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="COUNTER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="CU" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OV" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="Genset_Fault_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Genset fault indication for HMI display]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Genset_LowFuel_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Genset low fuel alarm for HMI display]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Genset_Running" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Genset Running status to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Genset_Runs_cntr" TagType="Base" DataType="COUNTER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Displays the number of times that the Generator starts]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,999999999,83]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="COUNTER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="83"/>
+<DataValueMember Name="CU" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OV" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="Genset_TotalHrRun_Counter" TagType="Base" DataType="COUNTER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Genset 1 hr counter]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,999999999,3]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="COUNTER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="3"/>
+<DataValueMember Name="CU" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OV" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="Genset_TotalMinRun_Counter" TagType="Base" DataType="COUNTER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Genset 1 minute counter]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,60,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="COUNTER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="CU" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CD" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OV" DataType="BOOL" Value="0"/>
+<DataValueMember Name="UN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="GS_10_303_RN" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[GENSET RUNNING]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HCV_10_502B_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Bypass Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.05000000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="105.0"/>
+</Data>
+</Tag>
+<Tag Name="HCV_10_502M_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="50.0"/>
+</Data>
+</Tag>
+<Tag Name="HCV_10_502S_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Valve Position to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[5.60000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="56.0"/>
+</Data>
+</Tag>
+<Tag Name="HMI_Main" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[AC POWER 
+ON to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="HMI_MeterSump_Float" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Meter Sump Float Status to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="HMI_ValveSump_Float" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Valve Sump Float Status to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Intruder_Alarm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Alarm bit indicating an unauthorized building entry]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Intruder_Alarm_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Alarm bit indicating an unauthorized building entry]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="JSH_10_308" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[AC POWER 
+ON to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="LAH_10_304" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[VALVE CHAMBER
+FLOAT]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="LAH_10_305" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[METER CHAMBER
+FLOAT]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="LAL_10_303" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[GENSET LOW
+FUEL]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="LT_10_502_Geo_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Geodetic Level to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[8.31659973e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="831.66"/>
+</Data>
+</Tag>
+<Tag Name="LT_10_502_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Reservoir Level
+(0-100M)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2.10000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="21.0"/>
+</Data>
+</Tag>
+<Tag Name="LT_10_502_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Reservoir Level transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="LT_10_502_Overrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Reservoir Level transmitter signal above 21mA (short circuit or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="LT_10_502_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[RESERVOIR LEVEL
+Level=0-42M 810M base to get Geodetic Level]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2.10000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="21.0"/>
+</Data>
+</Tag>
+<Tag Name="LT_10_502_SCLD_Geo" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Off set for Geodetic level]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[8.31659973e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="831.66"/>
+</Data>
+</Tag>
+<Tag Name="LT_10_502_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Reservoir Level transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="LT_10_502_Underrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Reservoir Level transmitter signal below 3.2mA (wire break or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Main_Flow_Today_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Flow Today
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.20751143e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="12075.114"/>
+</Data>
+</Tag>
+<Tag Name="Main_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Totalized Main Flow Today]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.20751113e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="12075.111"/>
+</Data>
+</Tag>
+<Tag Name="Main_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Flow Yesterday
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[7.82735391e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="78273.54"/>
+</Data>
+</Tag>
+<Tag Name="Main_Flow_Yesterday_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Totalized MainFlow Yesterday]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[7.82735391e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="78273.54"/>
+</Data>
+</Tag>
+<Tag Name="Main_HighCal_Required_Warning" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main valve has reached 10% beyond the 100 range with activating ZSO
+Warning]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Main_HighCal_Required_Warning_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Valve high calibration required warning status for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Main_LowCal_Required_Warning" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main valve has reached 10% beyond the 0 range with activating ZSC
+Warning]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Main_LowCal_Required_Warning_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Valve low calibration required warning status for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Main_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Main Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[50]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="50"/>
+</Data>
+</Tag>
+<Tag Name="MeterSump_Lockout_Alarm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[30 minute maximum runtime exceeded]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="MeterSump_Lockout_Alarm_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Meter Chamber Sump lockout alarm for HMI display]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="MeterSump_Lockout_Rem_Min_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Meter Sump remaining lockout time in minutes for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[59]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="59"/>
+</Data>
+</Tag>
+<Tag Name="MeterSump_LockoutTime" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Meter Sump Restart Countdown (Remaining Minutes)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[59]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="59"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_505_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[High Level Press (0-6.89 kpa)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.72250000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="172.25"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_505_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm -  Pressure transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_505_Overrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm -  Pressure transmitter signal above 21mA (short circuit or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_505_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[MAIN PRESSURE
+0-689KPA)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.72250000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="172.25"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_505_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Main Pressure transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_505_Underrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Main Pressure transmitter signal below 3.2mA (wire break or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_506_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Low Level Pressure (0-689KPA)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.44500000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="344.5"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_506_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Pressure transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_506_Overrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Pressure transmitter signal above 21mA (short circuit or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_506_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[SIPHON PRESSURE
+(0-689KPA)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.44500000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="344.5"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_506_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Pressure transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="PT_10_506_Underrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Siphon Pressure transmitter signal below 3.2mA (wire break or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="RunMeterSumpPmp" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Meter Chamber Sump Pump Running to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="RunValveSumpPmp" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Valve Chamber Sump Pump Running to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Flow_Today_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Flow Today
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2.41502695e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="24150.27"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Flow Today
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2.41502598e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="24150.26"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Flow Yesterday
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.56547359e+005]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="156547.36"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Flow_Yesterday_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Flow Yesterday
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.56547359e+005]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="156547.36"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_HighCal_Required_Warning" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon valve has reached 10% beyond the 100 range with activating ZSO
+Warning]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_HighCal_Required_Warning_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Valve high calibration required warning status for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_LowCal_Required_Warning" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon valve has reached 10% beyond the 0 range with activating ZSC
+warning]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_LowCal_Required_Warning_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Valve low calibration required warning status for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="Siphon_Position_Percent" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Siphon Valve Position
+(%)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[56]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="56"/>
+</Data>
+</Tag>
+<Tag Name="Total_Flow_Today_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Total Flow Today
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.62252695e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="36225.27"/>
+</Data>
+</Tag>
+<Tag Name="Total_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Totalized Total Flow Today]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.62253125e+004]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="36225.312"/>
+</Data>
+</Tag>
+<Tag Name="Total_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Total Flow Yesterday
+(m3)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2.34820797e+005]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="234820.8"/>
+</Data>
+</Tag>
+<Tag Name="Total_Flow_Yesterday_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Totalized Total Flow Yesterday]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[2.34820797e+005]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="234820.8"/>
+</Data>
+</Tag>
+<Tag Name="TT_10_503_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Outside Temperature
+(-)40 to +30C]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="30.0"/>
+</Data>
+</Tag>
+<Tag Name="TT_10_503_Overrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Outside Temperature transmitter signal above 21mA (short circuit or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="TT_10_503_Overrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Outside Temperature transmitter signal above 21mA (short circuit or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="TT_10_503_SCLD" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Outside Temp
+((-)40 to +30]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="30.0"/>
+</Data>
+</Tag>
+<Tag Name="TT_10_503_Underrange_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Outside Temperature transmitter signal below 3.2mA (wire break or sensor fault)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="TT_10_503_Underrange_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched alarm - Outside Temperature transmitter signal below 3.2mA (wire break or sensor fault) - to HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ValveSump_Lockout_Alarm" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[30 minute maximum runtime exceeded]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ValveSump_Lockout_Alarm_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Valve Chamber Sump lockout alarm for HMI display]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ValveSump_Lockout_Rem_Min_HMI" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Valve Sump remaining lockout time in minutes for HMI]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ValveSump_LockoutTime" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Valve Sump Restart countdown (Remaining Minutes)]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Comm_Fault" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[ault bit indicating loss of communication with VTScada.]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Comm_Fault_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[ault bit indicating loss of communication with VTScada.]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Comm_Fault_Latched" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched VTScada comm fault, resettable by operator.]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="VTS_Comm_Fault_Latched_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Latched VTScada comm fault, resettable by operator.]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="XA_10_300" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BUILDING DOOR
+SWITCH CLOSED]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="XAL_10_306" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[BUILDING 
+TEMP LOW]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+</Tags>
+<Programs Use="Context">
+<Program Use="Context" Name="MainProgram">
+<Routines Use="Context">
+<Routine Use="Target" Name="Y_Outputs_To_HMI" Type="RLL">
+<Description>
+<![CDATA[Outputs to HMI]]>
+</Description>
+<RLLContent>
+<Rung Number="0" Type="N">
+<Comment>
+<![CDATA[##############     Valve Control Analog     ###################]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Text>
+<![CDATA[DIV(FT_10_500_SCLD,1,FT_10_500_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Text>
+<![CDATA[DIV(PT_10_505_SCLD,1,PT_10_505_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Text>
+<![CDATA[DIV(FT_10_501_SCLD,1,FT_10_501_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Text>
+<![CDATA[DIV(PT_10_506_SCLD,1,PT_10_506_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Text>
+<![CDATA[DIV(FL_10_500_TTL,1,FT_10_500_TTL_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Text>
+<![CDATA[MOVE(Main_Flow_Today_TTL,Main_Flow_Today_TTL_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Text>
+<![CDATA[MOVE(Main_Flow_Yesterday_TTL,Main_Flow_Yesterday_TTL_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Text>
+<![CDATA[MOVE(Siphon_Flow_Today_TTL,Siphon_Flow_Today_TTL_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Text>
+<![CDATA[MOVE(Siphon_Flow_Yesterday_TTL,Siphon_Flow_Yesterday_TTL_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Text>
+<![CDATA[MOVE(Total_Flow_Today_TTL,Total_Flow_Today_TTL_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Text>
+<![CDATA[MOVE(Total_Flow_Yesterday_TTL,Total_Flow_Yesterday_TTL_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Text>
+<![CDATA[MOVE(Bypass_Position_Percent,HCV_10_502B_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Text>
+<![CDATA[MOVE(Main_Position_Percent,HCV_10_502M_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Text>
+<![CDATA[MOVE(Siphon_Position_Percent,HCV_10_502S_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="15" Type="N">
+<Comment>
+<![CDATA[##############     Valve Control Bool     ###################]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="16" Type="N">
+<Text>
+<![CDATA[XIC(Cal_Required_General_Alarm)OTE(Cal_Required_General_Alarm_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="17" Type="N">
+<Comment>
+<![CDATA[Bypass Valve high calibration required warning status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Bypass_HighCal_Required_Warning)OTE(Bypass_HighCal_Required_Warning_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="18" Type="N">
+<Comment>
+<![CDATA[Bypass Valve low calibration required warning status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Bypass_LowCal_Required_Warning)OTE(Bypass_LowCal_Required_Warning_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
+<Comment>
+<![CDATA[Main Valve high calibration required warning status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Main_HighCal_Required_Warning)OTE(Main_HighCal_Required_Warning_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="20" Type="N">
+<Comment>
+<![CDATA[Main Valve low calibration required warning status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Main_LowCal_Required_Warning)OTE(Main_LowCal_Required_Warning_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="21" Type="N">
+<Comment>
+<![CDATA[Siphon Valve high calibration required warning status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Siphon_HighCal_Required_Warning)OTE(Siphon_HighCal_Required_Warning_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="22" Type="N">
+<Comment>
+<![CDATA[Siphon Valve low calibration required warning status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Siphon_LowCal_Required_Warning)OTE(Siphon_LowCal_Required_Warning_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="23" Type="N">
+<Comment>
+<![CDATA[############################          Generator Data to HMI          #############################]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="24" Type="N">
+<Comment>
+<![CDATA[Genset Running Status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(GS_10_303_RN)OTE(Genset_Running);]]>
+</Text>
+</Rung>
+<Rung Number="25" Type="N">
+<Text>
+<![CDATA[MOVE(Genset_TotalMinRun_Counter.ACC,Gen_TotalRunTimer_Minutes_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="26" Type="N">
+<Text>
+<![CDATA[MOVE(Genset_TotalHrRun_Counter.ACC,Gen_TotalRuntimer_Hrs_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="27" Type="N">
+<Text>
+<![CDATA[MOVE(Genset_CurrentMinRun_Counter.ACC,Gen_CurrentRunTimer_Minutes_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="28" Type="N">
+<Text>
+<![CDATA[MOVE(Genset_CurrentHrRun_Counter.ACC,Gen_CurrentRuntimer_Hrs_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="29" Type="N">
+<Text>
+<![CDATA[MOVE(Genset_Runs_cntr.ACC,Gen_Runs_cntr_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="30" Type="N">
+<Text>
+<![CDATA[MOVE(Gen_FailToStart_cntr.ACC,Gen_FailToStart_cntr_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="31" Type="N">
+<Text>
+<![CDATA[MOVE(ET_10_504_SCLD,Gen_BATT_10_504_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="32" Type="N">
+<Comment>
+<![CDATA[Genset fault status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(GA_10_303)OTE(Genset_Fault_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="33" Type="N">
+<Comment>
+<![CDATA[Genset low fuel alarm status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(LAL_10_303)OTE(Genset_LowFuel_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="34" Type="N">
+<Comment>
+<![CDATA[############################          Sump Pump Data to HMI          #############################]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="35" Type="N">
+<Comment>
+<![CDATA[Meter Sump Remaining Lockout (Minutes) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(MeterSump_LockoutTime,MeterSump_Lockout_Rem_Min_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="36" Type="N">
+<Comment>
+<![CDATA[Valve Sump Remaining Lockout (Minutes) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(ValveSump_LockoutTime,ValveSump_Lockout_Rem_Min_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="37" Type="N">
+<Text>
+<![CDATA[XIC(DR_10_100_ST)OTE(RunMeterSumpPmp);]]>
+</Text>
+</Rung>
+<Rung Number="38" Type="N">
+<Text>
+<![CDATA[XIC(DR_10_101_ST)OTE(RunValveSumpPmp);]]>
+</Text>
+</Rung>
+<Rung Number="39" Type="N">
+<Text>
+<![CDATA[XIC(LAH_10_305)OTE(HMI_MeterSump_Float);]]>
+</Text>
+</Rung>
+<Rung Number="40" Type="N">
+<Text>
+<![CDATA[XIC(LAH_10_304)OTE(HMI_ValveSump_Float);]]>
+</Text>
+</Rung>
+<Rung Number="41" Type="N">
+<Comment>
+<![CDATA[Meter Chamber Sump Pump lockout alarm status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(MeterSump_Lockout_Alarm)OTE(MeterSump_Lockout_Alarm_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="42" Type="N">
+<Comment>
+<![CDATA[Valve Chamber Sump Pump lockout alarm status to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(ValveSump_Lockout_Alarm)OTE(ValveSump_Lockout_Alarm_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="43" Type="N">
+<Comment>
+<![CDATA[############################          Misc Data to HMI          #############################]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="44" Type="N">
+<Comment>
+<![CDATA[Reservoir Level
+(0-100M)]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(LT_10_502_SCLD,LT_10_502_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="45" Type="N">
+<Comment>
+<![CDATA[Reservoir Level
+(0-100M)]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(LT_10_502_SCLD_Geo,LT_10_502_Geo_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="46" Type="N">
+<Comment>
+<![CDATA[Outside Temperature
+(-)40 to +30C]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(TT_10_503_SCLD,TT_10_503_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="47" Type="N">
+<Comment>
+<![CDATA[Battery Level=0-30Vdc]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(ET_10_504_SCLD,BATT_10_504_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="48" Type="N">
+<Text>
+<![CDATA[XIC(Analog_OOR_General_Alarm)OTE(Analog_OOR_General_Alarm_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="49" Type="N">
+<Text>
+<![CDATA[XIC(XA_10_300)OTE(BuildingDoorSw);]]>
+</Text>
+</Rung>
+<Rung Number="50" Type="N">
+<Comment>
+<![CDATA[A General Alarm can be trigger by various alarm states]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Intruder_Alarm)OTE(Intruder_Alarm_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="51" Type="N">
+<Comment>
+<![CDATA[A General Alarm can be trigger by various alarm states]]>
+</Comment>
+<Text>
+<![CDATA[XIC(General_Alarm)OTE(General_Alarm_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="52" Type="N">
+<Text>
+<![CDATA[XIC(ES_10_504_STS)OTE(BatryChgOK);]]>
+</Text>
+</Rung>
+<Rung Number="53" Type="N">
+<Text>
+<![CDATA[XIC(EA_10_504_FLT)OTE(BatryChgFault);]]>
+</Text>
+</Rung>
+<Rung Number="54" Type="N">
+<Text>
+<![CDATA[XIC(XAL_10_306)OTE(BldTempLow);]]>
+</Text>
+</Rung>
+<Rung Number="55" Type="N">
+<Text>
+<![CDATA[XIC(JSH_10_308)OTE(HMI_Main);]]>
+</Text>
+</Rung>
+<Rung Number="56" Type="N">
+<Text>
+<![CDATA[XIC(VTS_Comm_Fault)OTE(VTS_Comm_Fault_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="57" Type="N">
+<Text>
+<![CDATA[XIC(VTS_Comm_Fault_Latched)OTE(VTS_Comm_Fault_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="58" Type="N">
+<Comment>
+<![CDATA[Move the calculated 5-min average Dam Level Rate of Change (m/hr) to the HMI tag.]]>
+</Comment>
+<Text>
+<![CDATA[MOVE(Dam_Level_ROC_Avg,Dam_Level_ROC_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="59" Type="N">
+<Comment>
+<![CDATA[Move the Dam High Level Alarm status to the HMI tag.]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Dam_Level_Alarm_HI)OTE(Dam_Level_Alarm_HI_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="60" Type="N">
+<Comment>
+<![CDATA[Move the Dam Low Level Alarm status to the HMI tag.]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Dam_Level_Alarm_LO)OTE(Dam_Level_Alarm_LO_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="61" Type="N">
+<Comment>
+<![CDATA[Move the Dam Rate of Change Alarm status to the HMI tag.]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Dam_Level_ROC_Alarm)OTE(Dam_Level_ROC_Alarm_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="62" Type="N">
+<Comment>
+<![CDATA[############################          Hardware Faults - Analog Input Overrange/Underrange Alarms to HMI          #############################]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="63" Type="N">
+<Comment>
+<![CDATA[Main Flow transmitter underrange fault (signal < 3.2mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(FT_10_500_Underrange_Latched)OTE(FT_10_500_Underrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="64" Type="N">
+<Comment>
+<![CDATA[Main Flow transmitter overrange fault (signal > 21mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(FT_10_500_Overrange_Latched)OTE(FT_10_500_Overrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="65" Type="N">
+<Comment>
+<![CDATA[Main Pressure transmitter underrange fault (signal < 3.2mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(PT_10_505_Underrange_Latched)OTE(PT_10_505_Underrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="66" Type="N">
+<Comment>
+<![CDATA[Main Pressure transmitter overrange fault (signal > 21mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(PT_10_505_Overrange_Latched)OTE(PT_10_505_Overrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="67" Type="N">
+<Comment>
+<![CDATA[Siphon Flow transmitter underrange fault (signal < 3.2mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(FT_10_501_Underrange_Latched)OTE(FT_10_501_Underrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="68" Type="N">
+<Comment>
+<![CDATA[Siphon Flow transmitter overrange fault (signal > 21mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(FT_10_501_Overrange_Latched)OTE(FT_10_501_Overrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="69" Type="N">
+<Comment>
+<![CDATA[Siphon Pressure transmitter underrange fault (signal < 3.2mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(PT_10_506_Underrange_Latched)OTE(PT_10_506_Underrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="70" Type="N">
+<Comment>
+<![CDATA[Siphon Pressure transmitter overrange fault (signal > 21mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(PT_10_506_Overrange_Latched)OTE(PT_10_506_Overrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="71" Type="N">
+<Comment>
+<![CDATA[Reservoir Level transmitter underrange fault (signal < 3.2mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(LT_10_502_Underrange_Latched)OTE(LT_10_502_Underrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="72" Type="N">
+<Comment>
+<![CDATA[Reservoir Level transmitter overrange fault (signal > 21mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(LT_10_502_Overrange_Latched)OTE(LT_10_502_Overrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="73" Type="N">
+<Comment>
+<![CDATA[Outside Temperature transmitter underrange fault (signal < 3.2mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(TT_10_503_Underrange_Latched)OTE(TT_10_503_Underrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="74" Type="N">
+<Comment>
+<![CDATA[Outside Temperature transmitter overrange fault (signal > 21mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(TT_10_503_Overrange_Latched)OTE(TT_10_503_Overrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="75" Type="N">
+<Comment>
+<![CDATA[Battery Voltage transmitter underrange fault (signal < 3.2mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(ET_10_504_Underrange_Latched)OTE(ET_10_504_Underrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="76" Type="N">
+<Comment>
+<![CDATA[Battery Voltage transmitter overrange fault (signal > 21mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(ET_10_504_Overrange_Latched)OTE(ET_10_504_Overrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="77" Type="N">
+<Comment>
+<![CDATA[Spare Analog Input Ch07 underrange fault (signal < 3.2mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(AI_Ch07_Underrange_Latched)OTE(AI_Ch07_Underrange_Latched_HMI);]]>
+</Text>
+</Rung>
+<Rung Number="78" Type="N">
+<Comment>
+<![CDATA[Spare Analog Input Ch07 overrange fault (signal > 21mA) to HMI]]>
+</Comment>
+<Text>
+<![CDATA[XIC(AI_Ch07_Overrange_Latched)OTE(AI_Ch07_Overrange_Latched_HMI);]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+</Routines>
+</Program>
+</Programs>
+</Controller>
+</RSLogix5000Content>
