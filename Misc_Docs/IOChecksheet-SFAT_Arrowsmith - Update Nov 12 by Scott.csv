@@ -1,0 +1,89 @@
+,"Parksville Water & Sewer Upgrades
+Arrowsmith Dam
+I/O Checksheet - SAT",,,Date:,28-Oct-25,,Rev:,Date:,Revised By:,Description:,,,,,,
+,,,,Created By:,Burke,,A,22-Oct-25,Burke,,,,,,,
+,,,,Checked By:,,,B,12-Nov-25,Scott,,,,,,,
+,,,,SO No:,4850,,,,,,,,,,,
+,,,,Rev:,A,,,,,,,,,,,
+,,,,,,,,,,,,,2025-10-28 11:00,TIME DATE ,TIME DATE,
+PLC IO,,,,,,,,,,,,,,,,
+RACK,SLOT,MODULE,TYPE,SIGNAL,CHANNEL,ADDRESS,INSTRUMENT TAG,PROGRAM TAG,INSTRUMENT DESCRIPTION,IN SCALE,OUT SCALE,EU,PLC VERIFIED,HMI VERIFIED,SCADA VERIFIED,COMMENTS
+1,1,5069-IB16,DI,24VDC,0,N/A,RGS,GS_10_303_RN,GENSET RUNNING (RELAY),-,-,-,BB,SW,,Genset_Running
+,,,,,1,N/A,GS_10_303,GA_10_303,GENSET FAULT,-,-,-,BB,SW,,Genset_Fault_HMI
+,,,,,2,N/A,GS_10_303,LAL_10_303,GENSET LOW FUEL,-,-,-,BB,SW,,Genset_LowFuel_HMI
+,,,,,3,N/A,-,DI_R0S1_SP03,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,4,N/A,LSH_10_304,LAH_10_304,VALVE CHAMBER FLOAT,-,-,-,BB,SW,,HMI_ValveSump_Float
+,,,,,5,N/A,LSH_10_305,LAH_10_305,METER CHAMBER FLOAT,-,-,-,BB,SW,,HMI_MeterSump_Float
+,,,,,6,N/A,-,DI_R0S1_SP06,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,7,N/A,XS_10_300,XA_10_300,BUILDING DOOR SWITCH,-,-,-,BB,SW,,BuildingDoorSw
+,,,,,8,N/A,ET_10_504,ES_10_504_STS,BATTERY CHARGE OK,-,-,-,BB,SW,,BatryChgOK
+,,,,,9,N/A,ET_10_504,EA_10_504_FLT,BATTERY CHARGE FAULT,-,-,-,BB,SW,,BatryChgFault
+,,,,,10,N/A,-,DI_R0S1_SP10,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,11,N/A,-,DI_R0S1_SP11,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,12,N/A,-,DI_R0S1_SP12,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,13,N/A,-,DI_R0S1_SP13,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,14,N/A,XSL_10_306,XAL_10_306,BUILDING TEMP LOW,-,-,-,BB,SW,,BldTempLow
+,,,,,15,N/A,PFR,JSH_10_308,AC POWER ON,-,-,-,BB,SW,,Not used in HMI
+,,,,,,,,,,,,,,,,
+1,2,5069-IB16,DI,24VDC,0,N/A,SS-1,HSO_10_302,OPEN BYPASS VALVE SS,-,-,-,BB,SW,,Not used in HMI
+,,,,,1,N/A,SS-1,HSC_10_302,CLOSE BYPASS VALVE SS,-,-,-,BB,SW,,Not used in HMI
+,,,,,2,N/A,SS-2,HSO_10_300,OPEN MAIN VALVE SS,-,-,-,BB,SW,,Not used in HMI
+,,,,,3,N/A,SS-2,HSC_10_300,CLOSE MAIN VALVE SS,-,-,-,BB,SW,,Not used in HMI
+,,,,,4,N/A,SS-3,HSO_10_301,OPEN SIPHON VALVE SS,-,-,-,BB,SW,,Not used in HMI
+,,,,,5,N/A,SS-3,HSC_10_301,CLOSE SIPHON VALVE SS,-,-,-,BB,SW,,Not used in HMI
+,,,,,6,N/A,-,DI_R0S2_SP06,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,7,N/A,-,DI_R0S2_SP07,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,8,N/A,MOV_10_302,ZSO_10_302,BYPASS VALVE FULLY OPENED,-,-,-,BB,SW,,BypassValve_FullyOpen
+,,,,,9,N/A,MOV_10_302,ZSC_10_302,BYPASS VALVE FULLY CLOSED,-,-,-,BB,SW,,BypassValve_FullyClosed
+,,,,,10,N/A,MOV_10_300,ZSO_10_300,MAIN VALVE FULLY OPENED,-,-,-,BB,SW,,MainValve_FullyOpened
+,,,,,11,N/A,MOV_10_300,ZSC_10_300,MAIN VALVE FULLY CLOSED,-,-,-,BB,SW,,MainValve_FullyClosed
+,,,,,12,N/A,MOV_10_301,ZSO_10_301,SIPHON VALVE FULLY OPENED,-,-,-,BB,SW,,SiphonValve_FullyOpen
+,,,,,13,N/A,MOV_10_301,ZSC_10_301,SIPHON VALVE FULLY CLOSED,-,-,-,BB,SW,,SiphonValve_FullyClosed
+,,,,,14,N/A,-,DI_R0S2_SP08,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,15,N/A,-,DI_R0S2_SP09,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,,,,,,,,,,,,
+1,3,5069-OB16,DO,24VDC,0,N/A,R01/C-1,MOV_10_302_OP,OPEN BYPASS VALVE,-,-,-,BB,SW,,Not used in HMI
+,,,,,1,N/A,R02/C-2,MOV_10_302_CL,CLOSE BYPASS VALVE,-,-,-,BB,SW,,Not used in HMI
+,,,,,2,N/A,R03/C-5,MOV_10_300_OP,OPEN MAIN VALVE,-,-,-,BB,SW,,Not used in HMI
+,,,,,3,N/A,R04/C-6,MOV_10_300_CL,CLOSE MAIN VALVE,-,-,-,BB,SW,,Not used in HMI
+,,,,,4,N/A,R05/C-3,MOV_10_301_OP,OPEN SIPHON VALVE,-,-,-,BB,SW,,Not used in HMI
+,,,,,5,N/A,R06/C-4,MOV_10_301_CL,CLOSE SIPHON VALVE,-,-,-,BB,SW,,Not used in HMI
+,,,,,6,N/A,R07,DR_10_100_ST,RUN METER CHAMBER SUMP PUMP,-,-,-,BB,SW,,RunMeterSumpPmp
+,,,,,7,N/A,R08,DR_10_101_ST,RUN VALVE CHAMBER SUMP PUMP,-,-,-,BB,SW,,RunValveSumpPmp
+,,,,,8,N/A,R09,DO_S3_SP08,SPARE,-,-,-,SW,NA,,"Was GS_10_303_ST, changed to spare"
+,,,,,9,N/A,R10,JSO_10_307,VIDEO POWER ON,-,-,-,BB,SW,,Not used in HMI
+,,,,,10,N/A,R11,DO_S3_SP10,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,11,N/A,R12,DO_S3_SP11,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,12,N/A,R13,DO_S3_SP12,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,13,N/A,R14,DO_S3_SP13,SPARE,-,-,-,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,14,N/A,R15,JSO_10_308,STARLINK PWR ON,-,-,-,BB,SW,,Not used in HMI
+,,,,,15,N/A,R16,JSO_10_309,STATION ACTIVE,-,-,-,BB,SW,,Not used in HMI
+,,,,,,,,,,,,,,,,
+1,4,5069-IF8,AI,24VDC,0,N/A,FT_10_500,FT_10_500,MAIN FLOW,,,,BB,SW,,FT_10_500_HMI
+,,,,,1,N/A,PT_10_505,PT_10_505,MAIN PRESSURE,,,,BB,SW,,PT_10_505_HMI
+,,,,,2,N/A,FT_10_501,FT_10_501,SIPHON FLOW,,,,BB,SW,,FT_10_501_HMI
+,,,,,3,N/A,PT_10_506,PT_10_506,SIPHON PRESSURE,,,,BB,SW,,PT_10_506_HMI
+,,,,,4,N/A,LT_10_502,LT_10_502,RESERVOIR LEVEL,,,,BB,SW,,LT_10_502_HMI
+,,,,,5,N/A,TT_10_503,TT_10_503,OUTSIDE TEMPERATURE,,,,BB,SW,,TT_10_503_HMI
+,,,,,6,N/A,ET_10_504,ET_10_504,BATTERY VOLTAGE,,,,BB,SW,,Gen_Batt_10_504_HMI
+,,,,,7,N/A,-,AI_S4_SP7,SPARE,,,,SW,NA,,"Updated Program Tag name, Not used in HMI"
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,

@@ -529,6 +529,9 @@
 <![CDATA[Main Valve Fully Closed]]>
 </Comment>
 <Comment Operand=".PT12.DATA">
+<![CDATA[Siphon Valve Fully Opened]]>
+</Comment>
+<Comment Operand=".PT13.DATA">
 <![CDATA[Siphon Valve Fully Closed]]>
 </Comment>
 <Comment Operand=".PT14.DATA">
@@ -7174,7 +7177,7 @@ Converted to DINT]]>
 <DataValue DataType="DINT" Radix="Decimal" Value="6"/>
 </Data>
 </Tag>
-<Tag Name="HMI_Main" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="PowerOn_HMI" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[AC POWER 
 ON to HMI]]>
@@ -10208,7 +10211,7 @@ Converted to DINT]]>
 <DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
 </Data>
 </Tag>
-<Tag Name="VTS_Main_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Tag Name="PowerOn_VTS" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Description>
 <![CDATA[AC POWER ON to VTS]]>
 </Description>
@@ -15280,7 +15283,7 @@ Intruder Alarm Section
 </Rung>
 <Rung Number="55" Type="N">
 <Text>
-<![CDATA[XIC(JSH_10_308)OTE(VTS_Main_VTS);]]>
+<![CDATA[XIC(JSH_10_308)OTE(PowerOn_VTS);]]>
 </Text>
 </Rung>
 <Rung Number="56" Type="N">
@@ -15684,7 +15687,7 @@ Intruder Alarm Section
 </Rung>
 <Rung Number="55" Type="N">
 <Text>
-<![CDATA[XIC(JSH_10_308)OTE(HMI_Main);]]>
+<![CDATA[XIC(JSH_10_308)OTE(PowerOn_HMI);]]>
 </Text>
 </Rung>
 <Rung Number="56" Type="N">
