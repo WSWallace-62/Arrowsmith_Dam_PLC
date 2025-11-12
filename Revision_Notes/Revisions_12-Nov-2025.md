@@ -7,14 +7,16 @@
 ## PLC Program Changes
 
 
-#### 1. Corrected I/O Point Comments
+#### 1. Corrected I/O Comments
 
 **Local:2:I.PT12.DATA** (Slot 2, Channel 12):
+**Location: Tag declaration and A_Input_mapping routine (Rung 28)
 - **OLD:** "Siphon Valve Fully Closed"
 - **NEW:** "Siphon Valve Fully Opened"
 - **Reason:** Comment was incorrect; this input is mapped to `ZSO_10_301` (fully opened limit switch)
 
 **Local:2:I.PT13.DATA** (Slot 2, Channel 13):
+**Location: Tag declaration and A_Input_mapping routine (Rung 29)
 - **OLD:** (Missing comment)
 - **NEW:** "Siphon Valve Fully Closed"
 - **Reason:** Added missing comment; this input is mapped to `ZSC_10_301` (fully closed limit switch)
