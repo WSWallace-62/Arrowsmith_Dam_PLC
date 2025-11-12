@@ -27,12 +27,12 @@ Location: Tag declaration and A_Input_mapping routine (Rung 29)
 
 **HMI_Main → PowerOn_HMI:**
 - **Location:** Tag declaration and Y_Outputs_To_HMI routine (Rung 55)
-- **Reason:** Original name "HMI_Main" didn't make sense. New name clearly indicates this is AC Power ON status to HMI.
+- **Reason:** Original name "HMI_Main" didn't make sense. New name is correct.
 - **I/O:** Slot 1, Channel 15 (AC Power ON relay contact)
 
 **VTS_Main_VTS → PowerOn_VTS:**
 - **Location:** Tag declaration and Z_Outputs_To_VTS routine (Rung 55)
-- **Reason:** Original name "VTS_Main_VTS" didn't make sense. Clearly indicates AC Power ON status to VTS/SCADA.
+- **Reason:** Original name "VTS_Main_VTS" didn't make sense. New name is correct.
 - **I/O:** Slot 1, Channel 15 (AC Power ON relay contact)
 
 ---
