@@ -32,7 +32,7 @@ Location: Tag declaration and A_Input_mapping routine (Rung 29)
 
 **VTS_Main_VTS → PowerOn_VTS:**
 - **Location:** Tag declaration and Z_Outputs_To_VTS routine (Rung 55)
-- **Reason:** Original name "HMI_Main" didn't make sense. Clearly indicates AC Power ON status to VTS/SCADA.
+- **Reason:** Original name "VTS_Main_VTS" didn't make sense. Clearly indicates AC Power ON status to VTS/SCADA.
 - **I/O:** Slot 1, Channel 15 (AC Power ON relay contact)
 
 ---
