@@ -34,16 +34,74 @@ Arrowsmith_Dam_PLC/
 ├── AI_INSTRUCTIONS.md
 ├── Valve_Calibration_AOI_Implementation_Summary.md
 ├── L5X_Files/
-│   ├── Arrowsmith_Dam_Nov9_R2.L5X        # Complete project file (current)
+│   ├── Arrowsmith_Dam_Nov11_R4.L5X       # Complete project file (current)
 │   ├── Valve_Position_Calibration_R2_AOI.L5X  # Valve calibration AOI
 │   └── _PowerUp_Init_Routine_RLL.L5X     # Power-up initialization routine
 ├── Tag_Info/
-│   ├── Arrowsmith_Dam_Nov9_R2_Controller_Tags.CSV
-│   └── C-more-TagDataBase_Nov9_R0.CSV
+│   ├── Arrowsmith_Dam_Nov11_R3_Controller_Tags.CSV
+│   ├── CMoreEvtMgr-Nov11R7.csv           # C-more HMI Event Manager export
+│   └── CMoreTagDB-Nov11R2.CSV            # C-more HMI Tag Database
+├── Logic_Snippets/
+│   └── AOI_Cal_Select.md                 # Calibration selector logic notes
 ├── Misc_Docs/
 │   └── IOChecksheet-SFAT_Arrowsmith - Update Oct 28 by Burke.csv
-└── HMI_Images/
+└── HMI_Images/                           # C-more HMI screen captures
+    ├── 1 - Login.png
+    ├── 5 - Dam Control.png
+    ├── 10 - Bypaass Valve.png
+    ├── 20 - Main Valve.png
+    ├── 30 - Siphon Valve.png
+    ├── 40 - Sump Pumps.png
+    ├── 50 - Gen Status.png
+    ├── 60 - Status.png
+    └── 70 - Alarms.png
 ```
+
+---
+
+## Human-Machine Interface (HMI)
+
+### C-more HMI Panel
+
+The system utilizes a **C-more touchscreen HMI panel** for local operator interface and monitoring. The HMI provides intuitive graphical screens for valve control, system monitoring, and alarm management.
+
+#### HMI Screen Structure
+
+1. **Login Screen** - User authentication and access control
+2. **Dam Control (Main Overview)** - System-wide status and quick access navigation
+3. **Bypass Valve Screen** - Individual control and monitoring for MOV-10-302
+4. **Main Valve Screen** - Individual control and monitoring for MOV-10-300
+5. **Siphon Valve Screen** - Individual control and monitoring for MOV-10-301
+6. **Sump Pumps Screen** - Manual control and automatic operation status
+7. **Generator Status** - Genset monitoring and fuel level
+8. **Status Screen** - Overall system health and operational parameters
+9. **Alarms Screen** - Active alarm list and acknowledgment
+
+#### HMI Capabilities
+
+**Valve Control Screens (Individual for each valve):**
+- Real-time position indication (percentage and graphical)
+- Open/Close command buttons with mode indication
+- Timed movement setpoint entry (operator-adjustable duration)
+- Limit switch status display (ZSO/ZSC)
+- Cooldown timer countdown display
+- Position calibration interface (semi-automatic sequence)
+
+**Monitoring & Status:**
+- Analog sensor trends and current values
+- Flow totalization (daily accumulation)
+- Alarm summary indicators
+- Equipment runtime displays
+- Communication status (VTScada watchdog)
+
+**Data Exchange with PLC:**
+- **From PLC to HMI:** Valve positions, limit switches, analog values, alarms, runtime accumulators
+- **From HMI to PLC:** Valve commands, movement timer presets, manual overrides, alarm acknowledgments
+
+**HMI Tag Database:**
+- Tag mappings documented in `Tag_Info/CMoreTagDB-Nov11R2.CSV`
+- Event manager configuration in `Tag_Info/CMoreEvtMgr-Nov11R7.csv`
+- Screen captures available in `HMI_Images/` folder for reference
 
 ---
 
@@ -290,7 +348,7 @@ FT_10_500 (High Level Flow)
 
 ### Opening the Project
 1. Launch Rockwell Studio 5000 v36.00 or later
-2. Open `L5X_Files/Arrowsmith_Dam_Nov9_R2.L5X`
+2. Open `L5X_Files/Arrowsmith_Dam_Nov11_R4.L5X`
 3. Controller will appear offline until connected to hardware
 
 ### Downloading to Controller
@@ -314,8 +372,10 @@ FT_10_500 (High Level Flow)
 
 ## Change Log
 
+* **Nov 11, 2025 (R4):** Current release - Updated tag database exports and HMI screen documentation
 * **Nov 09, 2025 (R2):** Split Valves routine into three separate routines (Valve_Bypass, Valve_Main, Valve_Siphon) for improved organization and maintainability
 * **Nov 08, 2025:** Added Valve_Position_Calibration AOI with hybrid control approach
+* **Nov 06, 2025:** Initial Valve_Position_Calibration AOI implementation
 * **Nov 05, 2025:** Updated README to reflect current project state
 * **Nov 01, 2025:** Replaced old Routine L5X files with current Project L5X file
 * **Oct 24, 2025:** Added "Cooldown" and "Anti-Repeat" (Cmd_Held) logic to all three valves
@@ -327,6 +387,8 @@ FT_10_500 (High Level Flow)
 ## Notes
 
 - Position feedback is **simulated** using time-based calculations (no analog position transmitters installed)
-- System designed for integration with C-more HMI and VTScada SCADA system
+- System designed for integration with **C-more touchscreen HMI** and **VTScada SCADA system**
 - All timers use millisecond timebase; operator setpoints converted from seconds
 - Building alarm system includes 30-minute auto-arm and 45-second entry delay
+- HMI screen captures in `HMI_Images/` folder show current operator interface design
+- C-more HMI tag database and event manager configuration files available in `Tag_Info/` folder
