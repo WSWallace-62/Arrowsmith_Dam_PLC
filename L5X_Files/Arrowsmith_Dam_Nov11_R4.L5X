@@ -529,6 +529,9 @@
 <![CDATA[Main Valve Fully Closed]]>
 </Comment>
 <Comment Operand=".PT12.DATA">
+<![CDATA[Siphon Valve Fully Opened]]>
+</Comment>
+<Comment Operand=".PT13.DATA">
 <![CDATA[Siphon Valve Fully Closed]]>
 </Comment>
 <Comment Operand=".PT14.DATA">
