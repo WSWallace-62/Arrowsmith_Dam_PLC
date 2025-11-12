@@ -29,6 +29,12 @@ _DO NOT MODIFY THIS ROW_,,,,,,,,,,,,,,******************************************
 28,ET-10-504 Overrange Fault,ET_10_504_Overrange_Latched_HMI,D,ON,0,4294967295,,,,,,,True,"Slot 4:CH 6, ET-10-504 Overrange Fault",,,,,,,,,True,False,False,True,0,16,False,False
 29,AI-Ch07 Underrange Fault,AI_Ch07_Underrange_Latched_HMI,D,ON,0,4294967295,,,,,,,True,"Slot 4:CH 7, AI-Ch07 Underrange Fault",,,,,,,,,True,False,False,True,0,16,False,False
 30,AI-Ch07 Overrange Fault,AI_Ch07_Overrange_Latched_HMI,D,ON,0,4294967295,,,,,,,True,"Slot 4:CH 7, AI-Ch07 Overrange Fault",,,,,,,,,True,False,False,True,0,16,False,False
+31,Intruder Alarm,Intruder_Alarm_HMI,D,ON,0,4294967295,,,,,,,True,Building Intruder Detected,,,,,,,,,True,False,False,True,0,16,False,False
+32,VTS Comm Fault,VTS_Comm_Fault_HMI,D,ON,0,4294967295,,,,,,,True,VTS Communication Fault,,,,,,,,,True,False,False,True,0,16,False,False
+33,Battery Charger Fault,BatryChgFault,D,ON,0,4294967295,,,,,,,True,Battery Charger Fault,,,,,,,,,True,False,False,True,0,16,False,False
+34,Building Temp Low,BldTempLow,D,ON,0,4294967295,,,,,,,True,Building Temperature Low,,,,,,,,,True,False,False,True,0,16,False,False
+35,Calibration Required,Cal_Required_General_Alarm_HMI,D,ON,0,4294967295,,,,,,,True,Valve Calibration Required,,,,,,,,,True,False,False,True,0,16,False,False
+36,Dam Level ROC Alarm,Dam_Level_ROC_Alarm_HMI,D,ON,0,4294967295,,,,,,,True,Dam Level Rate of Change Alarm,,,,,,,,,True,False,False,True,0,16,False,False
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

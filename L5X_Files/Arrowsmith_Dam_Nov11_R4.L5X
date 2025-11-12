@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Tue Nov 11 13:43:35 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
-<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" MajorFaultProgram="Fault_Handler" ProjectCreationDate="Wed Sep 17 15:52:20 2025" LastModifiedDate="Tue Nov 11 12:29:03 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent"
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="Arrowsmith_Dam" TargetType="Controller" ContainsContext="false" ExportDate="Tue Nov 11 16:13:06 2025" ExportOptions="NoRawData L5KData DecoratedData ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Target" Name="Arrowsmith_Dam" ProcessorType="5069-L306ER" MajorRev="36" MinorRev="11" PowerLossProgram="_PowerUp_Init" MajorFaultProgram="Fault_Handler" ProjectCreationDate="Wed Sep 17 15:52:20 2025" LastModifiedDate="Tue Nov 11 16:12:27 2025" SFCExecutionControl="CurrentActive" SFCRestartPosition="MostRecent"
  SFCLastScan="DontScan" ProjectSN="16#d0a9_2b6a" MatchProjectToController="false" CanUseRPIFromProducer="false" InhibitAutomaticFirmwareUpdate="0" PassThroughConfiguration="EnabledWithAppend" DownloadProjectDocumentationAndExtendedProperties="true" DownloadProjectCustomProperties="true" ReportMinorOverflow="false" EtherNetIPMode="A1/A2: Linear/DLR" AutoDiagsEnabled="true"
  WebServerEnabled="false">
 <Description>
@@ -5366,14 +5366,14 @@ To HMI]]>
 </Tag>
 <Tag Name="CurrentDateTime" TagType="Base" DataType="DateTime" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[1998,1,4,4,0,0,0]]]>
+<![CDATA[[1998,1,4,6,0,0,0]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="DateTime">
 <DataValueMember Name="Year" DataType="DINT" Radix="Decimal" Value="1998"/>
 <DataValueMember Name="Month" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="Day" DataType="DINT" Radix="Decimal" Value="4"/>
-<DataValueMember Name="Hour" DataType="DINT" Radix="Decimal" Value="4"/>
+<DataValueMember Name="Hour" DataType="DINT" Radix="Decimal" Value="6"/>
 <DataValueMember Name="Minute" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="Second" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="uSec" DataType="DINT" Radix="Decimal" Value="0"/>
@@ -5407,10 +5407,10 @@ To HMI]]>
 </Tag>
 <Tag Name="Current_Hour" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[4]]>
+<![CDATA[6]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="4"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="6"/>
 </Data>
 </Tag>
 <Tag Name="Daily" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -5685,12 +5685,12 @@ To HMI]]>
 <![CDATA[1-minute periodic timer for ROC calculation]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1070040687,60000,55421]]]>
+<![CDATA[[-1073606242,60000,12778]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="60000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="55421"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="12778"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -6066,7 +6066,7 @@ Converted to DINT]]>
 <![CDATA[Force to Login page]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3701153,2000,2000]]]>
+<![CDATA[[135598,2000,2000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -7129,12 +7129,12 @@ Converted to DINT]]>
 <![CDATA[30-minute inactivity timer. Resets on HMI activity.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1070040690,1800000,955418]]]>
+<![CDATA[[-1073606246,1800000,972774]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1800000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="955418"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="972774"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -7758,10 +7758,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.93856680e+004]]>
+<![CDATA[3.06573613e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="19385.668"/>
+<DataValue DataType="REAL" Radix="Float" Value="30657.361"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -7769,10 +7769,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Totalized Main Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.93856641e+004]]>
+<![CDATA[3.06573574e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="19385.664"/>
+<DataValue DataType="REAL" Radix="Float" Value="30657.357"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Today_TTL_VTS" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -7780,10 +7780,10 @@ Level=0-42M 810M base to get Geodetic Level]]>
 <![CDATA[Totalized Main Flow Today to VTS]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[1.93856719e+004]]>
+<![CDATA[3.06573691e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="19385.672"/>
+<DataValue DataType="REAL" Radix="Float" Value="30657.37"/>
 </Data>
 </Tag>
 <Tag Name="Main_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -8086,7 +8086,7 @@ Warning]]>
 <![CDATA[Meter Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3701136,10000,10000]]]>
+<![CDATA[[135581,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -8372,17 +8372,17 @@ Warning]]>
 </Comment>
 </Comments>
 <Data Format="L5K">
-<![CDATA[[1998,1,4,4,18,28,640476]]]>
+<![CDATA[[1998,1,4,6,48,45,990663]]]>
 </Data>
 <Data Format="Decorated">
 <Array DataType="DINT" Dimensions="7" Radix="Decimal">
 <Element Index="[0]" Value="1998"/>
 <Element Index="[1]" Value="1"/>
 <Element Index="[2]" Value="4"/>
-<Element Index="[3]" Value="4"/>
-<Element Index="[4]" Value="18"/>
-<Element Index="[5]" Value="28"/>
-<Element Index="[6]" Value="640476"/>
+<Element Index="[3]" Value="6"/>
+<Element Index="[4]" Value="48"/>
+<Element Index="[5]" Value="45"/>
+<Element Index="[6]" Value="990663"/>
 </Array>
 </Data>
 </Tag>
@@ -8496,12 +8496,12 @@ Warning]]>
 <![CDATA[1-second free-running timer to pulse the PLC_Watchdog_Out counter.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1070040720,1000,388]]]>
+<![CDATA[[-1073606274,1000,746]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="388"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="746"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -8513,12 +8513,12 @@ Warning]]>
 <![CDATA[PLC heartbeat counter for VTScada to monitor.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[0,999999999,412497]]]>
+<![CDATA[[0,999999999,421514]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="COUNTER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="999999999"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="412497"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="421514"/>
 <DataValueMember Name="CU" DataType="BOOL" Value="0"/>
 <DataValueMember Name="CD" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -8554,10 +8554,10 @@ Warning]]>
 </Tag>
 <Tag Name="Previous_Hour" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[4]]>
+<![CDATA[6]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="DINT" Radix="Decimal" Value="4"/>
+<DataValue DataType="DINT" Radix="Decimal" Value="6"/>
 </Data>
 </Tag>
 <Tag Name="PT_10_505" TagType="Base" DataType="Analog_Scaling" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -8896,10 +8896,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3.87713984e+004]]>
+<![CDATA[6.13147891e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="38771.4"/>
+<DataValue DataType="REAL" Radix="Float" Value="61314.79"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -8908,10 +8908,10 @@ Converted to DINT]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3.87713672e+004]]>
+<![CDATA[6.13147578e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="38771.367"/>
+<DataValue DataType="REAL" Radix="Float" Value="61314.758"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Today_TTL_VTS" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -8919,10 +8919,10 @@ Converted to DINT]]>
 <![CDATA[Siphon Flow Today (m3) to VTS]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[3.87713164e+004]]>
+<![CDATA[6.13147031e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="38771.316"/>
+<DataValue DataType="REAL" Radix="Float" Value="61314.703"/>
 </Data>
 </Tag>
 <Tag Name="Siphon_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -9200,7 +9200,7 @@ warning]]>
 </Tag>
 <Tag Name="SNTP_MSG_DATA" TagType="Base" DataType="SKT_UDP_DATA" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[[2,[2,0,0,0,0,0]],21407,[2000,[22,'192.168.26.17?port=1233$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+<![CDATA[[[2,[2,0,0,0,0,0]],23391,[2000,[22,'192.168.26.17?port=1233$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
 		]],[5000,52],[[2,123,17,26,-88,-64],48,[-385875684,0,1833568768,1279479628,881966316,1895630080,0,0,1391705324
 		,-742781492,1391705324,-871371555,0]],[1000,[2,0,0,0,0,0],[48,'$0B$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
 		]],48]]]>
@@ -9218,7 +9218,7 @@ warning]]>
 <DataValueMember Name="IP_1st_Octect" DataType="SINT" Radix="Decimal" Value="0"/>
 </StructureMember>
 </StructureMember>
-<DataValueMember Name="Instance" DataType="DINT" Radix="Decimal" Value="21407"/>
+<DataValueMember Name="Instance" DataType="DINT" Radix="Decimal" Value="23391"/>
 <StructureMember Name="Open_Connection" DataType="SKT_Open_Connection">
 <DataValueMember Name="Timeout" DataType="DINT" Radix="Decimal" Value="2000"/>
 <StructureMember Name="Dest_Addr" DataType="STRING">
@@ -9281,25 +9281,25 @@ warning]]>
 </Tag>
 <Tag Name="SNTP_MSG_DELETE" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="Message">
-<MessageParameters MessageType="CIP Generic" RequestedLength="0" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004f" ObjectType="16#0342" TargetObject="21407" AttributeNumber="16#0000" LocalIndex="0" LargePacketUsage="false"
+<MessageParameters MessageType="CIP Generic" RequestedLength="0" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004f" ObjectType="16#0342" TargetObject="23391" AttributeNumber="16#0000" LocalIndex="0" LargePacketUsage="false"
 />
 </Data>
 </Tag>
 <Tag Name="SNTP_MSG_OPEN" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="Message">
-<MessageParameters MessageType="CIP Generic" RequestedLength="30" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004c" ObjectType="16#0342" TargetObject="21407" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Open_Connection"
+<MessageParameters MessageType="CIP Generic" RequestedLength="30" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004c" ObjectType="16#0342" TargetObject="23391" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Open_Connection"
  LargePacketUsage="false"/>
 </Data>
 </Tag>
 <Tag Name="SNTP_MSG_READ" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="Message">
-<MessageParameters MessageType="CIP Generic" RequestedLength="8" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004d" ObjectType="16#0342" TargetObject="21407" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Read_Source"
+<MessageParameters MessageType="CIP Generic" RequestedLength="8" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004d" ObjectType="16#0342" TargetObject="23391" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Read_Source"
  DestinationTag="SNTP_MSG_DATA.Read_Response" LargePacketUsage="false"/>
 </Data>
 </Tag>
 <Tag Name="SNTP_MSG_WRITE" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="Message">
-<MessageParameters MessageType="CIP Generic" RequestedLength="64" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004e" ObjectType="16#0342" TargetObject="21407" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Write_Source"
+<MessageParameters MessageType="CIP Generic" RequestedLength="64" ConnectedFlag="2" ConnectionPath="1, 0" CommTypeCode="0" ServiceCode="16#004e" ObjectType="16#0342" TargetObject="23391" AttributeNumber="16#0000" LocalIndex="0" LocalElement="SNTP_MSG_DATA.Write_Source"
  DestinationTag="SNTP_MSG_DATA.Write_SizeSent" LargePacketUsage="false"/>
 </Data>
 </Tag>
@@ -9551,10 +9551,10 @@ warning]]>
 (m3)]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5.81569100e+004]]>
+<![CDATA[9.19720000e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="58156.91"/>
+<DataValue DataType="REAL" Radix="Float" Value="91972.0"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Today_TTL_HMI" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -9562,10 +9562,10 @@ warning]]>
 <![CDATA[Totalized Total Flow Today]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5.81569727e+004]]>
+<![CDATA[9.19720469e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="58156.973"/>
+<DataValue DataType="REAL" Radix="Float" Value="91972.05"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Today_TTL_VTS" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -9573,10 +9573,10 @@ warning]]>
 <![CDATA[Totalized Total Flow Today to VTS]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[5.81570312e+004]]>
+<![CDATA[9.19721250e+004]]>
 </Data>
 <Data Format="Decorated">
-<DataValue DataType="REAL" Radix="Float" Value="58157.03"/>
+<DataValue DataType="REAL" Radix="Float" Value="91972.125"/>
 </Data>
 </Tag>
 <Tag Name="Total_Flow_Yesterday_TTL" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
@@ -9800,7 +9800,7 @@ Converted to DINT]]>
 <![CDATA[Valve Sump Auto Stop Delay]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[3701100,10000,10000]]]>
+<![CDATA[[135545,10000,10000]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
@@ -10130,12 +10130,12 @@ Converted to DINT]]>
 <![CDATA[10-second watchdog timer for VTScada communication.]]>
 </Description>
 <Data Format="L5K">
-<![CDATA[[-1070040727,10000,5381]]]>
+<![CDATA[[-1073606283,10000,2737]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="10000"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="5381"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="2737"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
@@ -12215,7 +12215,7 @@ CR8]]>
 </Tag>
 <Tag Name="MAVE_01" TagType="Base" DataType="MOVING_AVERAGE" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[1,0.00000000e+000,5,1,0.00000000e+000,0,0.00000000e+000,0.00000000e+000,1.58723422e+029,0.00000000e+000
+<![CDATA[[1,0.00000000e+000,5,1,0.00000000e+000,0,0.00000000e+000,0.00000000e+000,1.58723422e+029,5.60519386e-045
 		,0.00000000e+000,7.00649232e-045,2.00000000e-001]]]>
 </Data>
 <Data Format="Decorated">
@@ -12519,10 +12519,10 @@ CR8]]>
 </Tag>
 <Tag Name="SNTP_AOI_TAG" TagType="Base" DataType="AOI_SNTP_QUERY" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[151,0,1,5,8.30499977e-002,0,[2,'$01$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
-		],[0,0,0,0,0,-323161262,0],[2036,2,7,6,28,16,0],[0,0,-3741,-89767,-5386021,0,2025,2025,8,11,739870,2035,11,254],[-1070040409
-		,300000,295017],[2025,11,10,23,27,14,838230],[0,0,0,0,0,739870,2025,8,8,2025,739870,[0,0,0,0,0,0,41112]],[0,0,0,0,0,0,41112
-		],[9,'?port=123$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+<![CDATA[[151,0,1,5,4.79506683e+000,0,[2,'$01$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,0,0,0,0,-323161262,0],[2036,2,7,6,28,16,0],[0,0,-3741,-89767,-5386021,0,2025,2025,8,11,739870,2035,11,254],[-1073605946
+		,300000,12296],[2025,11,10,23,27,14,838230],[0,0,0,0,0,739870,2025,8,8,2025,739870,[0,0,0,0,0,0,41112]],[0,0,0,0,0,0,41112],[9
+		,'?port=123$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
 		],213974733]]]>
 </Data>
 <Data Format="Decorated">
@@ -12535,7 +12535,7 @@ CR8]]>
 <DataValueMember Name="Enet_Slot_Number" DataType="SINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="Query_Interval_in_Min" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="Query_Error_Retry_in_Min" DataType="DINT" Radix="Decimal" Value="5"/>
-<DataValueMember Name="Next_Query_in_Min" DataType="REAL" Radix="Float" Value="0.08305"/>
+<DataValueMember Name="Next_Query_in_Min" DataType="REAL" Radix="Float" Value="4.795067"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>
 <DataValueMember Name="ER" DataType="BOOL" Value="1"/>
@@ -12564,9 +12564,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,3.75000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,5.81580195e+004,2.34820797e+005,1.00000000e-003
-		,0,0.00000000e+000,1.19638237e-032,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,3.75000000e+000,7.38742065e+000,-3.86823906e-012]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,9.19731875e+004,2.34820797e+005,1.00000000e-003
+		,0,0.00000000e+000,2.50511805e-032,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,3.75000000e+000,7.70169973e+000,5.23602800e-033]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -12596,7 +12596,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="58158.02"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="91973.19"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="234820.8"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -12624,9 +12624,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,1.25000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,1.93859883e+004,7.82735391e+004,1.00000000e-003
-		,0,0.00000000e+000,1.19638120e-032,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,1.25000000e+000,6.59161329e+000,6.68818757e-007]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,3.06576953e+004,7.82735391e+004,1.00000000e-003
+		,0,0.00000000e+000,2.50510953e-032,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,1.25000000e+000,6.93559837e+000,3.15673472e+032]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -12656,7 +12656,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="19385.988"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="30657.695"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="78273.54"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -12684,9 +12684,9 @@ CR8]]>
 </Description>
 <Data Format="L5K">
 <![CDATA[[5,2.50000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0,0.00000000e+000,1,0,119,3.87721289e+004,1.56547359e+005,1.00000000e-003
-		,0,0.00000000e+000,1.19638568e-032,0.00000000e+000,2.15239444e-042,1.00000000e-003,0.00000000e+000
-		,2.80259693e-045,5.00000000e-001,2.50000000e+000,7.09161568e+000,2.02947879e-025]]]>
+		,0.00000000e+000,0,0.00000000e+000,1,0,119,6.13155273e+004,1.56547359e+005,1.00000000e-003
+		,0,1.40129846e-045,2.50512569e-032,0.00000000e+000,7.89211295e-042,1.00000000e-003,0.00000000e+000
+		,2.80259693e-045,5.00000000e-001,2.50000000e+000,7.43560028e+000,-1.25787154e+017]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TOTALIZER">
@@ -12716,7 +12716,7 @@ CR8]]>
 <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
 <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
 <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
-<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="38772.13"/>
+<DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="61315.527"/>
 <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="156547.36"/>
 <DataValueMember Name="ProgOper" DataType="BOOL" Value="1"/>
 <DataValueMember Name="RunStop" DataType="BOOL" Value="1"/>
@@ -12861,12 +12861,12 @@ CR8]]>
 </Tag>
 <Tag Name="T_Position_Pulse" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
 <Data Format="L5K">
-<![CDATA[[-1070040479,100,29]]]>
+<![CDATA[[-1073606026,100,94]]]>
 </Data>
 <Data Format="Decorated">
 <Structure DataType="TIMER">
 <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100"/>
-<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="29"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="94"/>
 <DataValueMember Name="EN" DataType="BOOL" Value="1"/>
 <DataValueMember Name="TT" DataType="BOOL" Value="1"/>
 <DataValueMember Name="DN" DataType="BOOL" Value="0"/>

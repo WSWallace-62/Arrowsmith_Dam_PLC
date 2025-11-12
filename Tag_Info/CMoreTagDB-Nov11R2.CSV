@@ -56,7 +56,7 @@
 409,"DEV001","Total_Flow_Yesterday_TTL_HMI","Floating_PT_32",1,0,"REALTotal_Flow_Yesterday_TTL_HMI",0,0
 409,"DEV001","HMI_Input_Main_MoveTmr_pre","Unsigned_int_32",1,0,"DINTHMI_Input_Main_MoveTmr_pre",0,0
 409,"DEV001","Bypass_MoveTmr_pre","Unsigned_int_32",1,0,"DINTHMI_Input_Bypass_MoveTmr_pre",0,0
-409,"DEV001","Intruder_Alarm_HMI","Discrete",1,0,"BOOLAlarm_Reset_HMI",0,0
+409,"DEV001","Intruder_Alarm_HMI","Discrete",1,0,"BOOLIntruder_Alarm_HMI",0,0
 409,"DEV001","Siphon_MoveTmr_PRE","Unsigned_int_32",1,0,"DINTHMI_Input_Siphon_MoveTmr_PRE",0,0
 409,"DEV001","Open_Bypass_Valve","Discrete",1,0,"BOOLOpnBpVlv_HMI",0,0
 409,"DEV001","Close_Bypass_Valve","Discrete",1,0,"BOOLClsBpVlv_HMI",0,0
@@ -97,6 +97,7 @@
 409,"DEV001","Dam_Level_Alarm_SP_HI","Floating_PT_32",1,0,"REALDam_Level_Alarm_SP_HI",0,0
 409,"DEV001","Dam_Level_Alarm_SP_LO","Floating_PT_32",1,0,"REALDam_Level_Alarm_SP_LO",0,0
 409,"DEV001","Dam_Level_ROC_Avg","Floating_PT_32",1,0,"REALDam_Level_ROC_Avg",0,0
+409,"DEV001","Dam_Level_ROC_Alarm_HMI","Discrete",1,0,"BOOLDam_Level_ROC_Alarm",0,0
 409,"DEV001","Dam_Level_Alarm_HI_HMI","Discrete",1,0,"BOOLDam_Level_Alarm_HI_HMI",0,0
 409,"DEV001","Dam_Level_Alarm_LO_HMI","Discrete",1,0,"BOOLDam_Level_Alarm_LO_HMI",0,0
 409,"DEV001","Gen_Batt_10_504_HMI","Floating_PT_32",1,0,"REALGen_BATT_10_504_HMI",0,0
