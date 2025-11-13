@@ -36,3 +36,12 @@ The rate at which this counter moves is determined by the "Full Stroke Time" set
 The system uses this Full Stroke Time to calculate how much the position should change every tenth of a second. For example, if a valve has a Full Stroke Time of 60 seconds, the position counter advances approximately 1.67% every tenth of a second while the valve is moving.
 
 This "Full Stroke Time" setpoint is currently a default value and will eventually be measured and set automatically by the Position Calibrate routine (which is not yet functional) to ensure the simulation accurately matches the actual valve travel.
+
+## Position Auto-Correction
+
+To keep the simulated position accurate, the system automatically corrects the position counter whenever the end-of-travel limit switches are activated:
+
+- When the "Fully Closed" limit switch (ZSC) activates, the position counter is immediately reset to 0%.
+- When the "Fully Open" limit switch (ZSO) activates, the position counter is immediately set to 100%.
+
+This auto-correction ensures that even if the simulated position drifts over time due to timing differences, it is automatically corrected every time the valve reaches a limit switch. The corrected position is then displayed on both the HMI and VTS (SCADA) screens.
